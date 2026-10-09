@@ -1,5 +1,5 @@
 Origine : construit le 2026-10-03 à la demande de Léon, à partir de l'idée `../idee-site-carte-des-competences.md` et de l'export Notion Sedniner (`04 PROJET/bta/team-academy/notion-sedniner/`).
-Date : 2026-10-03. Statut : prototype local, pas en ligne.
+Date : 2026-10-03. Statut : en ligne depuis le 2026-10-09, sur https://1000xo.github.io/carte-competences/ (dépôt public https://github.com/1000xO/carte-competences).
 Usage : la carte des compétences de l'équipe (compétences, lectures, articles réflexifs, sessions de formation, et leurs liens), à ouvrir dans le navigateur.
 
 # Site « Carte des compétences »
@@ -36,4 +36,7 @@ Les changements successifs sont notés dans `historique-des-changements.md`.
 
 - Les sous-compétences : à définir avec les responsables de compétence, puis à écrire dans `sous-competences.json` avant de relancer `python build.py`.
 - Les personnes ressources (les noms ne remontent pas du Notion public, et il faut l'accord des personnes).
-- La mise en ligne : à décider par Léon (public ou réservé à l'équipe).
+
+## Publier une mise à jour en ligne
+
+Après `python notion_direct.py` puis `python build.py`, envoyer les changements sur GitHub (`git add -A`, `git commit`, `git push` dans ce dossier, ou le demander à Claude). Le site en ligne se met à jour en une à deux minutes.

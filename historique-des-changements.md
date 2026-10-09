@@ -49,3 +49,4 @@ Puis, retours de Léon sur le site (même jour) :
 
 - Les données viennent maintenant de Notion en direct : `notion_direct.py` lit seulement les 4 bases utiles (LI, AR, SF, Compétences) en quelques secondes, au lieu de l'export complet de 3 300 pages. Résultat dans `donnees-direct/`, que `build.py` lit en priorité. Lecture du 2026-10-09 : 163 LI, 96 AR et 18 SF reliées à une compétence.
 - Recherche de l'onglet Ressources plus tolérante : sans accents, et une ou deux fautes de frappe acceptées par mot. Demande de Léon, qui ne trouvait pas sa LI : elle est titrée « Enssentialism » dans Notion.
+- Mise en ligne, avec l'accord de Léon (« public, en ligne ») : dépôt public https://github.com/1000xO/carte-competences et page web https://1000xo.github.io/carte-competences/ (GitHub Pages, gratuit). Les données brutes de `donnees-direct/` ne sont pas publiées.
