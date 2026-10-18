@@ -165,6 +165,33 @@ dl.meta dd { margin: 0; }
 #tree .n-res { cursor: pointer; }
 #tree .n-res:hover text { fill: var(--accent); }
 
+/* Niveaux d'une compétence */
+.levels { margin-top: 40px; display: flex; flex-direction: column; gap: 12px; }
+.level { background: var(--surface); border-radius: 22px; box-shadow: var(--shadow); padding: 4px 24px; }
+.level summary { list-style: none; cursor: pointer; display: flex; align-items: baseline; gap: 12px; padding: 16px 0; }
+.level summary::-webkit-details-marker { display: none; }
+.level summary h3 { font-size: 19px; flex: 1; }
+.level summary h3 span { color: var(--ink-3); font-weight: 500; }
+.level summary .score { font-size: 13px; color: var(--ink-3); white-space: nowrap; }
+.level summary::after { content: '›'; color: var(--ink-3); transition: transform .2s; }
+.level[open] summary::after { transform: rotate(90deg); }
+.level .texte { margin: 0 0 14px; font-size: 15px; color: var(--ink-2); max-width: 820px; }
+.level ul { list-style: none; margin: 0 0 16px; padding: 0; }
+.level li { display: grid; grid-template-columns: 26px 1fr; gap: 4px 8px; padding: 10px 0; border-top: 1px solid var(--line); font-size: 15px; }
+.level li .mark { font-size: 15px; line-height: 1.47; text-align: center; }
+.level li .mark.couvert { color: var(--s-sf); }
+.level li .mark.encours { color: var(--s-ar); }
+.level li .mark.vide, .level li .mark.preuve { color: var(--ink-3); }
+.level li .refs { grid-column: 2; display: flex; flex-wrap: wrap; gap: 6px; }
+.level li .refs .chip { font-size: 12px; padding: 3px 10px; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.level li .refs .chip.pending { background: none; box-shadow: inset 0 0 0 1px var(--line); color: var(--ink-2); }
+.level .rien { margin: 0 0 16px; }
+.tag { display: inline-block; margin-left: 6px; padding: 1px 8px; border-radius: 999px; font-size: 11px; font-weight: 600; background: var(--accent); color: #fff; vertical-align: 1px; }
+.keymarks { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 16px; font-size: 13px; color: var(--ink-2); }
+.keymarks b { font-weight: 600; }
+.section-title { font-size: 28px; margin-top: 56px; }
+.ring { width: 10px; height: 10px; border-radius: 50%; display: inline-block; flex: none; box-shadow: inset 0 0 0 2px var(--ink-3); }
+
 /* Compétences */
 .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; margin-top: 48px; }
 .card { background: var(--surface); border: 0; border-radius: 22px; padding: 24px; cursor: pointer; text-align: left; display: flex; flex-direction: column; gap: 10px; box-shadow: var(--shadow); transition: transform .25s ease; }
@@ -173,6 +200,13 @@ dl.meta dd { margin: 0; }
 .card h3 { font-size: 21px; line-height: 1.2; flex: 1; }
 .card .mini { display: flex; gap: 14px; font-size: 13px; color: var(--ink-2); }
 .card .mini span { display: flex; align-items: center; gap: 5px; }
+.card .theo { font-size: 13px; color: var(--ink-3); }
+.gaps { margin-top: 24px; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+.gap { background: var(--surface); border-radius: 18px; box-shadow: var(--shadow); padding: 18px 20px; font-size: 14px; }
+.gap h4 { margin: 0 0 8px; font-size: 13px; color: var(--ink-3); cursor: pointer; }
+.gap h4:hover { color: var(--accent); }
+.gap ul { margin: 0; padding-left: 18px; color: var(--ink-2); }
+.gap li { margin: 3px 0; }
 
 /* Ressources */
 .filters { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; margin: 40px 0 16px; }
@@ -188,6 +222,7 @@ th { color: var(--ink-3); font-weight: 600; font-size: 12px; }
 td.nw { white-space: nowrap; }
 .badge { display: inline-block; padding: 3px 10px; border-radius: 999px; background: var(--surface-2); color: var(--ink-2); font-size: 12px; font-weight: 500; white-space: nowrap; }
 .badge.ok { background: rgba(27, 175, 122, 0.14); color: var(--s-sf); }
+.badge.encours { background: rgba(235, 104, 52, 0.14); color: var(--s-ar); }
 td.t button { background: none; border: 0; padding: 0; cursor: pointer; text-align: left; color: var(--ink); font-weight: 600; }
 td.t button:hover { color: var(--accent); }
 
@@ -231,6 +266,8 @@ td.t button:hover { color: var(--accent); }
   .scroll { padding: 40px 16px 64px; }
   .filters input[type="search"] { max-width: none; flex-basis: 100%; }
   .filters select { flex: 1 1 140px; max-width: none; min-width: 0; width: 100%; }
+  .level { padding: 2px 16px; }
+  .section-title { font-size: 24px; }
 }
 </style>
 </head>
@@ -252,7 +289,7 @@ td.t button:hover { color: var(--accent); }
 <main>
   <div class="view active" id="carte">
     <div id="graph"><svg aria-label="Carte des compétences et de leurs ressources"></svg><div id="tip"></div></div>
-    <div class="legend"><span><span class="dot" style="background:var(--node-comp)"></span>Compétence</span><span><span class="dot" style="background:var(--s-li)"></span>LI</span><span><span class="dot" style="background:var(--s-ar)"></span>AR</span><span><span class="dot" style="background:var(--s-sf)"></span>SF</span></div>
+    <div class="legend"><span><span class="dot" style="background:var(--node-comp)"></span>Compétence</span><span><span class="dot" style="background:var(--s-li)"></span>LI</span><span><span class="dot" style="background:var(--s-ar)"></span>AR</span><span><span class="dot" style="background:var(--s-sf)"></span>SF</span><span><span class="ring"></span>Pas encore validée</span></div>
     <button class="gear" id="gear" title="Réglages de la carte" aria-expanded="false">⚙</button>
     <aside class="settings" id="settings" hidden>
       <h3>Affichage</h3>
@@ -280,6 +317,11 @@ td.t button:hover { color: var(--accent); }
     <div class="eyebrow" id="arbre-num"></div>
     <h2 id="arbre-titre"></h2>
     <p class="lead" id="arbre-lead"></p>
+    <h3 class="section-title">Les niveaux</h3>
+    <p class="lead" style="font-size:17px">Le texte du référentiel, puis la théorie que chaque niveau demande. Une coche quand une ressource validée de l'équipe la couvre, d'après les titres.</p>
+    <div class="keymarks"><span><b style="color:var(--s-sf)">✓</b> couvert par l'équipe</span><span><b style="color:var(--s-ar)">◐</b> en cours ou annoncé</span><span><b style="color:var(--ink-3)">○</b> personne pour l'instant</span><span><b style="color:var(--ink-3)">✎</b> à prouver soi-même</span><span><span class="tag" style="margin:0">exigé</span> lecture explicitement demandée</span></div>
+    <div class="levels" id="niveaux"></div>
+    <h3 class="section-title">Les ressources</h3>
     <div class="tree-wrap"><svg id="tree"></svg></div>
   </div></div></div>
 
@@ -289,7 +331,7 @@ td.t button:hover { color: var(--accent); }
       <input type="search" id="q2" placeholder="Chercher un titre…">
       <select id="f-type"><option value="">Tous les types</option><option value="LI">Lectures (LI)</option><option value="AR">Articles réflexifs (AR)</option><option value="SF">Sessions de formation (SF)</option></select>
       <select id="f-comp"><option value="">Toutes les compétences</option></select>
-      <label class="opt"><input type="checkbox" id="f-val">Validées seulement</label>
+      <select id="f-etape"><option value="">Toutes les étapes</option><option value="validee">Validées</option><option value="encours">En cours</option><option value="annoncee">Annoncées ou à venir</option><option value="pas">Pas encore validées</option></select>
       <span class="hint" id="n-res"></span>
     </div>
     <div class="table-wrap"><table>
@@ -305,6 +347,9 @@ td.t button:hover { color: var(--accent); }
     <div class="callout">
       <b>Ce qui manque encore partout.</b> Les sous-compétences ne sont pas encore définies. Elles le seront avec les responsables de compétence, et l'arbre de chaque compétence les affichera.
     </div>
+    <h3 class="section-title">La théorie que personne n'a encore couverte</h3>
+    <p class="lead" style="font-size:17px">Ce que le référentiel demande, niveau par niveau, et qu'aucune ressource de l'équipe ne couvre encore, même en cours. De bonnes idées de prochaines LI.</p>
+    <div class="gaps" id="gaps"></div>
   </div></div></div>
 
   <div class="view" id="apropos"><div class="scroll"><div class="inner">
@@ -336,6 +381,10 @@ const comps = DATA.competences;
 const compById = Object.fromEntries(comps.map(c => [c.id, c]));
 const resById = Object.fromEntries(DATA.ressources.map(r => [r.id, r]));
 const SOUS = DATA.sousCompetences || {};
+const NIV = DATA.niveaux || {}, EXIG = DATA.exigences || {};
+const ETAPES = { validee: 'Validée', encours: 'En cours', annoncee: 'Annoncée' };
+const MARKS = { couvert: '✓', encours: '◐', vide: '○', preuve: '✎' };
+const exigOf = cid => Object.values(EXIG[cid] || {}).flat();
 document.querySelectorAll('.export-date').forEach(e => e.textContent = DATA.export || '-');
 
 const state = { selected: null, arbre: null };
@@ -424,11 +473,13 @@ function draw() {
     .attr('stroke', css('--link')).attr('stroke-width', REG.epaisseurLiens)
     .attr('vector-effect', 'non-scaling-stroke').attr('stroke-linecap', 'round');
 
+  // Une ressource pas encore validée est dessinée en anneau : contour de sa couleur, centre vide
   nodeSel = zoomLayer.append('g').selectAll('circle').data(nodes).join('circle')
-    .attr('fill', d => d.kind === 'comp' ? css('--node-comp') : css(TYPES[d.r.type].c))
-    .attr('stroke', css('--bg')).attr('stroke-width', 1.5).attr('vector-effect', 'non-scaling-stroke')
+    .attr('fill', d => d.kind === 'comp' ? css('--node-comp') : d.r.valide ? css(TYPES[d.r.type].c) : css('--bg'))
+    .attr('stroke', d => d.kind === 'res' && !d.r.valide ? css(TYPES[d.r.type].c) : css('--bg'))
+    .attr('stroke-width', d => d.kind === 'res' && !d.r.valide ? 2.5 : 1.5).attr('vector-effect', 'non-scaling-stroke')
     .style('cursor', 'pointer')
-    .on('mousemove', (e, d) => showTip(e, d.kind === 'comp' ? `${d.c.num}. ${d.c.nom} · ${d.n} ressource${d.n > 1 ? 's' : ''}` : `${TYPES[d.r.type].nom} · ${d.r.titre}`))
+    .on('mousemove', (e, d) => showTip(e, d.kind === 'comp' ? `${d.c.num}. ${d.c.nom} · ${d.n} ressource${d.n > 1 ? 's' : ''}` : `${TYPES[d.r.type].nom}${d.r.valide ? '' : ' (' + ETAPES[d.r.etape].toLowerCase() + ')'} · ${d.r.titre}`))
     .on('mouseenter', (e, d) => highlight(d.id))
     .on('mouseleave', () => { hideTip(); highlight(state.selected); })
     .on('click', (e, d) => { e.stopPropagation(); select(state.selected === d.id ? null : d.id); })
@@ -541,7 +592,7 @@ function renderPanel() {
       .map(l => ({ o: l.source === id ? l.target : l.source, w: l.w })).sort((a, b) => b.w - a.w);
     p.innerHTML = `${fermer}<div class="eyebrow">Compétence ${c.num}</div><h2>${esc(c.nom)}</h2>
       <div class="counts">${['LI', 'AR', 'SF'].map(t => `<div class="count"><b>${ok(t)}</b><span>${t} ${t === 'SF' ? 'suivies' : 'validées'}</span></div>`).join('')}</div>
-      <p class="hint">${mine.filter(r => !r.valide).length} autres ressources en cours, listées plus bas.</p>
+      <p class="hint">${mine.filter(r => r.etape === 'encours').length} en cours et ${mine.filter(r => r.etape === 'annoncee').length} annoncées ou à venir, listées plus bas.</p>
       <section><button class="btn" data-arbre="${id}">Ouvrir l'arbre de la compétence</button></section>
       <section><h4>Compétences liées</h4>${voisins.length ? `<div class="chips">${voisins.map(v => pill(v.o, `${compById[v.o].num}. ${short(compById[v.o].nom)} · ${v.w}`)).join('')}</div>` : '<p class="hint">Aucune ressource partagée avec une autre compétence.</p>'}</section>
       ${['LI', 'AR', 'SF'].map(t => by(t).length ? `<section><h4>${TYPES[t].pluriel}</h4><ul class="res">${by(t).sort((a, b) => (b.valide - a.valide) || (b.date || '').localeCompare(a.date || '')).map(resItem).join('')}</ul></section>` : '').join('')}`;
@@ -576,12 +627,14 @@ function drawTree(cid) {
   const mine = resOf(cid);
   document.getElementById('arbre-num').textContent = `Compétence ${c.num}`;
   document.getElementById('arbre-titre').textContent = c.nom;
-  document.getElementById('arbre-lead').textContent = `Ce que l'équipe a déjà déposé sur cette compétence : ${mine.length} ressource${mine.length > 1 ? 's' : ''}. Clique sur une ressource pour l'ouvrir dans Notion.`;
+  const ok = mine.filter(r => r.valide).length, attente = mine.length - ok;
+  document.getElementById('arbre-lead').textContent = `Ce que l'équipe a déposé sur cette compétence : ${ok} ressource${ok > 1 ? 's' : ''} validée${ok > 1 ? 's' : ''} ou suivie${ok > 1 ? 's' : ''}, et ${attente} qui arrive${attente > 1 ? 'nt' : ''} (en anneau). Clique sur une ressource pour l'ouvrir dans Notion.`;
+  renderNiveaux(cid);
   const sous = SOUS[cid] || [];
   const groupes = [{ nom: 'Sous-compétences', kind: 'grp', children: sous.length ? sous.map(s => ({ nom: s, kind: 'sous' })) : [{ nom: 'À définir avec le responsable de compétence', kind: 'todo' }] }];
   ['LI', 'AR', 'SF'].forEach(t => {
     const rs = mine.filter(r => r.type === t).sort((a, b) => (b.valide - a.valide) || a.titre.localeCompare(b.titre));
-    if (rs.length) groupes.push({ nom: `${TYPES[t].pluriel} · ${rs.length}`, kind: 'grp', type: t, children: rs.map(r => ({ nom: r.titre + (r.valide ? '' : ' (en cours)'), kind: 'res', r })) });
+    if (rs.length) groupes.push({ nom: `${TYPES[t].pluriel} · ${rs.length}`, kind: 'grp', type: t, children: rs.map(r => ({ nom: r.titre + (r.valide ? '' : ` (${ETAPES[r.etape].toLowerCase()})`), kind: 'res', r })) });
   });
   const root = d3.hierarchy({ nom: c.num, kind: 'root', children: groupes });
   const dy = 300, dx = 26;
@@ -595,11 +648,28 @@ function drawTree(cid) {
     .attr('d', d3.linkHorizontal().x(d => d.y).y(d => d.x));
   const n = t.append('g').selectAll('g').data(root.descendants()).join('g')
     .attr('class', d => 'n-' + d.data.kind).attr('transform', d => `translate(${d.y},${d.x})`);
+  const enAttente = d => d.data.kind === 'res' && !d.data.r.valide;
   n.append('circle').attr('r', d => d.data.kind === 'root' ? 9 : d.data.kind === 'grp' ? 6 : 4)
-    .attr('fill', d => d.data.kind === 'res' ? css(TYPES[d.data.r.type].c) : d.data.type ? css(TYPES[d.data.type].c) : d.data.kind === 'todo' ? css('--ink-3') : css('--node-comp'));
+    .attr('fill', d => enAttente(d) ? css('--surface') : d.data.kind === 'res' ? css(TYPES[d.data.r.type].c) : d.data.type ? css(TYPES[d.data.type].c) : d.data.kind === 'todo' ? css('--ink-3') : css('--node-comp'))
+    .attr('stroke', d => enAttente(d) ? css(TYPES[d.data.r.type].c) : 'none').attr('stroke-width', 2);
   n.append('text').attr('dy', '0.32em').attr('x', d => d.children ? -14 : 10).attr('text-anchor', d => d.children ? 'end' : 'start')
     .text(d => d.data.nom).attr('paint-order', 'stroke').attr('stroke', css('--surface')).attr('stroke-width', 4);
   n.filter(d => d.data.kind === 'res').on('click', (e, d) => { if (d.data.r.notion) window.open(d.data.r.notion, '_blank', 'noopener'); });
+}
+
+// ---------- Niveaux d'une compétence ----------
+function renderNiveaux(cid) {
+  const box = document.getElementById('niveaux');
+  const ref = id => { const r = resById[id]; return `<button class="chip${r.valide ? '' : ' pending'}" data-go="${id}" title="${esc(TYPES[r.type].nom + (r.valide ? '' : ' · ' + ETAPES[r.etape].toLowerCase()) + ' · ' + r.titre)}">${r.type} · ${esc(short(r.titre))}</button>`; };
+  box.innerHTML = (NIV[cid] || []).map(nv => {
+    const items = (EXIG[cid] || {})[nv.num] || [];
+    const comptables = items.filter(i => i.etat !== 'preuve');
+    const faits = comptables.filter(i => i.etat === 'couvert').length;
+    const lignes = items.map(i => `<li><span class="mark ${i.etat}">${MARKS[i.etat]}</span><span>${esc(i.t)}${i.exige ? '<span class="tag">exigé</span>' : ''}${i.etat === 'preuve' ? ' <span class="hint">à prouver soi-même, ne se voit pas dans un titre</span>' : ''}</span>${i.res.length ? `<span class="refs">${i.res.slice(0, 5).map(ref).join('')}${i.res.length > 5 ? `<span class="hint">+ ${i.res.length - 5} autres</span>` : ''}</span>` : ''}</li>`).join('');
+    return `<details class="level"${nv.num > 1 && nv.num < 5 ? ' open' : ''}><summary><h3>Niveau ${nv.num} <span>· ${esc(nv.nom)}</span></h3>${comptables.length ? `<span class="score">${faits} / ${comptables.length} couverts</span>` : ''}</summary>
+      <p class="texte">${esc(nv.texte)}</p>${items.length ? `<ul>${lignes}</ul>` : '<p class="hint rien">Pas de théorie nommée à ce niveau : il se prouve par l’action.</p>'}</details>`;
+  }).join('') || '<p class="hint">Niveaux non disponibles.</p>';
+  box.querySelectorAll('[data-go]').forEach(b => b.onclick = () => openOnMap(b.dataset.go));
 }
 
 // ---------- Compétences ----------
@@ -607,8 +677,10 @@ function renderCards() {
   document.getElementById('cards').innerHTML = comps.map(c => {
     const mine = resOf(c.id);
     const n = t => mine.filter(r => r.type === t).length;
+    const e = exigOf(c.id).filter(i => i.etat !== 'preuve');
     return `<button class="card" data-arbre="${c.id}"><div class="num">${c.num}</div><h3>${esc(c.nom)}</h3>
-      <div class="mini">${['LI', 'AR', 'SF'].map(t => `<span><span class="dot" style="background:var(${TYPES[t].c})"></span>${n(t)} ${t}</span>`).join('')}</div></button>`;
+      <div class="mini">${['LI', 'AR', 'SF'].map(t => `<span><span class="dot" style="background:var(${TYPES[t].c})"></span>${n(t)} ${t}</span>`).join('')}</div>
+      ${e.length ? `<div class="theo">Théorie des niveaux : ${e.filter(i => i.etat === 'couvert').length} / ${e.length} couverte</div>` : ''}</button>`;
   }).join('');
   document.querySelectorAll('#cards [data-arbre]').forEach(b => b.onclick = () => openArbre(b.dataset.arbre));
 }
@@ -636,19 +708,19 @@ function trouve(titre, q) {
 }
 function renderRows() {
   const q = norm(document.getElementById('q2').value.trim());
-  const t = document.getElementById('f-type').value, c = fComp.value, v = document.getElementById('f-val').checked;
-  const rows = DATA.ressources.filter(r => (!q || trouve(r.titre, q)) && (!t || r.type === t) && (!c || r.competences.includes(c)) && (!v || r.valide))
+  const t = document.getElementById('f-type').value, c = fComp.value, e = document.getElementById('f-etape').value;
+  const rows = DATA.ressources.filter(r => (!q || trouve(r.titre, q)) && (!t || r.type === t) && (!c || r.competences.includes(c)) && (!e || (e === 'pas' ? !r.valide : r.etape === e)))
     .sort((a, b) => (b.date || '').localeCompare(a.date || ''));
   document.getElementById('n-res').textContent = `${rows.length} ressource${rows.length > 1 ? 's' : ''}`;
   document.getElementById('rows').innerHTML = rows.map(r => `<tr>
     <td class="t"><button data-go="${r.id}">${esc(r.titre)}</button></td>
     <td class="nw"><span class="dot" style="background:var(${TYPES[r.type].c})"></span> ${r.type}</td>
     <td>${r.competences.map(x => compById[x].num).join(', ')}</td>
-    <td><span class="badge${r.valide ? ' ok' : ''}">${esc(r.statut || '-')}</span></td><td class="nw">${esc(r.semestre.replace('Semestre ', 'S'))}</td>
+    <td><span class="badge${r.valide ? ' ok' : r.etape === 'encours' ? ' encours' : ''}">${esc(r.statut || '-')}</span></td><td class="nw">${esc(r.semestre.replace('Semestre ', 'S'))}</td>
     <td class="nw">${r.notion ? `<a href="${r.notion}" target="_blank" rel="noopener">Ouvrir ↗</a>` : ''}</td></tr>`).join('');
   document.querySelectorAll('#rows [data-go]').forEach(b => b.onclick = () => openOnMap(b.dataset.go));
 }
-['q2', 'f-type', 'f-comp', 'f-val'].forEach(id => document.getElementById(id).addEventListener('input', renderRows));
+['q2', 'f-type', 'f-comp', 'f-etape'].forEach(id => document.getElementById(id).addEventListener('input', renderRows));
 
 // ---------- Trous ----------
 // Même règle partout : LI et AR validées, SF suivies (le panneau de la carte compte pareil)
@@ -659,6 +731,12 @@ function renderBars() {
   document.getElementById('bars').innerHTML = rows.map(x => `<div class="bar-row" data-arbre="${x.c.id}" title="Ouvrir l'arbre de la compétence">
     <span>${x.c.num}. ${esc(x.c.nom)}</span><div class="bar-track"><div class="bar-fill" style="width:${Math.max(1, 100 * x.n / max)}%"></div></div><span class="split">${x.t}</span><span class="v">${x.n}</span></div>`).join('');
   document.querySelectorAll('#bars [data-arbre]').forEach(b => b.onclick = () => openArbre(b.dataset.arbre));
+  // Théorie demandée par le référentiel qu'aucune ressource ne couvre, même en cours
+  document.getElementById('gaps').innerHTML = comps.map(c => {
+    const vides = Object.entries(EXIG[c.id] || {}).flatMap(([n, l]) => l.filter(i => i.etat === 'vide').map(i => ({ n, i })));
+    return vides.length ? `<div class="gap"><h4 data-arbre="${c.id}">${c.num}. ${esc(c.nom)} ›</h4><ul>${vides.map(v => `<li>Niveau ${v.n} : ${esc(v.i.t)}${v.i.exige ? '<span class="tag">exigé</span>' : ''}</li>`).join('')}</ul></div>` : '';
+  }).join('');
+  document.querySelectorAll('#gaps [data-arbre]').forEach(b => b.onclick = () => openArbre(b.dataset.arbre));
 }
 
 renderCards(); renderRows(); renderBars(); renderPanel();

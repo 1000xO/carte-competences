@@ -1,0 +1,1117 @@
+{
+  "_mode_d_emploi": "Pour chaque compétence et chaque niveau (1 à 5), la théorie que le référentiel demande : lectures exigées (exige: true), théories, modèles ou auteurs nommés. t = le libellé affiché ; kw = les mots-clés cherchés dans les titres des LI, AR et SF (sans accents ni majuscules, début de mot) ; partout: true = compte aussi les ressources rattachées à une autre compétence ; preuve: true = ne se voit pas dans un titre, à prouver soi-même (pas de coche). Après modification, relancer python build.py.",
+  "C01": {
+    "1": [
+      {
+        "t": "Enjeux des contenus générés par l'IA",
+        "kw": [
+          "intelligence artificielle",
+          "ia",
+          "ai",
+          "chatgpt",
+          "prediction machines"
+        ]
+      }
+    ],
+    "2": [
+      {
+        "t": "Normes APA, antiplagiat et droit d'auteur",
+        "kw": [
+          "apa",
+          "plagiat",
+          "droit d'auteur",
+          "citation"
+        ],
+        "partout": true
+      },
+      {
+        "t": "Veille et structuration de l'information",
+        "kw": [
+          "veille",
+          "second brain",
+          "second cerveau",
+          "prise de notes"
+        ]
+      }
+    ],
+    "3": [
+      {
+        "t": "Méthodes de recherche",
+        "kw": [
+          "methode de recherche",
+          "methodes de recherche",
+          "research method",
+          "methodologie"
+        ],
+        "partout": true
+      },
+      {
+        "t": "Veille stratégique et plan de veille",
+        "kw": [
+          "veille"
+        ],
+        "partout": true
+      }
+    ],
+    "4": [
+      {
+        "t": "Veille prospective et IA générative",
+        "kw": [
+          "prospective",
+          "ia generative",
+          "generative ai",
+          "genai"
+        ],
+        "partout": true
+      },
+      {
+        "t": "Marques et brevets",
+        "kw": [
+          "brevet",
+          "patent",
+          "propriete intellectuelle",
+          "marque deposee"
+        ],
+        "partout": true
+      }
+    ],
+    "5": []
+  },
+  "C02": {
+    "1": [
+      {
+        "t": "Les 17 ODD des Nations Unies",
+        "kw": [
+          "odd",
+          "objectifs de developpement durable",
+          "sdg"
+        ],
+        "partout": true
+      },
+      {
+        "t": "Enjeux socio-économiques (climat, transition, richesses)",
+        "kw": [
+          "climat",
+          "transition",
+          "energie",
+          "fossile",
+          "inegalit",
+          "richesse"
+        ]
+      }
+    ],
+    "2": [
+      {
+        "t": "Bases de la microéconomie et de l'économie de marché",
+        "kw": [
+          "microeconomi",
+          "economie de marche",
+          "principes de l'economie"
+        ],
+        "partout": true
+      },
+      {
+        "t": "Économie internationale, globalisation",
+        "kw": [
+          "commerce international",
+          "globalisation",
+          "mondialisation",
+          "international trade",
+          "guerre"
+        ]
+      },
+      {
+        "t": "Théories de la durabilité",
+        "kw": [
+          "durabilite",
+          "durable",
+          "donut",
+          "doughnut",
+          "sustainab",
+          "robuste",
+          "decroissance"
+        ],
+        "partout": true
+      }
+    ],
+    "3": [
+      {
+        "t": "Comptabilité nationale",
+        "kw": [
+          "comptabilite nationale",
+          "pib",
+          "gdp"
+        ],
+        "partout": true
+      },
+      {
+        "t": "Fondamentaux de la politique monétaire",
+        "kw": [
+          "monnaie",
+          "monetaire",
+          "monetary",
+          "banque centrale",
+          "inflation"
+        ],
+        "partout": true
+      },
+      {
+        "t": "Croissance économique et rapports RSE",
+        "kw": [
+          "croissance",
+          "rse",
+          "csr",
+          "decroissance",
+          "modeles economiques de demain"
+        ]
+      },
+      {
+        "t": "LI en lien avec l'économie et la durabilité (régulièrement)",
+        "type": "LI",
+        "exige": true
+      },
+      {
+        "t": "Au moins deux articles réflexifs",
+        "type": "AR",
+        "exige": true
+      }
+    ],
+    "4": [
+      {
+        "t": "Politiques publiques et économiques",
+        "kw": [
+          "politique publique",
+          "politique economique",
+          "politiques publiques",
+          "economie politique",
+          "desinformation economique"
+        ]
+      },
+      {
+        "t": "Comportement des entreprises selon les marchés",
+        "kw": [
+          "concurrence",
+          "oligopole",
+          "monopole",
+          "structure de marche"
+        ]
+      }
+    ],
+    "5": []
+  },
+  "C03": {
+    "1": [
+      {
+        "t": "Bases de la gestion de projet",
+        "kw": [
+          "gestion de projet",
+          "project management",
+          "management de projet"
+        ]
+      }
+    ],
+    "2": [
+      {
+        "t": "Outils de planification : GANTT, chemin critique, SMART, risques, budget",
+        "kw": [
+          "gantt",
+          "chemin critique",
+          "objectifs smart",
+          "gestion des risques",
+          "risk management",
+          "pmbok",
+          "planification"
+        ],
+        "partout": true
+      },
+      {
+        "t": "Organisation d'une équipe de projet (profils, recrutement)",
+        "kw": [
+          "recrutement",
+          "hiring",
+          "who :",
+          "who:"
+        ],
+        "partout": true
+      }
+    ],
+    "3": [
+      {
+        "t": "Principes de l'agilité",
+        "kw": [
+          "agil",
+          "scrum",
+          "kanban",
+          "sprint"
+        ],
+        "partout": true
+      }
+    ],
+    "4": [
+      {
+        "t": "Principaux modèles théoriques en gestion de projet",
+        "kw": [
+          "pmbok",
+          "prince2",
+          "gestion de projet",
+          "project management",
+          "management de projet",
+          "pro en management"
+        ]
+      }
+    ],
+    "5": []
+  },
+  "C04": {
+    "1": [
+      {
+        "t": "Bases de l'organisation, de la gouvernance et de la stratégie",
+        "kw": [
+          "gouvernance",
+          "strategi",
+          "organisation"
+        ]
+      }
+    ],
+    "2": [
+      {
+        "t": "SWOT, PESTEL, analyse Porter",
+        "kw": [
+          "swot",
+          "pestel",
+          "porter",
+          "competitive strategy",
+          "competitive advantage",
+          "avantage concurrentiel"
+        ],
+        "partout": true
+      },
+      {
+        "t": "Positionnement : blue ocean, where to play",
+        "kw": [
+          "blue ocean",
+          "ocean bleu",
+          "playing to win",
+          "where to play"
+        ],
+        "partout": true
+      },
+      {
+        "t": "Chaîne de valeur et supply chain",
+        "kw": [
+          "chaine de valeur",
+          "value chain",
+          "supply chain",
+          "logistique"
+        ],
+        "partout": true
+      }
+    ],
+    "3": [
+      {
+        "t": "Options et scénarios stratégiques",
+        "kw": [
+          "scenario",
+          "long view",
+          "prospective"
+        ],
+        "partout": true
+      },
+      {
+        "t": "QMS (système de management de la qualité)",
+        "kw": [
+          "management de la qualite",
+          "par la qualite",
+          "quality management",
+          "qms",
+          "iso 9001"
+        ],
+        "partout": true
+      },
+      {
+        "t": "BPM (gestion des processus)",
+        "kw": [
+          "process",
+          "bpm"
+        ],
+        "partout": true
+      },
+      {
+        "t": "Modèles organisationnels (hiérarchique, holacratique, libéré)",
+        "kw": [
+          "holacra",
+          "liberee",
+          "reinventing organizations",
+          "laloux",
+          "modele organisationnel",
+          "modeles organisationnels",
+          "sociocra"
+        ],
+        "partout": true
+      }
+    ],
+    "4": [
+      {
+        "t": "Risques stratégiques et KPI",
+        "kw": [
+          "kpi",
+          "indicateur",
+          "measure what matters",
+          "okr",
+          "risque strategique"
+        ],
+        "partout": true
+      },
+      {
+        "t": "BSC (balanced scorecard)",
+        "kw": [
+          "balanced scorecard",
+          "bsc",
+          "tableau de bord prospectif"
+        ],
+        "partout": true
+      }
+    ],
+    "5": []
+  },
+  "C05": {
+    "1": [
+      {
+        "t": "Marketing mix (4P)",
+        "kw": [
+          "marketing mix",
+          "4p",
+          "mix marketing"
+        ],
+        "partout": true
+      },
+      {
+        "t": "USP, taille de marché, segmentation",
+        "kw": [
+          "segmentation",
+          "usp",
+          "taille de marche"
+        ],
+        "partout": true
+      }
+    ],
+    "2": [
+      {
+        "t": "Lectures sur le marketing stratégique (p. ex. Porter, Kotler)",
+        "kw": [
+          "kotler",
+          "porter",
+          "marketing strategique",
+          "strategic marketing",
+          "marketing management"
+        ],
+        "exige": true,
+        "partout": false
+      },
+      {
+        "t": "Branding",
+        "kw": [
+          "brand",
+          "marque",
+          "zag"
+        ],
+        "partout": true
+      },
+      {
+        "t": "Value proposition",
+        "kw": [
+          "value proposition",
+          "proposition de valeur"
+        ],
+        "partout": true
+      },
+      {
+        "t": "Argumentaire de vente, approche CAB",
+        "kw": [
+          "cab",
+          "argumentaire",
+          "vente",
+          "selling",
+          "persuasion",
+          "influence"
+        ]
+      }
+    ],
+    "3": [
+      {
+        "t": "Pricing",
+        "kw": [
+          "pricing",
+          "prix",
+          "nagle",
+          "tarification"
+        ],
+        "partout": true
+      },
+      {
+        "t": "Customer journey",
+        "kw": [
+          "customer journey",
+          "parcours client"
+        ],
+        "partout": true
+      },
+      {
+        "t": "Campagne de communication on-line et off-line",
+        "kw": [
+          "communication",
+          "campagne",
+          "digital marketing",
+          "marketing digital"
+        ]
+      },
+      {
+        "t": "Vente et négociation",
+        "kw": [
+          "negociation",
+          "negotiat",
+          "getting to yes"
+        ],
+        "partout": true
+      }
+    ],
+    "4": [
+      {
+        "t": "Connaissances approfondies sur diverses techniques de marketing",
+        "kw": [
+          "marketing"
+        ]
+      },
+      {
+        "t": "Gestion de clients (CRM), fidélisation",
+        "kw": [
+          "crm",
+          "fidelisation",
+          "relation client",
+          "customer success"
+        ],
+        "partout": true
+      }
+    ],
+    "5": []
+  },
+  "C06": {
+    "1": [
+      {
+        "t": "Principes de la comptabilité, partie double",
+        "kw": [
+          "comptab",
+          "accounting"
+        ],
+        "partout": true
+      },
+      {
+        "t": "Formes juridiques du droit suisse",
+        "kw": [
+          "forme juridique",
+          "formes juridiques",
+          "droit des societes",
+          "creation d'entreprise"
+        ],
+        "partout": true
+      }
+    ],
+    "2": [
+      {
+        "t": "Plan comptable, bilan, compte de résultat",
+        "kw": [
+          "bilan",
+          "plan comptable",
+          "compte de resultat",
+          "etats financiers"
+        ],
+        "partout": true
+      },
+      {
+        "t": "Bases de la fiscalité (impôt, TVA, assurances sociales)",
+        "kw": [
+          "fiscal",
+          "tva",
+          "impot",
+          "assurances sociales"
+        ],
+        "partout": true
+      }
+    ],
+    "3": [
+      {
+        "t": "Choix d'investissement : cash-flow, ROI, trésorerie",
+        "kw": [
+          "cash",
+          "roi",
+          "tresorerie",
+          "investissement"
+        ],
+        "partout": true
+      }
+    ],
+    "4": [
+      {
+        "t": "Analyse financière : ratios, taux de marge, EBIT",
+        "kw": [
+          "ratio",
+          "ebit",
+          "financial intelligence",
+          "analyse financiere",
+          "finance"
+        ]
+      }
+    ],
+    "5": []
+  },
+  "C07": {
+    "1": [
+      {
+        "t": "KDD (découverte de connaissances dans les données)",
+        "kw": [
+          "kdd",
+          "knowledge discovery",
+          "data mining"
+        ],
+        "partout": true
+      },
+      {
+        "t": "Statistique descriptive",
+        "kw": [
+          "statisti",
+          "descripti"
+        ]
+      }
+    ],
+    "2": [
+      {
+        "t": "Analyse univariée et bivariée, principaux tests statistiques",
+        "kw": [
+          "univari",
+          "bivari",
+          "test statistique",
+          "tests statistiques",
+          "make the world add up"
+        ]
+      },
+      {
+        "t": "Analyse exploratoire (EDA) et tableau de bord",
+        "kw": [
+          "exploratory",
+          "exploratoire",
+          "eda",
+          "dashboard",
+          "tableau de bord",
+          "storytelling with data",
+          "visualis"
+        ],
+        "partout": true
+      }
+    ],
+    "3": [
+      {
+        "t": "Statistical learning et apprentissage automatique (régression, random forest, k-means)",
+        "kw": [
+          "statistical learning",
+          "machine learning",
+          "apprentissage automatique",
+          "regression",
+          "random forest",
+          "k-means",
+          "prediction",
+          "data science"
+        ],
+        "partout": true
+      }
+    ],
+    "4": [
+      {
+        "t": "Données non structurées (sentiment analysis, topic modeling)",
+        "kw": [
+          "sentiment",
+          "topic model",
+          "non structur",
+          "unstructured",
+          "text mining"
+        ],
+        "partout": true
+      }
+    ],
+    "5": []
+  },
+  "C08": {
+    "1": [
+      {
+        "t": "Learning contract individuel (LCI) et journal d'apprentissage",
+        "kw": [
+          "learning contract",
+          "lci",
+          "journal d'apprentissage"
+        ],
+        "partout": true
+      },
+      {
+        "t": "Bases du dialogue et du feedback",
+        "kw": [
+          "dialogue",
+          "feedback",
+          "bohm",
+          "ecoute"
+        ]
+      }
+    ],
+    "2": [
+      {
+        "t": "Théories de base de l'apprentissage en équipe",
+        "kw": [
+          "apprentissage en equipe",
+          "team learning",
+          "teaming",
+          "apprenante",
+          "learning organization",
+          "competences individuelles et collectives"
+        ],
+        "partout": true
+      },
+      {
+        "t": "Birth givings",
+        "kw": [
+          "birth giving"
+        ],
+        "partout": true
+      }
+    ],
+    "3": [
+      {
+        "t": "Knowledge management",
+        "kw": [
+          "knowledge",
+          "gestion des connaissances",
+          "savoir",
+          "second brain"
+        ],
+        "partout": true
+      },
+      {
+        "t": "Learning contract d'équipe (LCE)",
+        "kw": [
+          "learning contract d'equipe",
+          "lce"
+        ],
+        "partout": true
+      }
+    ],
+    "4": [
+      {
+        "t": "La 5e discipline de Peter Senge",
+        "kw": [
+          "senge",
+          "cinquieme discipline",
+          "5e discipline",
+          "fifth discipline"
+        ],
+        "partout": true
+      }
+    ],
+    "5": []
+  },
+  "C09": {
+    "1": [
+      {
+        "t": "Méthodes génératrices d'idées (brainstorming)",
+        "kw": [
+          "brainstorm",
+          "ideation",
+          "idee"
+        ],
+        "partout": true
+      }
+    ],
+    "2": [
+      {
+        "t": "Techniques de créativité",
+        "kw": [
+          "creativ",
+          "creatif"
+        ],
+        "partout": true
+      },
+      {
+        "t": "Management de l'innovation, lean start-up",
+        "kw": [
+          "lean",
+          "running lean",
+          "management de l'innovation"
+        ],
+        "partout": true
+      },
+      {
+        "t": "Innovation de business model, types de MVP",
+        "kw": [
+          "business model",
+          "modele d'affaires",
+          "mvp"
+        ],
+        "partout": true
+      }
+    ],
+    "3": [
+      {
+        "t": "Customer validation",
+        "kw": [
+          "customer development",
+          "customer validation",
+          "manuel du createur",
+          "startup owner",
+          "four steps"
+        ],
+        "partout": true
+      },
+      {
+        "t": "Value proposition design",
+        "kw": [
+          "value proposition"
+        ],
+        "partout": true
+      }
+    ],
+    "4": [
+      {
+        "t": "Design thinking",
+        "kw": [
+          "design thinking",
+          "change by design"
+        ],
+        "partout": true
+      },
+      {
+        "t": "Open innovation",
+        "kw": [
+          "open innovation",
+          "innovation ouverte"
+        ],
+        "partout": true
+      },
+      {
+        "t": "Sustainable innovation",
+        "kw": [
+          "sustainable innovation",
+          "innovation durable",
+          "innovation responsable"
+        ],
+        "partout": true
+      },
+      {
+        "t": "Littérature de l'innovation, innovation organisationnelle",
+        "kw": [
+          "innovat",
+          "innover"
+        ]
+      }
+    ],
+    "5": []
+  },
+  "C10": {
+    "1": [
+      {
+        "t": "Au moins une présentation orale en anglais",
+        "preuve": true
+      }
+    ],
+    "2": [
+      {
+        "t": "Bases théoriques de la communication et de la rhétorique",
+        "kw": [
+          "communication",
+          "rhetori",
+          "persuasion",
+          "influence",
+          "win friends"
+        ]
+      }
+    ],
+    "3": [
+      {
+        "t": "Techniques de prise de parole en public",
+        "kw": [
+          "prise de parole",
+          "public speaking",
+          "ted talk",
+          "talk like",
+          "presentations orales",
+          "art oratoire"
+        ],
+        "partout": true
+      },
+      {
+        "t": "Un article réflexif de haute qualité en anglais",
+        "exige": true,
+        "preuve": true
+      },
+      {
+        "t": "Présenter des lectures et animer des workshops en anglais (B2)",
+        "exige": true,
+        "preuve": true
+      }
+    ],
+    "4": [
+      {
+        "t": "Principaux modèles théoriques en communication",
+        "kw": [
+          "communication",
+          "rhetori",
+          "nonviolent",
+          "non violente"
+        ]
+      }
+    ],
+    "5": []
+  },
+  "C11": {
+    "1": [
+      {
+        "t": "Journal d'apprentissage, objectifs à court terme",
+        "kw": [
+          "journal",
+          "objectif"
+        ]
+      }
+    ],
+    "2": [
+      {
+        "t": "Bases théoriques de la gestion du temps",
+        "kw": [
+          "gestion du temps",
+          "time management",
+          "essentialism",
+          "one thing",
+          "deep work",
+          "getting things done",
+          "habitudes",
+          "productiv"
+        ],
+        "partout": true
+      },
+      {
+        "t": "Stress et autodiscipline",
+        "kw": [
+          "stress",
+          "autodiscipl",
+          "self-discipline"
+        ],
+        "partout": true
+      }
+    ],
+    "3": [
+      {
+        "t": "Objectifs motivants à long terme, planification",
+        "kw": [
+          "objectif",
+          "goal",
+          "okr",
+          "measure what matters",
+          "progress principle"
+        ],
+        "partout": true
+      },
+      {
+        "t": "Zone de confort, émotions, connaissance de soi",
+        "kw": [
+          "mindset",
+          "emotion",
+          "connaissance de soi",
+          "confort"
+        ],
+        "partout": true
+      }
+    ],
+    "4": [
+      {
+        "t": "Persévérance et résilience",
+        "kw": [
+          "resilien",
+          "grit",
+          "perseveran"
+        ],
+        "partout": true
+      },
+      {
+        "t": "Impact du coaching",
+        "kw": [
+          "coaching",
+          "coach"
+        ],
+        "partout": true
+      }
+    ],
+    "5": []
+  },
+  "C12": {
+    "1": [
+      {
+        "t": "Bases du fonctionnement d'une équipe (rôles, diversité, valeurs)",
+        "kw": [
+          "equipe",
+          "team"
+        ]
+      },
+      {
+        "t": "Bases théoriques du coaching",
+        "kw": [
+          "coaching",
+          "coach"
+        ],
+        "partout": true
+      }
+    ],
+    "2": [
+      {
+        "t": "Vision partagée et valeurs communes",
+        "kw": [
+          "vision",
+          "valeurs",
+          "culture d'entreprise"
+        ],
+        "partout": true
+      }
+    ],
+    "3": [
+      {
+        "t": "Principaux modèles de leadership d'équipe",
+        "kw": [
+          "leadership",
+          "leader"
+        ],
+        "partout": true
+      },
+      {
+        "t": "Accompagnement : mentoring, coaching, expert",
+        "kw": [
+          "mentor",
+          "coaching",
+          "coach"
+        ],
+        "partout": true
+      },
+      {
+        "t": "Profils : Belbin, Leonardo",
+        "kw": [
+          "belbin",
+          "leonardo",
+          "team roles",
+          "roles en equipe"
+        ],
+        "partout": true
+      },
+      {
+        "t": "Conflits et motivation",
+        "kw": [
+          "conflit",
+          "motivation",
+          "daniel pink"
+        ]
+      }
+    ],
+    "4": [
+      {
+        "t": "Très bon niveau théorique en leadership et coaching",
+        "kw": [
+          "leadership",
+          "coaching"
+        ],
+        "partout": true
+      }
+    ],
+    "5": []
+  },
+  "C13": {
+    "1": [
+      {
+        "t": "Enjeux de la collaboration interculturelle",
+        "kw": [
+          "cultur"
+        ]
+      }
+    ],
+    "2": [
+      {
+        "t": "Construire et utiliser des réseaux",
+        "kw": [
+          "reseau",
+          "network",
+          "networking"
+        ],
+        "partout": true
+      }
+    ],
+    "3": [
+      {
+        "t": "Bases théoriques de la gestion d'équipes multiculturelles",
+        "kw": [
+          "culture map",
+          "multicultur",
+          "intercultur",
+          "riding the waves",
+          "when cultures collide",
+          "cultur"
+        ],
+        "partout": true
+      }
+    ],
+    "4": [
+      {
+        "t": "Différences culturelles et gestion de projet",
+        "kw": [
+          "intercultur",
+          "culture map",
+          "riding the waves"
+        ],
+        "partout": true
+      }
+    ],
+    "5": []
+  },
+  "C14": {
+    "1": [],
+    "2": [
+      {
+        "t": "Trouver et tester des opportunités",
+        "kw": [
+          "opportunit",
+          "startup",
+          "start-up"
+        ]
+      }
+    ],
+    "3": [
+      {
+        "t": "Disciplined entrepreneurship",
+        "kw": [
+          "disciplined entrepreneurship",
+          "aulet"
+        ],
+        "partout": true
+      },
+      {
+        "t": "Effectuation",
+        "kw": [
+          "effectuation",
+          "sarasvathy",
+          "silberzahn"
+        ],
+        "partout": true
+      }
+    ],
+    "4": [
+      {
+        "t": "Business plan",
+        "kw": [
+          "business plan",
+          "plan d'affaires"
+        ],
+        "partout": true
+      }
+    ],
+    "5": []
+  }
+}

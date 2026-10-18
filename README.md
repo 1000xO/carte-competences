@@ -9,10 +9,11 @@ Pour le voir : double-clic sur `index.html`. Il faut une connexion internet, car
 ## Ce qu'il contient
 
 - **Carte** : la vue en graphe façon Obsidian, avec les mêmes réglages que la vue graphique Obsidian de Léon (taille des nœuds selon le nombre de liens, forces identiques). Les grands ronds sont les 14 compétences, les petits points les ressources (bleu : LI, orange : AR, vert : SF). Le mode « Compétences » ne garde que les 14 compétences, reliées entre elles selon le nombre de ressources qu'elles partagent. Un clic sur un point ouvre son détail, avec le lien vers la fiche Notion.
-- **Compétences** : les 14 compétences en cartes, avec leur nombre de ressources. Un clic ouvre l'arbre de la compétence (sous-compétences, puis LI, AR et SF). Lien direct : `index.html#C08`.
+- **Compétences** : les 14 compétences en cartes, avec leur nombre de ressources et la part de théorie des niveaux déjà couverte. Un clic ouvre la page de la compétence : ses 5 niveaux (texte du référentiel, puis la théorie demandée, cochée si une ressource de l'équipe la couvre, « exigé » quand le référentiel demande explicitement une lecture), puis l'arbre (sous-compétences, LI, AR et SF). Lien direct : `index.html#C08`.
 - **La molette** (en haut à gauche de la carte) : les réglages façon Obsidian (texte, taille des nœuds, liens, forces).
-- **Ressources** : toutes les ressources dans un tableau, avec recherche et filtres.
-- **Trous** : les compétences les moins nourries en ressources validées.
+- **Ressources** : toutes les ressources dans un tableau, avec recherche et filtres (dont l'étape : validée, en cours, annoncée).
+- **Ce qui arrive** : partout, une ressource pas encore validée est dessinée en anneau (contour sans remplissage). Une SF future compte comme « à venir ».
+- **Trous** : les compétences les moins nourries en ressources validées, puis la théorie demandée par le référentiel que personne n'a encore couverte (idées de prochaines LI).
 - **Comment ça marche** : le lien avec le modèle SECI de Nonaka et Takeuchi.
 
 Chaque onglet s'ouvre aussi par un lien direct, par exemple `index.html#trous`.
@@ -29,6 +30,8 @@ Chaque onglet s'ouvre aussi par un lien direct, par exemple `index.html#trous`.
 Si `donnees-direct/` n'existe pas, `build.py` reprend l'export complet (`04 PROJET/bta/team-academy/notion-sedniner/`).
 
 Les changements successifs sont notés dans `historique-des-changements.md`.
+
+`exigences.json` : la théorie demandée à chaque niveau, avec les mots-clés cherchés dans les titres. À corriger à la main si une coche est fausse. Après chaque `python build.py`, la liste de ce qui a été trouvé est dans `donnees-direct/verification-exigences.txt`.
 
 `template.html` est le modèle de la page, `build.py` y injecte les données. On modifie le modèle, jamais `index.html` directement (il est écrasé à chaque mise à jour).
 

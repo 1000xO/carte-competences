@@ -50,3 +50,20 @@ Puis, retours de Léon sur le site (même jour) :
 - Les données viennent maintenant de Notion en direct : `notion_direct.py` lit seulement les 4 bases utiles (LI, AR, SF, Compétences) en quelques secondes, au lieu de l'export complet de 3 300 pages. Résultat dans `donnees-direct/`, que `build.py` lit en priorité. Lecture du 2026-10-09 : 163 LI, 96 AR et 18 SF reliées à une compétence.
 - Recherche de l'onglet Ressources plus tolérante : sans accents, et une ou deux fautes de frappe acceptées par mot. Demande de Léon, qui ne trouvait pas sa LI : elle est titrée « Enssentialism » dans Notion.
 - Mise en ligne, avec l'accord de Léon (« public, en ligne ») : dépôt public https://github.com/1000xO/carte-competences et page web https://1000xo.github.io/carte-competences/ (GitHub Pages, gratuit). Les données brutes de `donnees-direct/` ne sont pas publiées.
+
+## 2026-10-18 : données Notion remises à jour
+
+Statut : fait en local, publication en ligne en attente de l'accord de Léon.
+
+- Demande de Léon : « fetch les infos sur Notion pour qu'il soit à jour ». Relance de `notion_direct.py` puis `build.py`.
+- Lecture du 2026-10-18 : 209 LI, 105 AR et 25 SF dans les bases, dont 168 LI, 100 AR et 18 SF reliées à une compétence (contre 163, 96 et 18 le 2026-10-09).
+
+## 2026-10-18 : ce qui est en cours, et les niveaux des compétences
+
+Statut : fait et vérifié dans le navigateur (carte, page d'une compétence, Trous), en local. Publication en attente de l'accord de Léon. Plan : `plan-niveaux-et-en-cours.md`.
+
+- Demande de Léon : voir les LI en cours sur le site, afficher les niveaux des compétences, mettre en évidence la théorie explicitement demandée pour valider un niveau, et la cocher quand une lecture la couvre.
+- Chaque ressource a une étape (validée, en cours, annoncée). Les ressources pas encore validées sont dessinées en anneau sur la carte et dans l'arbre. Le filtre « Validées seulement » est remplacé par un menu d'étapes. Les SF futures sont « à venir ».
+- Page d'une compétence : les 5 niveaux du référentiel, avec sous chacun la théorie demandée (écrite à la main dans `exigences.json`), cochée automatiquement d'après les titres des LI, AR et SF de l'équipe. Les exigences invisibles dans un titre (workshop ou AR en anglais) sont marquées « à prouver soi-même ».
+- Onglet Trous : nouvelle liste de la théorie demandée que personne ne couvre encore, compétence par compétence.
+- Relecture à la main des coches : une dizaine de faux positifs corrigés (par exemple « Geoff Smart » pris pour les objectifs SMART, « Libérer la Suisse » pour l'entreprise libérée).
