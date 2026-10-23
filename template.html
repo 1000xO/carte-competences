@@ -634,10 +634,7 @@ function renderPanel() {
   const fermer = '<button class="close" id="close" title="Fermer (Échap)">✕</button>';
   if (!id) {
     p.innerHTML = `<div class="eyebrow">Bienvenue</div><h2>Ce que l'équipe a appris</h2>
-      <p class="hint">${comps.length} compétences et ${DATA.ressources.length} ressources (LI, AR, SF), reliées entre elles. Clique sur un point pour voir ses liens, clique dans le vide ou sur Échap pour revenir à la vue d'ensemble. La molette en haut à gauche règle l'affichage.</p>
-      <section><h4>Les compétences les plus nourries</h4><div class="chips">${
-        comps.map(c => ({ c, n: resOf(c.id).length })).sort((a, b) => b.n - a.n).slice(0, 6).map(x => pill(x.c.id, `${x.c.num}. ${short(x.c.nom)} · ${x.n}`)).join('')
-      }</div></section>`;
+      <p class="hint">${comps.length} compétences et ${DATA.ressources.length} ressources (LI, AR, SF), reliées entre elles. Clique sur un point pour voir ses liens, clique dans le vide ou sur Échap pour revenir à la vue d'ensemble. La molette en haut à gauche règle l'affichage.</p>`;
   } else if (compById[id]) {
     const c = compById[id];
     const mine = resOf(id);

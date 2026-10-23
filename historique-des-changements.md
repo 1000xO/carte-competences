@@ -156,3 +156,5 @@ Statut : prêt en local, pas encore publié.
 - Source : le calendrier de l'école (agenda Google importé), car Notion n'a pas encore de fiche pour ces SF. Relevé dans `sf-a-venir.json` : Comptabilité (28.10 et 25.11), Economie (03.11), Statistiques (01.12), Stratégie d'entreprise (02.12 et 15.12). Dès qu'une fiche Notion a la même date, c'est elle qui compte.
 - Onglet Trous : nouvelle section « Les SF à venir », avec dates et compétences. Onglet Ressources : choix « SF à venir » dans le filtre des étapes. Sur la carte, elles apparaissent en anneau, comme tout ce qui n'est pas encore fait.
 - À savoir : la mise à jour du lundi ne lit pas le calendrier. Une SF ajoutée plus tard au calendrier doit être ajoutée à la main dans `sf-a-venir.json` (ou avoir sa fiche Notion).
+
+- Même jour, retour de Léon : « Les compétences les plus nourries » retiré du panneau d'accueil de la carte (rendu jugé peu réussi). Publié.
