@@ -22,6 +22,9 @@ sys.path.insert(0, str(ICI.parents[2] / "bta" / "team-academy" / "notion-sednine
 from sync import post, load_page, val, EXCLUDE  # noqa: E402  (mêmes appels que l'export complet)
 
 SORTIE = ICI / "donnees-direct"
+# Le Notion public cache les noms des personnes (Teampreneur) : on les prend dans
+# personnes.json, relevé à la main depuis une session Notion connectée
+PERSONNES = json.loads((ICI / "personnes.json").read_text(encoding="utf-8")) if (ICI / "personnes.json").exists() else {}
 BASES = [
     ("Lectures individuelles (LI)", "bc2bcbb1-0743-4f75-a4f9-6cb683eaf610", "lectures-individuelles-li.md"),
     ("Articles reflexifs (AR)", "2ce94ed4-5c44-4d7e-a46d-17782ef50aa3", "articles-reflexifs-ar.md"),
@@ -72,6 +75,8 @@ def texte(segs, noms):
         for f in (s[1] if len(s) > 1 else []):
             if f[0] == "p":
                 t = noms.get(f[1], "page liee")
+            elif f[0] == "u":
+                t = PERSONNES.get(f[1], "")
             elif f[0] == "d":
                 dv = f[1]
                 t = dv.get("start_date", "") + (" -> " + dv["end_date"] if dv.get("end_date") else "")

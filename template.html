@@ -7,6 +7,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<link rel="preconnect" href="https://tally.so">
+<script async src="https://tally.so/widgets/embed.js"></script>
 <style>
 :root {
   color-scheme: light;
@@ -122,6 +124,9 @@ label.opt input { accent-color: var(--accent); width: 16px; height: 16px; }
 .chip { border: 0; background: var(--surface-2); border-radius: 999px; padding: 5px 12px; font-size: 13px; cursor: pointer; transition: background .15s; }
 .chip:hover { background: var(--line); }
 .counts { display: flex; gap: 8px; }
+.qui { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 15px; margin: 0; }
+.qui span { color: var(--ink-3); }
+.qui b { font-weight: 600; }
 .count { flex: 1; background: var(--surface-2); border-radius: 14px; padding: 12px 8px; text-align: center; }
 .count b { display: block; font-size: 28px; font-weight: 600; letter-spacing: -0.03em; line-height: 1.1; }
 .count span { font-size: 12px; color: var(--ink-3); }
@@ -269,6 +274,11 @@ td.t button:hover { color: var(--accent); }
   .level { padding: 2px 16px; }
   .section-title { font-size: 24px; }
 }
+/* Bouton « Donner un avis » : ouvre le formulaire Tally en pop up */
+.feedback { position: fixed; z-index: 20; right: 20px; bottom: 20px; display: flex; align-items: center; gap: 8px; border: 0; border-radius: 999px; padding: 10px 18px; background: var(--ink); color: var(--bg); font-size: 14px; font-weight: 600; cursor: pointer; box-shadow: var(--shadow); transition: transform .15s; }
+.feedback:hover { transform: translateY(-2px); }
+.feedback:focus-visible { outline: 3px solid rgba(0, 113, 227, 0.5); outline-offset: 2px; }
+@media (max-width: 900px) { .feedback { right: 16px; bottom: 16px; padding: 10px 14px; } }
 </style>
 </head>
 <body>
@@ -317,10 +327,16 @@ td.t button:hover { color: var(--accent); }
     <div class="eyebrow" id="arbre-num"></div>
     <h2 id="arbre-titre"></h2>
     <p class="lead" id="arbre-lead"></p>
+    <div id="arbre-qui"></div>
     <h3 class="section-title">Les niveaux</h3>
+    <div class="callout niv-attente"><b>En cours.</b> Les niveaux arrivent dès que chacun aura donné son niveau actuel et le niveau qu'il vise ce semestre. Ils montreront alors la théorie à couvrir pour les niveaux visés par l'équipe.</div>
+    <div class="niv-detail">
     <p class="lead" style="font-size:17px">Le texte du référentiel, puis la théorie que chaque niveau demande. Une coche quand une ressource validée de l'équipe la couvre, d'après les titres.</p>
     <div class="keymarks"><span><b style="color:var(--s-sf)">✓</b> couvert par l'équipe</span><span><b style="color:var(--s-ar)">◐</b> en cours ou annoncé</span><span><b style="color:var(--ink-3)">○</b> personne pour l'instant</span><span><b style="color:var(--ink-3)">✎</b> à prouver soi-même</span><span><span class="tag" style="margin:0">exigé</span> lecture explicitement demandée</span></div>
     <div class="levels" id="niveaux"></div>
+    </div>
+    <h3 class="section-title">Les recommandations</h3>
+    <div class="callout"><b>En cours.</b> Les lectures conseillées pour atteindre les niveaux visés, d'après la théorie que l'équipe n'a pas encore couverte. Elles arrivent avec les niveaux.</div>
     <h3 class="section-title">Les ressources</h3>
     <div class="tree-wrap"><svg id="tree"></svg></div>
   </div></div></div>
@@ -328,14 +344,15 @@ td.t button:hover { color: var(--accent); }
   <div class="view" id="ressources"><div class="scroll"><div class="inner">
     <h2>Toutes les ressources.</h2>
     <div class="filters">
-      <input type="search" id="q2" placeholder="Chercher un titre…">
+      <input type="search" id="q2" placeholder="Chercher un titre ou un nom…">
       <select id="f-type"><option value="">Tous les types</option><option value="LI">Lectures (LI)</option><option value="AR">Articles réflexifs (AR)</option><option value="SF">Sessions de formation (SF)</option></select>
       <select id="f-comp"><option value="">Toutes les compétences</option></select>
       <select id="f-etape"><option value="">Toutes les étapes</option><option value="validee">Validées</option><option value="encours">En cours</option><option value="annoncee">Annoncées ou à venir</option><option value="pas">Pas encore validées</option></select>
+      <select id="f-qui"><option value="">Tout le monde</option></select>
       <span class="hint" id="n-res"></span>
     </div>
     <div class="table-wrap"><table>
-      <thead><tr><th>Titre</th><th>Type</th><th>Compétences</th><th>Statut</th><th>Semestre</th><th>Notion</th></tr></thead>
+      <thead><tr><th>Titre</th><th>Type</th><th>Par</th><th>Compétences</th><th>Statut</th><th>Semestre</th><th>Notion</th></tr></thead>
       <tbody id="rows"></tbody>
     </table></div>
   </div></div></div>
@@ -348,15 +365,18 @@ td.t button:hover { color: var(--accent); }
       <b>Ce qui manque encore partout.</b> Les sous-compétences ne sont pas encore définies. Elles le seront avec les responsables de compétence, et l'arbre de chaque compétence les affichera.
     </div>
     <h3 class="section-title">La théorie que personne n'a encore couverte</h3>
+    <div class="callout niv-attente"><b>En cours.</b> Les niveaux arrivent dès que chacun aura donné son niveau actuel et le niveau qu'il vise ce semestre. Ils montreront alors la théorie à couvrir pour les niveaux visés par l'équipe.</div>
+    <div class="niv-detail">
     <p class="lead" style="font-size:17px">Ce que le référentiel demande, niveau par niveau, et qu'aucune ressource de l'équipe ne couvre encore, même en cours. De bonnes idées de prochaines LI.</p>
     <div class="gaps" id="gaps"></div>
+    </div>
   </div></div></div>
 
   <div class="view" id="apropos"><div class="scroll"><div class="inner">
     <h2>Du vécu à l'écrit.<br>Et retour.</h2>
     <p class="lead">Ce site est la base de savoir de la Team Company rendue visible. Il s'appuie sur le modèle de Nonaka et Takeuchi (<i>The Knowledge-Creating Company</i>, 1995) : le savoir naît quand on passe du vécu à l'écrit, puis de l'écrit au vécu. Le site ne sert que s'il fait partie de cette boucle.</p>
     <div class="loop">
-      <div class="step"><div class="eyebrow">1 · Socialisation</div><h3>On partage le vécu</h3><p>Travailler à côté de quelqu'un qui a déjà vécu la situation.</p><div class="here">Ici : les personnes ressources de chaque compétence (à venir, avec leur accord).</div></div>
+      <div class="step"><div class="eyebrow">1 · Socialisation</div><h3>On partage le vécu</h3><p>Travailler à côté de quelqu'un qui a déjà vécu la situation.</p><div class="here">Ici : le responsable de chaque compétence, et les auteurs de chaque ressource.</div></div>
       <div class="step"><div class="eyebrow">2 · Externalisation</div><h3>On le met en mots</h3><p>Une situation apprenante, un article réflexif, une mindmap.</p><div class="here">Ici : les AR, et la base commune des situations apprenantes.</div></div>
       <div class="step"><div class="eyebrow">3 · Combinaison</div><h3>On le relie à l'existant</h3><p>Ranger, classer, faire des liens entre compétences.</p><div class="here">Ici : la carte, mise à jour depuis Notion.</div></div>
       <div class="step"><div class="eyebrow">4 · Internalisation</div><h3>On le pratique</h3><p>Repartir de la carte au lancement d'un projet.</p><div class="here">Ici : ouvrir la compétence de ton projet et choisir deux ou trois ressources.</div></div>
@@ -366,6 +386,8 @@ td.t button:hover { color: var(--accent); }
     </div>
   </div></div></div>
 </main>
+
+<button class="feedback" id="feedback" title="Une idée, un manque, un souci ? Dis-le nous">💬 Donner un avis</button>
 
 <script>
 const DATA = /*DONNEES*/null;
@@ -384,6 +406,10 @@ const SOUS = DATA.sousCompetences || {};
 const NIV = DATA.niveaux || {}, EXIG = DATA.exigences || {};
 const ETAPES = { validee: 'Validée', encours: 'En cours', annoncee: 'Annoncée' };
 const MARKS = { couvert: '✓', encours: '◐', vide: '○', preuve: '✎' };
+// Niveaux en attente des niveaux actuels et visés de chacun (questionnaire Tally). Passer à true pour les afficher.
+const NIVEAUX_PRETS = false;
+document.querySelectorAll('.niv-detail').forEach(e => e.hidden = !NIVEAUX_PRETS);
+document.querySelectorAll('.niv-attente').forEach(e => e.hidden = NIVEAUX_PRETS);
 const exigOf = cid => Object.values(EXIG[cid] || {}).flat();
 document.querySelectorAll('.export-date').forEach(e => e.textContent = DATA.export || '-');
 
@@ -407,6 +433,20 @@ document.getElementById('theme').onclick = () => {
 try { const t = localStorage.getItem('carte-theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
 
 function resOf(compId, list = DATA.ressources) { return list.filter(r => r.competences.includes(compId)); }
+const par = r => (r.personnes || []).join(', ');
+// Le responsable de la compétence et son suppléant (champs de la base Compétences)
+function quiListe(cid) {
+  const c = compById[cid];
+  const nom = n => `<b>${n ? esc(n) : 'à définir'}</b>`;
+  return `<p class="qui"><span>Responsable</span>${nom(c.responsable)}<span>Suppléant</span>${nom(c.suppleant)}</p>`;
+}
+// Un clic sur un nom ouvre l'onglet Ressources filtré sur cette personne
+function voirPersonne(nom) {
+  fQui.value = nom; fComp.value = ''; document.getElementById('q2').value = '';
+  document.getElementById('f-type').value = ''; document.getElementById('f-etape').value = '';
+  renderRows(); showView('ressources');
+}
+function brancherQui(box) { box.querySelectorAll('[data-qui]').forEach(b => b.onclick = () => voirPersonne(b.dataset.qui)); }
 function compLinks(list) {
   const w = {};
   list.filter(r => r.competences.length > 1).forEach(r => {
@@ -594,12 +634,14 @@ function renderPanel() {
       <div class="counts">${['LI', 'AR', 'SF'].map(t => `<div class="count"><b>${ok(t)}</b><span>${t} ${t === 'SF' ? 'suivies' : 'validées'}</span></div>`).join('')}</div>
       <p class="hint">${mine.filter(r => r.etape === 'encours').length} en cours et ${mine.filter(r => r.etape === 'annoncee').length} annoncées ou à venir, listées plus bas.</p>
       <section><button class="btn" data-arbre="${id}">Ouvrir l'arbre de la compétence</button></section>
+      <section><h4>Qui demander</h4>${quiListe(id)}</section>
       <section><h4>Compétences liées</h4>${voisins.length ? `<div class="chips">${voisins.map(v => pill(v.o, `${compById[v.o].num}. ${short(compById[v.o].nom)} · ${v.w}`)).join('')}</div>` : '<p class="hint">Aucune ressource partagée avec une autre compétence.</p>'}</section>
       ${['LI', 'AR', 'SF'].map(t => by(t).length ? `<section><h4>${TYPES[t].pluriel}</h4><ul class="res">${by(t).sort((a, b) => (b.valide - a.valide) || (b.date || '').localeCompare(a.date || '')).map(resItem).join('')}</ul></section>` : '').join('')}`;
   } else {
     const r = resById[id];
     p.innerHTML = `${fermer}<div class="eyebrow" style="color:var(${TYPES[r.type].c})">${TYPES[r.type].nom}</div><h2>${esc(r.titre)}</h2>
       <section><dl class="meta">
+        ${(r.personnes || []).length ? `<dt>${r.type === 'SF' ? 'Responsables' : 'Par'}</dt><dd>${r.personnes.map(p => `<button class="chip" data-qui="${esc(p)}">${esc(p)}</button>`).join(' ')}</dd>` : ''}
         <dt>Statut</dt><dd>${esc(r.statut || '-')}</dd>
         ${r.semestre ? `<dt>Semestre</dt><dd>${esc(r.semestre)}</dd>` : ''}
         ${r.date ? `<dt>Date</dt><dd>${esc(r.date)}</dd>` : ''}
@@ -611,6 +653,7 @@ function renderPanel() {
   }
   p.querySelectorAll('[data-go]').forEach(b => b.onclick = () => openOnMap(b.dataset.go));
   p.querySelectorAll('[data-arbre]').forEach(b => b.onclick = () => openArbre(b.dataset.arbre));
+  brancherQui(p);
   const cl = document.getElementById('close'); if (cl) cl.onclick = () => select(null);
 }
 
@@ -629,6 +672,8 @@ function drawTree(cid) {
   document.getElementById('arbre-titre').textContent = c.nom;
   const ok = mine.filter(r => r.valide).length, attente = mine.length - ok;
   document.getElementById('arbre-lead').textContent = `Ce que l'équipe a déposé sur cette compétence : ${ok} ressource${ok > 1 ? 's' : ''} validée${ok > 1 ? 's' : ''} ou suivie${ok > 1 ? 's' : ''}, et ${attente} qui arrive${attente > 1 ? 'nt' : ''} (en anneau). Clique sur une ressource pour l'ouvrir dans Notion.`;
+  const qui = document.getElementById('arbre-qui');
+  qui.innerHTML = quiListe(cid); brancherQui(qui);
   renderNiveaux(cid);
   const sous = SOUS[cid] || [];
   const groupes = [{ nom: 'Sous-compétences', kind: 'grp', children: sous.length ? sous.map(s => ({ nom: s, kind: 'sous' })) : [{ nom: 'À définir avec le responsable de compétence', kind: 'todo' }] }];
@@ -660,7 +705,7 @@ function drawTree(cid) {
 // ---------- Niveaux d'une compétence ----------
 function renderNiveaux(cid) {
   const box = document.getElementById('niveaux');
-  const ref = id => { const r = resById[id]; return `<button class="chip${r.valide ? '' : ' pending'}" data-go="${id}" title="${esc(TYPES[r.type].nom + (r.valide ? '' : ' · ' + ETAPES[r.etape].toLowerCase()) + ' · ' + r.titre)}">${r.type} · ${esc(short(r.titre))}</button>`; };
+  const ref = id => { const r = resById[id]; return `<button class="chip${r.valide ? '' : ' pending'}" data-go="${id}" title="${esc(TYPES[r.type].nom + (r.valide ? '' : ' · ' + ETAPES[r.etape].toLowerCase()) + ' · ' + r.titre + (par(r) ? ' · par ' + par(r) : ''))}">${r.type} · ${esc(short(r.titre))}</button>`; };
   box.innerHTML = (NIV[cid] || []).map(nv => {
     const items = (EXIG[cid] || {})[nv.num] || [];
     const comptables = items.filter(i => i.etat !== 'preuve');
@@ -680,13 +725,15 @@ function renderCards() {
     const e = exigOf(c.id).filter(i => i.etat !== 'preuve');
     return `<button class="card" data-arbre="${c.id}"><div class="num">${c.num}</div><h3>${esc(c.nom)}</h3>
       <div class="mini">${['LI', 'AR', 'SF'].map(t => `<span><span class="dot" style="background:var(${TYPES[t].c})"></span>${n(t)} ${t}</span>`).join('')}</div>
-      ${e.length ? `<div class="theo">Théorie des niveaux : ${e.filter(i => i.etat === 'couvert').length} / ${e.length} couverte</div>` : ''}</button>`;
+      ${NIVEAUX_PRETS && e.length ? `<div class="theo">Théorie des niveaux : ${e.filter(i => i.etat === 'couvert').length} / ${e.length} couverte</div>` : ''}</button>`;
   }).join('');
   document.querySelectorAll('#cards [data-arbre]').forEach(b => b.onclick = () => openArbre(b.dataset.arbre));
 }
 
 // ---------- Ressources ----------
 const fComp = document.getElementById('f-comp');
+const fQui = document.getElementById('f-qui');
+fQui.innerHTML += [...new Set(DATA.ressources.flatMap(r => r.personnes || []))].sort((a, b) => a.localeCompare(b)).map(p => `<option value="${esc(p)}">${esc(p)}</option>`).join('');
 fComp.innerHTML += comps.map(c => `<option value="${c.id}">${c.num}. ${esc(c.nom)}</option>`).join('');
 // Recherche tolérante : sans accents, et une ou deux fautes de frappe acceptées par mot (« Enssentialism » trouvé avec « essentialism »)
 const norm = s => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
@@ -708,19 +755,20 @@ function trouve(titre, q) {
 }
 function renderRows() {
   const q = norm(document.getElementById('q2').value.trim());
-  const t = document.getElementById('f-type').value, c = fComp.value, e = document.getElementById('f-etape').value;
-  const rows = DATA.ressources.filter(r => (!q || trouve(r.titre, q)) && (!t || r.type === t) && (!c || r.competences.includes(c)) && (!e || (e === 'pas' ? !r.valide : r.etape === e)))
+  const t = document.getElementById('f-type').value, c = fComp.value, e = document.getElementById('f-etape').value, w = fQui.value;
+  const rows = DATA.ressources.filter(r => (!q || trouve(r.titre, q) || trouve(par(r), q)) && (!w || (r.personnes || []).includes(w)) && (!t || r.type === t) && (!c || r.competences.includes(c)) && (!e || (e === 'pas' ? !r.valide : r.etape === e)))
     .sort((a, b) => (b.date || '').localeCompare(a.date || ''));
   document.getElementById('n-res').textContent = `${rows.length} ressource${rows.length > 1 ? 's' : ''}`;
   document.getElementById('rows').innerHTML = rows.map(r => `<tr>
     <td class="t"><button data-go="${r.id}">${esc(r.titre)}</button></td>
     <td class="nw"><span class="dot" style="background:var(${TYPES[r.type].c})"></span> ${r.type}</td>
+    <td>${esc(par(r))}</td>
     <td>${r.competences.map(x => compById[x].num).join(', ')}</td>
     <td><span class="badge${r.valide ? ' ok' : r.etape === 'encours' ? ' encours' : ''}">${esc(r.statut || '-')}</span></td><td class="nw">${esc(r.semestre.replace('Semestre ', 'S'))}</td>
     <td class="nw">${r.notion ? `<a href="${r.notion}" target="_blank" rel="noopener">Ouvrir ↗</a>` : ''}</td></tr>`).join('');
   document.querySelectorAll('#rows [data-go]').forEach(b => b.onclick = () => openOnMap(b.dataset.go));
 }
-['q2', 'f-type', 'f-comp', 'f-etape'].forEach(id => document.getElementById(id).addEventListener('input', renderRows));
+['q2', 'f-type', 'f-comp', 'f-etape', 'f-qui'].forEach(id => document.getElementById(id).addEventListener('input', renderRows));
 
 // ---------- Trous ----------
 // Même règle partout : LI et AR validées, SF suivies (le panneau de la carte compte pareil)
@@ -745,6 +793,15 @@ let start = document.getElementById(fromHash) && document.getElementById(fromHas
 try { if (!start) { const v = localStorage.getItem('carte-vue'); if (v && document.getElementById(v) && v !== 'arbre') start = v; } } catch (e) {}
 if (/^C\d\d$/.test(fromHash) && compById[fromHash]) openArbre(fromHash);
 else if (start && start !== 'carte') showView(start); else requestAnimationFrame(draw);
+
+// ---------- Avis ----------
+// Formulaire Tally « Ton avis sur la carte des compétences » (pebxPy), avec la vue d'où vient l'avis
+const FORM_AVIS = 'pebxPy';
+document.getElementById('feedback').onclick = () => {
+  const page = location.hash.slice(1) || (document.querySelector('.view.active') || {}).id || 'carte';
+  if (window.Tally) Tally.openPopup(FORM_AVIS, { layout: 'modal', width: 520, overlay: true, autoClose: 3000, hiddenFields: { page } });
+  else window.open(`https://tally.so/r/${FORM_AVIS}?page=${encodeURIComponent(page)}`, '_blank', 'noopener');
+};
 </script>
 </body>
 </html>

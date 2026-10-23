@@ -1,3 +1,7 @@
 # Données brutes et fichiers techniques, régénérés par les scripts
 donnees-direct/
 __pycache__/
+.vercel/
+
+.vercel
+personnes.json

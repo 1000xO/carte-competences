@@ -25,3 +25,17 @@ Première vérification à la main : `build.py` imprime pour chaque élément le
 ## Limites
 
 Notion ne donne pas les noms des teampreneurs : la coche dit « l'équipe l'a couvert », pas qui. Le texte des niveaux est celui du référentiel officiel, publié tel quel sur le site public.
+
+## Suite prévue, en attente des niveaux de chacun (ajouté le 2026-10-23)
+
+Les niveaux sont masqués sur le site depuis le 2026-10-23, avec la mention « En cours » (page de chaque compétence, onglet Trous, et le compteur « Théorie des niveaux » des cartes). Ils sont prêts dans le code : passer `NIVEAUX_PRETS` à `true` dans `template.html` pour les réafficher.
+
+Ce qui débloque la suite : le niveau actuel et le niveau visé ce semestre de chaque personne, par compétence, demandés par questionnaire Tally.
+
+Idées de Léon pour après :
+
+- Trois onglets de plus : « Niveaux », « Recommandations de lecture » et « En attente ».
+- N'afficher que les niveaux utiles, d'après les niveaux visés. Si tout le monde a passé le niveau 2, on vise le 3, et le niveau 2 n'a plus besoin d'être mis en avant. Si quelques personnes visent un niveau au-dessus du reste de l'équipe, ce niveau s'affiche aussi.
+- Les recommandations de lecture partent de la théorie demandée aux niveaux visés et pas encore couverte par l'équipe.
+
+Décision du 2026-10-23 (Léon, puis avis de Claude) : pas d'onglets « Niveaux », « Recommandations » ni « En attente ». Tout va sur la page de chaque compétence, dans l'ordre niveaux, recommandations, ressources. « En attente » est déjà couvert par les anneaux et le filtre « Pas encore validées » de l'onglet Ressources. Piste à revoir une fois les niveaux reçus : une vue « mes recommandations » par personne, toutes compétences confondues.

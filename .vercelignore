@@ -1,0 +1,5 @@
+# Fichiers non envoyés sur Vercel (données brutes et fichiers techniques)
+donnees-direct/
+__pycache__/
+.git/
+personnes.json

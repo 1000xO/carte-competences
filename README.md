@@ -1,5 +1,5 @@
 Origine : construit le 2026-10-03 à la demande de Léon, à partir de l'idée `../idee-site-carte-des-competences.md` et de l'export Notion Sedniner (`04 PROJET/bta/team-academy/notion-sedniner/`).
-Date : 2026-10-03. Statut : en ligne depuis le 2026-10-09, sur https://1000xo.github.io/carte-competences/ (dépôt public https://github.com/1000xO/carte-competences).
+Date : 2026-10-03. Statut : en ligne depuis le 2026-10-09, sur https://1000xo.github.io/carte-competences/ (dépôt public https://github.com/1000xO/carte-competences), et sur Vercel depuis le 2026-10-20 : https://carte-competences.vercel.app
 Usage : la carte des compétences de l'équipe (compétences, lectures, articles réflexifs, sessions de formation, et leurs liens), à ouvrir dans le navigateur.
 
 # Site « Carte des compétences »
@@ -14,6 +14,7 @@ Pour le voir : double-clic sur `index.html`. Il faut une connexion internet, car
 - **Ressources** : toutes les ressources dans un tableau, avec recherche et filtres (dont l'étape : validée, en cours, annoncée).
 - **Ce qui arrive** : partout, une ressource pas encore validée est dessinée en anneau (contour sans remplissage). Une SF future compte comme « à venir ».
 - **Trous** : les compétences les moins nourries en ressources validées, puis la théorie demandée par le référentiel que personne n'a encore couverte (idées de prochaines LI).
+- **Donner un avis** : le bouton en bas à droite ouvre en pop up un formulaire Tally (idée, manque, souci, avis général). Les réponses arrivent dans Tally et par mail. Modifier le formulaire : https://tally.so/forms/pebxPy/edit
 - **Comment ça marche** : le lien avec le modèle SECI de Nonaka et Takeuchi.
 
 Chaque onglet s'ouvre aussi par un lien direct, par exemple `index.html#trous`.
@@ -38,8 +39,10 @@ Les changements successifs sont notés dans `historique-des-changements.md`.
 ## Ce qui manque encore
 
 - Les sous-compétences : à définir avec les responsables de compétence, puis à écrire dans `sous-competences.json` avant de relancer `python build.py`.
-- Les personnes ressources (les noms ne remontent pas du Notion public, et il faut l'accord des personnes).
+- Les noms (qui a fait quoi) : faits le 2026-10-23, responsable et suppléant de chaque compétence, auteurs de chaque ressource. Le Notion public cache les noms, ils viennent donc de `personnes.json` (identifiant Notion -> nom). Une nouvelle personne dans l'équipe : l'ajouter dans ce fichier, sinon son nom reste vide.
 
 ## Publier une mise à jour en ligne
 
 Après `python notion_direct.py` puis `python build.py`, envoyer les changements sur GitHub (`git add -A`, `git commit`, `git push` dans ce dossier, ou le demander à Claude). Le site en ligne se met à jour en une à deux minutes.
+
+Sur Vercel : dans ce dossier, lancer `npx vercel deploy --prod --yes` (compte Vercel de Léon, projet `carte-competences`). `.vercelignore` empêche l'envoi des données brutes (`donnees-direct/`).

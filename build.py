@@ -106,10 +106,11 @@ def liens_notion():
 def construire():
     texte = (EXPORT / "competences.md").read_text(encoding="utf-8")
     competences = []
-    for titre, _ in sections(texte):
+    for titre, champs in sections(texte):
         m = re.match(r"(\d{1,2})\s*\.\s*(.+)", titre)
         if m:
-            competences.append({"id": "C" + m.group(1).zfill(2), "num": m.group(1).zfill(2), "nom": m.group(2).strip()})
+            competences.append({"id": "C" + m.group(1).zfill(2), "num": m.group(1).zfill(2), "nom": m.group(2).strip(),
+                                "responsable": champs.get("Resp. Compétence", ""), "suppleant": champs.get("Suppléant", "")})
 
     liens = liens_notion()
     ressources = []
@@ -137,6 +138,8 @@ def construire():
                 "format": champs.get("Type LI", ""),
                 "notion": NOTION + liens[titre] if titre in liens else "",
                 "corrige": corrige,
+                # Qui l'a faite : auteurs d'une LI ou d'un AR, responsables d'une SF
+                "personnes": [p.strip() for p in (champs.get("Teampreneur") or champs.get("Responsables SF") or "").split(",") if p.strip()],
             })
 
     # Date du dernier export (première ligne du journal de synchronisation)

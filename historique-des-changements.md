@@ -67,3 +67,67 @@ Statut : fait et vérifié dans le navigateur (carte, page d'une compétence, Tr
 - Page d'une compétence : les 5 niveaux du référentiel, avec sous chacun la théorie demandée (écrite à la main dans `exigences.json`), cochée automatiquement d'après les titres des LI, AR et SF de l'équipe. Les exigences invisibles dans un titre (workshop ou AR en anglais) sont marquées « à prouver soi-même ».
 - Onglet Trous : nouvelle liste de la théorie demandée que personne ne couvre encore, compétence par compétence.
 - Relecture à la main des coches : une dizaine de faux positifs corrigés (par exemple « Geoff Smart » pris pour les objectifs SMART, « Libérer la Suisse » pour l'entreprise libérée).
+
+## 2026-10-20 : mise en ligne sur Vercel
+
+Statut : fait et vérifié (page publique, données brutes non publiées).
+
+- Demande de Léon : « push le site du knowledge manager sur Vercel ».
+- Projet Vercel `carte-competences`, adresse https://carte-competences.vercel.app, avec la version locale du 18.10 (niveaux des compétences, ressources en cours).
+- Ajout de `.vercelignore` pour ne pas envoyer `donnees-direct/`. La version GitHub Pages reste en ligne mais n'a pas encore la mise à jour du 18.10 (commit local pas encore poussé).
+
+## 2026-10-20 : données Notion remises à jour
+
+Statut : fait, en ligne sur Vercel et vérifié.
+
+- Demande de Léon : « mets à jour avec le notion actuel le site ». Relance de `notion_direct.py` puis `build.py`, puis mise en ligne sur Vercel.
+- Lecture du 2026-10-20 : 211 LI, 106 AR et 25 SF dans les bases, dont 170 LI, 100 AR et 18 SF reliées à une compétence (contre 168, 100 et 18 le 2026-10-18).
+
+## 2026-10-20 : bouton « Donner un avis »
+
+Statut : en ligne sur Vercel depuis le 2026-10-20 (vérifié). Le formulaire Tally reste à publier : tant qu'il ne l'est pas, la pop up s'ouvre mais reste vide.
+
+- Demande de Léon : une pop up pour que les visiteurs donnent leur avis, sur le modèle des boutons « signaler un problème », mais pour les retours en général.
+- Un bouton « 💬 Donner un avis » flotte en bas à droite de toutes les vues. Il ouvre en pop up le formulaire Tally « Ton avis sur la carte des compétences » (modifier : https://tally.so/forms/pebxPy/edit). Si Tally ne charge pas, le formulaire s'ouvre dans un nouvel onglet.
+- Le formulaire : le genre de retour (idée, manque, quelque chose qui ne marche pas, avis général), le message, le prénom en facultatif. La vue d'où vient l'avis (carte, compétences, C08…) est notée toute seule dans un champ caché. Léon reçoit un mail à chaque réponse.
+- Vérifié dans le navigateur : le bouton s'affiche et ouvre la pop up. Le contenu ne s'affichera qu'une fois le formulaire publié.
+
+## 2026-10-20 : ouverture plus rapide de la pop up d'avis
+
+Statut : fait en local, pas encore en ligne (à envoyer sur Vercel avec la prochaine mise à jour).
+
+- Remarque de Léon : la pop up met longtemps à s'ouvrir. Cause principale : le formulaire Tally est encore en brouillon, la pop up attend un formulaire qui n'existe pas encore en public et tourne sans fin.
+- Ajout d'une connexion préparée vers Tally dès le chargement de la page, pour gagner un peu de temps à l'ouverture une fois le formulaire publié.
+
+## 2026-10-23 : « Qui demander », les noms derrière chaque ressource
+
+Statut : fait en local et vérifié dans le navigateur (aucune erreur), pas encore en ligne. La publication attend l'accord de Léon, car le site est public et affiche maintenant les noms de l'équipe.
+
+- Demande de Léon : savoir qui a fait quelle LI, pour trouver la personne compétente sur un sujet.
+- Pourquoi les noms manquaient : le Notion public de Sedniner donne seulement des identifiants de personne et refuse de les traduire en noms (erreur 403). Les noms ont été relevés une fois depuis la session Notion de Léon dans Chrome, et rangés dans `personnes.json` (21 personnes, une inconnue). `notion_direct.py` s'en sert pour remplacer les « ‣ » par des noms.
+- Page d'une compétence : nouvelle section « Qui demander », avec les personnes classées par nombre de LI et AR validées et de SF portées, puis ce qu'elles ont en cours. Le panneau de la carte en montre les 5 premières.
+- Fiche d'une ressource : ses auteurs (ou les responsables, pour une SF), cliquables.
+- Ressources : colonne « Par », filtre par personne, et la recherche trouve aussi les noms. Un clic sur un nom, n'importe où, ouvre cet onglet filtré sur la personne.
+- Niveaux : l'info-bulle d'une ressource qui coche une théorie donne aussi ses auteurs.
+- À savoir : quand une nouvelle personne apparaît dans Notion, son nom reste vide sur le site tant qu'on ne l'a pas ajoutée à `personnes.json`. `personnes.json` n'est pas envoyé sur GitHub.
+
+## 2026-10-23 : liste « Qui demander » remplacée par le responsable de compétence
+
+Statut : fait en local, pas encore en ligne.
+
+- Retour de Léon : le but n'était pas d'afficher toute la liste des personnes. Vérification faite : dans 13 compétences sur 14, la personne en tête est à égalité avec la deuxième ou n'a qu'une ressource d'avance. Personne ne se démarque, un classement serait arbitraire.
+- La liste classée est retirée (page de la compétence et panneau de la carte). À la place : le responsable de compétence et son suppléant, lus dans la base Compétences de Notion, cliquables.
+- Gardés : les auteurs sur chaque ressource, la colonne « Par » et le filtre par personne de l'onglet Ressources.
+- Piste pour plus tard : quand les responsables auront défini leurs tags (sous-catégories de l'arbre), regarder si une personne se démarque sur un tag. Sur une thématique plus fine, l'écart a plus de chances d'être net.
+
+- Même jour, retour de Léon : le responsable et le suppléant sont affichés en texte simple, plus cliquables.
+
+## 2026-10-23 : niveaux masqués, mention « En cours »
+
+Statut : fait en local, pas encore en ligne.
+
+- Demande de Léon : dire simplement que les niveaux sont en cours, en attendant le niveau actuel et le niveau visé de chacun.
+- Page d'une compétence et onglet Trous : le détail des niveaux et la théorie non couverte sont remplacés par un encadré « En cours ». Le compteur « Théorie des niveaux » des cartes de compétence est masqué.
+- Rien n'est supprimé : un interrupteur (`NIVEAUX_PRETS` dans `template.html`) les réaffiche. La suite prévue est dans `plan-niveaux-et-en-cours.md`.
+
+- Même jour : section « Les recommandations » ajoutée sur la page de chaque compétence, entre les niveaux et les ressources, avec la mention « En cours ». Pas d'onglet à part (voir plan-niveaux-et-en-cours.md).
