@@ -168,3 +168,25 @@ Statut : prêt en local, pas encore publié.
 - Le système de relance n'y figure pas : Léon veut d'abord le proposer en SD.
 - Même jour, retour de Léon : liste raccourcie à 14 titres courts comme chez Tally (retrait du bouton d'avis et des SF à venir), et un bloc repliable par statut (En cours et Prévu ouverts, Fait replié).
 - Même jour : « Choix des prochaines SF du semestre » passe dans En cours (questionnaire envoyé à l'équipe).
+
+## 2026-10-23 : couleurs plus unies
+
+Statut : prêt en local, pas encore publié.
+
+- Demande de Léon : le bleu, l'orange et le vert ne faisaient pas uni. Les trois types de ressources sont maintenant trois nuances d'un même bleu ardoise (LI foncé, AR moyen, SF clair ; l'inverse en mode sombre), et la couleur des liens et boutons passe dans ce même bleu.
+- Compétences : les cartes gardent le nombre de LI, d'AR et de SF, mais sans les pastilles de couleur.
+- Coches des niveaux et pastilles de statut (validée, en cours) : en noir et gris au lieu du vert et de l'orange.
+- Vérifié par captures (cartes, page d'une compétence, carte en graphe, mode sombre).
+
+## 2026-10-23 : roadmap, document de validation
+
+Statut : prêt en local, pas encore publié.
+
+- Demande de Léon : ajout dans « Prévu » du document de validation des 15e et 16e compétences. L'idée : un seul document qui rassemble toutes les compétences proposées, envoyé d'un coup à Antoine pour qu'il les valide toutes en une fois.
+
+## 2026-10-23 : retouches des couleurs
+
+Statut : prêt en local, pas encore publié.
+
+- Retour de Léon : la Roadmap retrouve son vert (Fait) et son orange (En cours) d'origine.
+- Retour de Léon : pas assez de contraste entre les trois bleus. Nouvelle palette plus écartée : bleu nuit pour les LI, bleu vif pour les AR, bleu ciel pour les SF (en mode sombre : presque blanc, bleu vif, bleu profond).

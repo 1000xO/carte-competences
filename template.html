@@ -20,12 +20,12 @@
   --ink: #1d1d1f;
   --ink-2: #6e6e73;
   --ink-3: #86868b;
-  --accent: #0066cc;
+  --accent: #2f5f8f;
   --node-comp: #1d1d1f;
   --link: #d2d2d7;
-  --s-li: #2a78d6;
-  --s-ar: #eb6834;
-  --s-sf: #1baf7a;
+  --s-li: #1e2f6b;
+  --s-ar: #3d7fe0;
+  --s-sf: #8cc8f0;
   --bar: #1d1d1f;
   --shadow: 0 2px 6px rgba(0, 0, 0, 0.04), 0 12px 32px rgba(0, 0, 0, 0.06);
 }
@@ -40,12 +40,12 @@
     --ink: #f5f5f7;
     --ink-2: #a1a1a6;
     --ink-3: #8e8e93;
-    --accent: #2997ff;
+    --accent: #8fb0d6;
     --node-comp: #f5f5f7;
     --link: #3a3a3c;
-    --s-li: #3987e5;
-    --s-ar: #d95926;
-    --s-sf: #199e70;
+    --s-li: #e3ecff;
+    --s-ar: #5b9bf0;
+    --s-sf: #3466c2;
     --bar: #f5f5f7;
     --shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
   }
@@ -60,12 +60,12 @@
   --ink: #f5f5f7;
   --ink-2: #a1a1a6;
   --ink-3: #8e8e93;
-  --accent: #2997ff;
+  --accent: #8fb0d6;
   --node-comp: #f5f5f7;
   --link: #3a3a3c;
-  --s-li: #3987e5;
-  --s-ar: #d95926;
-  --s-sf: #199e70;
+  --s-li: #e3ecff;
+  --s-ar: #5b9bf0;
+  --s-sf: #3466c2;
   --bar: #f5f5f7;
   --shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
 }
@@ -104,7 +104,7 @@ aside.controls { top: 20px; left: 20px; width: 264px; max-height: calc(100% - 40
 aside.panel { top: 20px; right: 20px; width: 360px; max-height: calc(100% - 40px); padding: 24px; }
 .group h3 { font-size: 12px; font-weight: 600; color: var(--ink-3); margin-bottom: 8px; letter-spacing: 0; }
 input[type="search"] { width: 100%; padding: 9px 14px; border: 0; border-radius: 10px; background: var(--surface-2); outline: none; font-size: 15px; }
-input[type="search"]:focus { box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.35); }
+input[type="search"]:focus { box-shadow: 0 0 0 3px rgba(47, 95, 143, 0.3); }
 label.opt { display: flex; align-items: center; gap: 10px; padding: 4px 0; cursor: pointer; font-size: 15px; }
 label.opt input { accent-color: var(--accent); width: 16px; height: 16px; }
 .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; flex: none; }
@@ -185,8 +185,8 @@ dl.meta dd { margin: 0; }
 .level ul { list-style: none; margin: 0 0 16px; padding: 0; }
 .level li { display: grid; grid-template-columns: 26px 1fr; gap: 4px 8px; padding: 10px 0; border-top: 1px solid var(--line); font-size: 15px; }
 .level li .mark { font-size: 15px; line-height: 1.47; text-align: center; }
-.level li .mark.couvert { color: var(--s-sf); }
-.level li .mark.encours { color: var(--s-ar); }
+.level li .mark.couvert { color: var(--ink); }
+.level li .mark.encours { color: var(--ink-2); }
 .level li .mark.vide, .level li .mark.preuve { color: var(--ink-3); }
 .level li .refs { grid-column: 2; display: flex; flex-wrap: wrap; gap: 6px; }
 .level li .refs .chip { font-size: 12px; padding: 3px 10px; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
@@ -230,7 +230,7 @@ tbody tr:hover { background: var(--surface-2); }
 th { color: var(--ink-3); font-weight: 600; font-size: 12px; }
 td.nw { white-space: nowrap; }
 .badge { display: inline-block; padding: 3px 10px; border-radius: 999px; background: var(--surface-2); color: var(--ink-2); font-size: 12px; font-weight: 500; white-space: nowrap; }
-.badge.ok { background: rgba(27, 175, 122, 0.14); color: var(--s-sf); }
+.badge.ok { background: var(--ink); color: var(--surface); }
 .rm { background: var(--surface); border-radius: 22px; box-shadow: var(--shadow); margin-top: 16px; padding: 4px 24px; }
 .rm summary { display: flex; align-items: center; gap: 10px; cursor: pointer; padding: 14px 0; list-style: none; }
 .rm summary::-webkit-details-marker { display: none; }
@@ -238,7 +238,10 @@ td.nw { white-space: nowrap; }
 .rm:not([open]) summary::after { transform: rotate(-90deg); }
 .rm ul { list-style: none; margin: 0; padding: 0 0 12px; }
 .rm li { padding: 10px 0; border-top: 1px solid var(--line); font-size: 15px; }
-.badge.encours { background: rgba(235, 104, 52, 0.14); color: var(--s-ar); }
+.badge.encours { background: none; box-shadow: inset 0 0 0 1px var(--ink-3); color: var(--ink-2); }
+/* Roadmap : vert et orange d'origine, gardés exprès */
+.rm .badge.ok { background: rgba(27, 175, 122, 0.14); box-shadow: none; color: #1baf7a; }
+.rm .badge.encours { background: rgba(235, 104, 52, 0.14); box-shadow: none; color: #eb6834; }
 td.t button { background: none; border: 0; padding: 0; cursor: pointer; text-align: left; color: var(--ink); font-weight: 600; }
 td.t button:hover { color: var(--accent); }
 
@@ -288,7 +291,7 @@ td.t button:hover { color: var(--accent); }
 /* Bouton « Donner un avis » : ouvre le formulaire Tally en pop up */
 .feedback { position: fixed; z-index: 20; right: 20px; bottom: 20px; display: flex; align-items: center; gap: 8px; border: 0; border-radius: 999px; padding: 10px 18px; background: var(--ink); color: var(--bg); font-size: 14px; font-weight: 600; cursor: pointer; box-shadow: var(--shadow); transition: transform .15s; }
 .feedback:hover { transform: translateY(-2px); }
-.feedback:focus-visible { outline: 3px solid rgba(0, 113, 227, 0.5); outline-offset: 2px; }
+.feedback:focus-visible { outline: 3px solid rgba(47, 95, 143, 0.5); outline-offset: 2px; }
 @media (max-width: 900px) { .feedback { right: 16px; bottom: 16px; padding: 10px 14px; } }
 </style>
 </head>
@@ -344,7 +347,7 @@ td.t button:hover { color: var(--accent); }
     <div class="callout niv-attente"><b>En cours.</b> Les niveaux arrivent dès que chacun aura donné son niveau actuel et le niveau qu'il vise ce semestre. Ils montreront alors la théorie à couvrir pour les niveaux visés par l'équipe.</div>
     <div class="niv-detail">
     <p class="lead" style="font-size:17px">Le texte du référentiel, puis la théorie que chaque niveau demande. Une coche quand une ressource validée de l'équipe la couvre, d'après les titres.</p>
-    <div class="keymarks"><span><b style="color:var(--s-sf)">✓</b> couvert par l'équipe</span><span><b style="color:var(--s-ar)">◐</b> en cours ou annoncé</span><span><b style="color:var(--ink-3)">○</b> personne pour l'instant</span><span><b style="color:var(--ink-3)">✎</b> à prouver soi-même</span><span><span class="tag" style="margin:0">exigé</span> lecture explicitement demandée</span></div>
+    <div class="keymarks"><span><b style="color:var(--ink)">✓</b> couvert par l'équipe</span><span><b style="color:var(--ink-2)">◐</b> en cours ou annoncé</span><span><b style="color:var(--ink-3)">○</b> personne pour l'instant</span><span><b style="color:var(--ink-3)">✎</b> à prouver soi-même</span><span><span class="tag" style="margin:0">exigé</span> lecture explicitement demandée</span></div>
     <div class="levels" id="niveaux"></div>
     </div>
     <h3 class="section-title">Les recommandations</h3>
@@ -753,7 +756,7 @@ function renderCards() {
     const n = t => mine.filter(r => r.type === t).length;
     const e = exigOf(c.id).filter(i => i.etat !== 'preuve');
     return `<button class="card" data-arbre="${c.id}"><div class="num">${c.num}</div><h3>${esc(c.nom)}</h3>
-      <div class="mini">${['LI', 'AR', 'SF'].map(t => `<span><span class="dot" style="background:var(${TYPES[t].c})"></span>${n(t)} ${t}</span>`).join('')}</div>
+      <div class="mini">${['LI', 'AR', 'SF'].map(t => `<span>${n(t)} ${t}</span>`).join('')}</div>
       ${NIVEAUX_PRETS && e.length ? `<div class="theo">Théorie des niveaux : ${e.filter(i => i.etat === 'couvert').length} / ${e.length} couverte</div>` : ''}</button>`;
   }).join('') + `<div class="card attente" aria-disabled="true"><div class="num">15</div><h3>15e compétence</h3><div class="theo">En attente</div></div>`;
   document.querySelectorAll('#cards [data-arbre]').forEach(b => b.onclick = () => openArbre(b.dataset.arbre));
