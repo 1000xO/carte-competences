@@ -206,6 +206,9 @@ dl.meta dd { margin: 0; }
 .card .mini { display: flex; gap: 14px; font-size: 13px; color: var(--ink-2); }
 .card .mini span { display: flex; align-items: center; gap: 5px; }
 .card .theo { font-size: 13px; color: var(--ink-3); }
+.card.attente { cursor: default; box-shadow: none; background: none; outline: 2px dashed var(--line); outline-offset: -2px; }
+.card.attente:hover { transform: none; }
+.card.attente h3 { color: var(--ink-3); }
 .gaps { margin-top: 24px; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
 .gap { background: var(--surface); border-radius: 18px; box-shadow: var(--shadow); padding: 18px 20px; font-size: 14px; }
 .gap h4 { margin: 0 0 8px; font-size: 13px; color: var(--ink-3); cursor: pointer; }
@@ -726,7 +729,7 @@ function renderCards() {
     return `<button class="card" data-arbre="${c.id}"><div class="num">${c.num}</div><h3>${esc(c.nom)}</h3>
       <div class="mini">${['LI', 'AR', 'SF'].map(t => `<span><span class="dot" style="background:var(${TYPES[t].c})"></span>${n(t)} ${t}</span>`).join('')}</div>
       ${NIVEAUX_PRETS && e.length ? `<div class="theo">Théorie des niveaux : ${e.filter(i => i.etat === 'couvert').length} / ${e.length} couverte</div>` : ''}</button>`;
-  }).join('');
+  }).join('') + `<div class="card attente" aria-disabled="true"><div class="num">15</div><h3>15e compétence</h3><div class="theo">En attente</div></div>`;
   document.querySelectorAll('#cards [data-arbre]').forEach(b => b.onclick = () => openArbre(b.dataset.arbre));
 }
 

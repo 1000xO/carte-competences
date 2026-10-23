@@ -131,3 +131,9 @@ Statut : fait en local, pas encore en ligne.
 - Rien n'est supprimé : un interrupteur (`NIVEAUX_PRETS` dans `template.html`) les réaffiche. La suite prévue est dans `plan-niveaux-et-en-cours.md`.
 
 - Même jour : section « Les recommandations » ajoutée sur la page de chaque compétence, entre les niveaux et les ressources, avec la mention « En cours ». Pas d'onglet à part (voir plan-niveaux-et-en-cours.md).
+
+## 2026-10-23 : carte « 15e compétence, en attente »
+
+Statut : fait et publié.
+
+- Demande de Léon : une 15e carte dans l'onglet Compétences, non cliquable, pour montrer que la 15e compétence arrive. Carte en pointillés, sans lien.
