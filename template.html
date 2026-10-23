@@ -127,6 +127,7 @@ label.opt input { accent-color: var(--accent); width: 16px; height: 16px; }
 .qui { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 15px; margin: 0; }
 .qui span { color: var(--ink-3); }
 .qui b { font-weight: 600; }
+.qui.experts { margin-top: 8px; }
 .count { flex: 1; background: var(--surface-2); border-radius: 14px; padding: 12px 8px; text-align: center; }
 .count b { display: block; font-size: 28px; font-weight: 600; letter-spacing: -0.03em; line-height: 1.1; }
 .count span { font-size: 12px; color: var(--ink-3); }
@@ -350,7 +351,7 @@ td.t button:hover { color: var(--accent); }
       <input type="search" id="q2" placeholder="Chercher un titre ou un nom…">
       <select id="f-type"><option value="">Tous les types</option><option value="LI">Lectures (LI)</option><option value="AR">Articles réflexifs (AR)</option><option value="SF">Sessions de formation (SF)</option></select>
       <select id="f-comp"><option value="">Toutes les compétences</option></select>
-      <select id="f-etape"><option value="">Toutes les étapes</option><option value="validee">Validées</option><option value="encours">En cours</option><option value="annoncee">Annoncées ou à venir</option><option value="pas">Pas encore validées</option></select>
+      <select id="f-etape"><option value="">Toutes les étapes</option><option value="validee">Validées</option><option value="encours">En cours</option><option value="annoncee">Annoncées ou à venir</option><option value="pas">Pas encore validées</option><option value="sfvenir">SF à venir</option></select>
       <select id="f-qui"><option value="">Tout le monde</option></select>
       <span class="hint" id="n-res"></span>
     </div>
@@ -367,6 +368,9 @@ td.t button:hover { color: var(--accent); }
     <div class="callout">
       <b>Ce qui manque encore partout.</b> Les sous-compétences ne sont pas encore définies. Elles le seront avec les responsables de compétence, et l'arbre de chaque compétence les affichera.
     </div>
+    <h3 class="section-title">Les SF à venir</h3>
+    <p class="lead" style="font-size:17px">Les sessions de formation prévues ce semestre, d'après le calendrier de l'école et Notion.</p>
+    <div class="gaps" id="sf-venir"></div>
     <h3 class="section-title">La théorie que personne n'a encore couverte</h3>
     <div class="callout niv-attente"><b>En cours.</b> Les niveaux arrivent dès que chacun aura donné son niveau actuel et le niveau qu'il vise ce semestre. Ils montreront alors la théorie à couvrir pour les niveaux visés par l'équipe.</div>
     <div class="niv-detail">
@@ -385,7 +389,7 @@ td.t button:hover { color: var(--accent); }
       <div class="step"><div class="eyebrow">4 · Internalisation</div><h3>On le pratique</h3><p>Repartir de la carte au lancement d'un projet.</p><div class="here">Ici : ouvrir la compétence de ton projet et choisir deux ou trois ressources.</div></div>
     </div>
     <div class="callout">
-      <b>D'où viennent les données.</b> De l'espace Notion Sedniner (lectures, articles réflexifs, sessions de formation et leurs compétences), export du <span class="export-date"></span>. Notion reste la source : pour corriger une ressource, on la corrige dans Notion, et la carte suit à la prochaine mise à jour.
+      <b>D'où viennent les données.</b> De l'espace Notion Sedniner (lectures, articles réflexifs, sessions de formation et leurs compétences), export du <span class="export-date"></span>. Le site se met à jour tout seul chaque lundi matin : ce qui est ajouté ou modifié dans Notion pendant la semaine apparaît ici le lundi suivant. Notion reste la source : pour corriger une ressource, on la corrige dans Notion, et la carte suit à la prochaine mise à jour.
     </div>
   </div></div></div>
 </main>
@@ -442,6 +446,14 @@ function quiListe(cid) {
   const c = compById[cid];
   const nom = n => `<b>${n ? esc(n) : 'à définir'}</b>`;
   return `<p class="qui"><span>Responsable</span>${nom(c.responsable)}<span>Suppléant</span>${nom(c.suppleant)}</p>`;
+}
+// Les experts externes qui ont animé une SF sur la compétence, avec la ou les SF concernées
+function expertsListe(cid) {
+  const m = {};
+  resOf(cid).filter(r => r.type === 'SF').forEach(r => (r.experts || []).forEach(e => (m[e] = m[e] || []).push(r)));
+  const noms = Object.keys(m).sort((a, b) => a.localeCompare(b));
+  if (!noms.length) return '';
+  return `<p class="qui experts"><span>Experts des SF</span>${noms.map(e => `<b title="${esc(m[e].map(r => r.titre).join(' · '))}">${esc(e)}</b>`).join('<span>·</span>')}</p>`;
 }
 // Un clic sur un nom ouvre l'onglet Ressources filtré sur cette personne
 function voirPersonne(nom) {
@@ -637,7 +649,7 @@ function renderPanel() {
       <div class="counts">${['LI', 'AR', 'SF'].map(t => `<div class="count"><b>${ok(t)}</b><span>${t} ${t === 'SF' ? 'suivies' : 'validées'}</span></div>`).join('')}</div>
       <p class="hint">${mine.filter(r => r.etape === 'encours').length} en cours et ${mine.filter(r => r.etape === 'annoncee').length} annoncées ou à venir, listées plus bas.</p>
       <section><button class="btn" data-arbre="${id}">Ouvrir l'arbre de la compétence</button></section>
-      <section><h4>Qui demander</h4>${quiListe(id)}</section>
+      <section><h4>Qui demander</h4>${quiListe(id)}${expertsListe(id)}</section>
       <section><h4>Compétences liées</h4>${voisins.length ? `<div class="chips">${voisins.map(v => pill(v.o, `${compById[v.o].num}. ${short(compById[v.o].nom)} · ${v.w}`)).join('')}</div>` : '<p class="hint">Aucune ressource partagée avec une autre compétence.</p>'}</section>
       ${['LI', 'AR', 'SF'].map(t => by(t).length ? `<section><h4>${TYPES[t].pluriel}</h4><ul class="res">${by(t).sort((a, b) => (b.valide - a.valide) || (b.date || '').localeCompare(a.date || '')).map(resItem).join('')}</ul></section>` : '').join('')}`;
   } else {
@@ -645,9 +657,11 @@ function renderPanel() {
     p.innerHTML = `${fermer}<div class="eyebrow" style="color:var(${TYPES[r.type].c})">${TYPES[r.type].nom}</div><h2>${esc(r.titre)}</h2>
       <section><dl class="meta">
         ${(r.personnes || []).length ? `<dt>${r.type === 'SF' ? 'Responsables' : 'Par'}</dt><dd>${r.personnes.map(p => `<button class="chip" data-qui="${esc(p)}">${esc(p)}</button>`).join(' ')}</dd>` : ''}
+        ${(r.experts || []).length ? `<dt>Expert${r.experts.length > 1 ? 's' : ''}</dt><dd>${esc(r.experts.join(', '))}</dd>` : ''}
         <dt>Statut</dt><dd>${esc(r.statut || '-')}</dd>
         ${r.semestre ? `<dt>Semestre</dt><dd>${esc(r.semestre)}</dd>` : ''}
-        ${r.date ? `<dt>Date</dt><dd>${esc(r.date)}</dd>` : ''}
+        ${r.date ? `<dt>Date${(r.dates || []).length > 1 ? 's' : ''}</dt><dd>${esc((r.dates || [r.date]).join(', '))}</dd>` : ''}
+        ${r.agenda ? `<dt>Source</dt><dd>Calendrier de l'école (pas encore de fiche Notion)</dd>` : ''}
         ${r.format ? `<dt>Format</dt><dd>${esc(r.format)}</dd>` : ''}
       </dl></section>
       <section><h4>Compétences</h4><div class="chips">${r.competences.map(cid => pill(cid, `${compById[cid].num}. ${short(compById[cid].nom)}`)).join('')}</div>
@@ -676,7 +690,7 @@ function drawTree(cid) {
   const ok = mine.filter(r => r.valide).length, attente = mine.length - ok;
   document.getElementById('arbre-lead').textContent = `Ce que l'équipe a déposé sur cette compétence : ${ok} ressource${ok > 1 ? 's' : ''} validée${ok > 1 ? 's' : ''} ou suivie${ok > 1 ? 's' : ''}, et ${attente} qui arrive${attente > 1 ? 'nt' : ''} (en anneau). Clique sur une ressource pour l'ouvrir dans Notion.`;
   const qui = document.getElementById('arbre-qui');
-  qui.innerHTML = quiListe(cid); brancherQui(qui);
+  qui.innerHTML = quiListe(cid) + expertsListe(cid); brancherQui(qui);
   renderNiveaux(cid);
   const sous = SOUS[cid] || [];
   const groupes = [{ nom: 'Sous-compétences', kind: 'grp', children: sous.length ? sous.map(s => ({ nom: s, kind: 'sous' })) : [{ nom: 'À définir avec le responsable de compétence', kind: 'todo' }] }];
@@ -759,7 +773,7 @@ function trouve(titre, q) {
 function renderRows() {
   const q = norm(document.getElementById('q2').value.trim());
   const t = document.getElementById('f-type').value, c = fComp.value, e = document.getElementById('f-etape').value, w = fQui.value;
-  const rows = DATA.ressources.filter(r => (!q || trouve(r.titre, q) || trouve(par(r), q)) && (!w || (r.personnes || []).includes(w)) && (!t || r.type === t) && (!c || r.competences.includes(c)) && (!e || (e === 'pas' ? !r.valide : r.etape === e)))
+  const rows = DATA.ressources.filter(r => (!q || trouve(r.titre, q) || trouve(par(r), q)) && (!w || (r.personnes || []).includes(w)) && (!t || r.type === t) && (!c || r.competences.includes(c)) && (!e || (e === 'pas' ? !r.valide : e === 'sfvenir' ? r.type === 'SF' && !r.valide : r.etape === e)))
     .sort((a, b) => (b.date || '').localeCompare(a.date || ''));
   document.getElementById('n-res').textContent = `${rows.length} ressource${rows.length > 1 ? 's' : ''}`;
   document.getElementById('rows').innerHTML = rows.map(r => `<tr>
@@ -788,6 +802,10 @@ function renderBars() {
     return vides.length ? `<div class="gap"><h4 data-arbre="${c.id}">${c.num}. ${esc(c.nom)} ›</h4><ul>${vides.map(v => `<li>Niveau ${v.n} : ${esc(v.i.t)}${v.i.exige ? '<span class="tag">exigé</span>' : ''}</li>`).join('')}</ul></div>` : '';
   }).join('');
   document.querySelectorAll('#gaps [data-arbre]').forEach(b => b.onclick = () => openArbre(b.dataset.arbre));
+  const jour = d => new Date(d + 'T12:00').toLocaleDateString('fr-CH', { weekday: 'long', day: 'numeric', month: 'long' });
+  const venir = DATA.ressources.filter(r => r.type === 'SF' && !r.valide).sort((a, b) => (a.date || '').localeCompare(b.date || ''));
+  document.getElementById('sf-venir').innerHTML = venir.length ? `<div class="gap"><ul>${venir.map(r => `<li><b>${esc(r.titre)}</b> · ${(r.dates || [r.date]).filter(Boolean).map(jour).join(' et ') || 'date à fixer'} · ${r.competences.map(c => `<span data-arbre="${c}" style="cursor:pointer">${compById[c].num}. ${esc(compById[c].nom)}</span>`).join(', ')}</li>`).join('')}</ul></div>` : '<p class="hint">Aucune SF prévue pour l’instant.</p>';
+  document.querySelectorAll('#sf-venir [data-arbre]').forEach(b => b.onclick = () => openArbre(b.dataset.arbre));
 }
 
 renderCards(); renderRows(); renderBars(); renderPanel();

@@ -1,0 +1,9 @@
+{
+ "_lisezmoi": "SF prévues au calendrier de l'école (agenda Google « Calendrier » importé), relevées le 2026-10-23. Tant qu'une SF n'a pas sa fiche dans Notion, le site la prend ici. Dès qu'une fiche Notion a la même date, c'est la fiche Notion qui compte. À compléter à la main quand une SF est fixée.",
+ "sessions": [
+  {"titre": "SF Comptabilité", "dates": ["2026-10-28", "2026-11-25"], "competences": ["06"]},
+  {"titre": "SF Economie", "dates": ["2026-11-03"], "competences": ["02"]},
+  {"titre": "SF Statistiques", "dates": ["2026-12-01"], "competences": ["07"]},
+  {"titre": "SF Stratégie d'entreprise", "dates": ["2026-12-02", "2026-12-15"], "competences": ["04"]}
+ ]
+}

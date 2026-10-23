@@ -20,7 +20,26 @@ EXPORT = ICI.parents[2] / "bta" / "team-academy" / "notion-sedniner"
 if (ICI / "donnees-direct" / "competences.md").exists():
     EXPORT = ICI / "donnees-direct"
 NOTION = "https://chief-zinnia-fe9.notion.site/"
-REFERENTIEL = ICI.parents[2] / "bta" / "team-academy" / "Référentiel 14 compétences 2024 - 2025.md"
+# Copie du référentiel dans le site (la mise à jour automatique sur GitHub n'a pas le reste du classeur)
+REFERENTIEL = ICI / "referentiel.md"
+if not REFERENTIEL.exists():
+    REFERENTIEL = ICI.parents[2] / "bta" / "team-academy" / "Référentiel 14 compétences 2024 - 2025.md"
+
+# Experts des SF : noms tels qu'écrits dans Notion -> nom(s) corrigé(s)
+EXPERTS_CORRECTIONS = {
+    "Maria Pia": ["Maria-Pia Vullyamoz"],
+    "Marie -Charlotte Bagnoud": ["Marie-Charlotte Bagnoud"],
+    "Beverly Todeschini Monica Zumstein": ["Beverly Todeschini", "Monica Zumstein"],
+}
+
+
+def experts(valeur):
+    noms = []
+    for n in valeur.split(","):
+        n = " ".join(n.split())
+        if n:
+            noms += EXPERTS_CORRECTIONS.get(n, [n])
+    return noms
 
 SOURCES = [
     ("LI", "lectures-individuelles-li.md"),
@@ -139,7 +158,36 @@ def construire():
                 "notion": NOTION + liens[titre] if titre in liens else "",
                 "corrige": corrige,
                 # Qui l'a faite : auteurs d'une LI ou d'un AR, responsables d'une SF
+                "experts": experts(champs.get("Expert·e", "")) if type_ == "SF" else [],
                 "personnes": [p.strip() for p in (champs.get("Teampreneur") or champs.get("Responsables SF") or "").split(",") if p.strip()],
+            })
+
+    # SF prévues au calendrier de l'école mais pas encore dans Notion (sf-a-venir.json)
+    fichier_sf = ICI / "sf-a-venir.json"
+    if fichier_sf.exists():
+        deja = {r["date"][:10] for r in ressources if r["type"] == "SF" and r["date"]}
+        for sf in json.loads(fichier_sf.read_text(encoding="utf-8")).get("sessions", []):
+            dates = sorted(sf["dates"])
+            if deja & set(dates):
+                continue
+            et = etape("SF", "", dates[-1])
+            ressources.append({
+                "id": f"SF{len(ressources)}",
+                "type": "SF",
+                "titre": sf["titre"],
+                "competences": ["C" + n for n in sf["competences"]],
+                "statut": "Session suivie" if et == "validee" else "Session à venir",
+                "etape": et,
+                "valide": et == "validee",
+                "semestre": "Semestre 3",
+                "date": dates[0],
+                "dates": dates,
+                "format": "",
+                "notion": "",
+                "corrige": False,
+                "experts": [],
+                "personnes": [],
+                "agenda": True,
             })
 
     # Date du dernier export (première ligne du journal de synchronisation)

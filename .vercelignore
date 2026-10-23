@@ -3,3 +3,4 @@ donnees-direct/
 __pycache__/
 .git/
 personnes.json
+.github/

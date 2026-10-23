@@ -18,8 +18,7 @@ from datetime import datetime
 from pathlib import Path
 
 ICI = Path(__file__).resolve().parent
-sys.path.insert(0, str(ICI.parents[2] / "bta" / "team-academy" / "notion-sedniner"))
-from sync import post, load_page, val, EXCLUDE  # noqa: E402  (mêmes appels que l'export complet)
+from notion_api import post, load_page, val, EXCLUDE  # noqa: E402  (copie des appels de l'export complet)
 
 SORTIE = ICI / "donnees-direct"
 # Le Notion public cache les noms des personnes (Teampreneur) : on les prend dans

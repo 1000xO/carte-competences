@@ -137,3 +137,22 @@ Statut : fait en local, pas encore en ligne.
 Statut : fait et publié.
 
 - Demande de Léon : une 15e carte dans l'onglet Compétences, non cliquable, pour montrer que la 15e compétence arrive. Carte en pointillés, sans lien.
+
+## 2026-10-23 : experts des SF et mise à jour automatique chaque semaine
+
+Statut : prêt en local, pas encore publié (Léon dira « publie »).
+
+- Experts des SF : sur la page d'une compétence et dans le panneau de la carte, la ligne « Experts des SF » donne les experts externes qui ont animé une SF sur la compétence (le titre de la SF au survol). La fiche d'une SF affiche son ou ses experts. Notion ne donne que les noms, pas les mails. Trois noms mal saisis dans Notion sont corrigés dans `build.py` (`EXPERTS_CORRECTIONS`).
+- Mise à jour automatique : `.github/workflows/mise-a-jour-hebdo.yml` fait tourner `notion_direct.py` puis `build.py` chaque lundi matin sur GitHub, et envoie le résultat. Bouton « Run workflow » sur GitHub pour la lancer à la main.
+- Pour que ça marche sur GitHub, le site ne dépend plus du reste du classeur : `notion_api.py` (copie des appels Notion de l'export complet) et `referentiel.md` (copie du référentiel). `personnes.json` est maintenant envoyé sur GitHub (les noms sont de toute façon publics sur le site).
+- Reste à faire par Léon pour que Vercel suive aussi : créer une clé Vercel et l'ajouter dans GitHub sous le nom `VERCEL_TOKEN` (Settings, Secrets and variables, Actions). Sans elle, seule l'adresse GitHub se met à jour.
+- Même jour : « Comment ça marche » indique que le site se met à jour chaque lundi matin.
+
+## 2026-10-23 : les SF à venir
+
+Statut : prêt en local, pas encore publié.
+
+- Demande de Léon : voir quelles SF arrivent, et pouvoir les trier.
+- Source : le calendrier de l'école (agenda Google importé), car Notion n'a pas encore de fiche pour ces SF. Relevé dans `sf-a-venir.json` : Comptabilité (28.10 et 25.11), Economie (03.11), Statistiques (01.12), Stratégie d'entreprise (02.12 et 15.12). Dès qu'une fiche Notion a la même date, c'est elle qui compte.
+- Onglet Trous : nouvelle section « Les SF à venir », avec dates et compétences. Onglet Ressources : choix « SF à venir » dans le filtre des étapes. Sur la carte, elles apparaissent en anneau, comme tout ce qui n'est pas encore fait.
+- À savoir : la mise à jour du lundi ne lit pas le calendrier. Une SF ajoutée plus tard au calendrier doit être ajoutée à la main dans `sf-a-venir.json` (ou avoir sa fiche Notion).
