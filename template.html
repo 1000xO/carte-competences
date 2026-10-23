@@ -231,6 +231,13 @@ th { color: var(--ink-3); font-weight: 600; font-size: 12px; }
 td.nw { white-space: nowrap; }
 .badge { display: inline-block; padding: 3px 10px; border-radius: 999px; background: var(--surface-2); color: var(--ink-2); font-size: 12px; font-weight: 500; white-space: nowrap; }
 .badge.ok { background: rgba(27, 175, 122, 0.14); color: var(--s-sf); }
+.rm { background: var(--surface); border-radius: 22px; box-shadow: var(--shadow); margin-top: 16px; padding: 4px 24px; }
+.rm summary { display: flex; align-items: center; gap: 10px; cursor: pointer; padding: 14px 0; list-style: none; }
+.rm summary::-webkit-details-marker { display: none; }
+.rm summary::after { content: '▾'; margin-left: auto; color: var(--ink-3); transition: transform .2s; }
+.rm:not([open]) summary::after { transform: rotate(-90deg); }
+.rm ul { list-style: none; margin: 0; padding: 0 0 12px; }
+.rm li { padding: 10px 0; border-top: 1px solid var(--line); font-size: 15px; }
 .badge.encours { background: rgba(235, 104, 52, 0.14); color: var(--s-ar); }
 td.t button { background: none; border: 0; padding: 0; cursor: pointer; text-align: left; color: var(--ink); font-weight: 600; }
 td.t button:hover { color: var(--accent); }
@@ -295,6 +302,7 @@ td.t button:hover { color: var(--accent); }
     <button role="tab" data-view="competences" aria-selected="false">Compétences</button>
     <button role="tab" data-view="ressources" aria-selected="false">Ressources</button>
     <button role="tab" data-view="trous" aria-selected="false">Trous</button>
+    <button role="tab" data-view="roadmap" aria-selected="false">Roadmap</button>
     <button role="tab" data-view="apropos" aria-selected="false">Comment ça marche</button>
   </nav>
   <button class="theme" id="theme" title="Changer de thème">◐</button>
@@ -377,6 +385,13 @@ td.t button:hover { color: var(--accent); }
     <p class="lead" style="font-size:17px">Ce que le référentiel demande, niveau par niveau, et qu'aucune ressource de l'équipe ne couvre encore, même en cours. De bonnes idées de prochaines LI.</p>
     <div class="gaps" id="gaps"></div>
     </div>
+  </div></div></div>
+
+  <div class="view" id="roadmap"><div class="scroll"><div class="inner">
+    <h2>Ce qui est fait.<br>Ce qui arrive.</h2>
+    <p class="lead">Tout ce que le site sait déjà faire, ce qui est en cours et ce qui est prévu. Une idée, un manque ? Propose-la, elle rejoindra la liste.</p>
+    <p><button class="btn" id="proposer">Proposer une idée →</button></p>
+    <div id="rm-rows"></div>
   </div></div></div>
 
   <div class="view" id="apropos"><div class="scroll"><div class="inner">
@@ -805,7 +820,17 @@ function renderBars() {
   document.querySelectorAll('#sf-venir [data-arbre]').forEach(b => b.onclick = () => openArbre(b.dataset.arbre));
 }
 
-renderCards(); renderRows(); renderBars(); renderPanel();
+// ---------- Roadmap ----------
+function renderRoadmap() {
+  // Un bloc repliable par statut : « Fait » replié, « En cours » et « Prévu » ouverts
+  const groupes = [['encours', 'En cours', ' encours', true], ['prevu', 'Prévu', '', true], ['fait', 'Fait', ' ok', false]];
+  document.getElementById('rm-rows').innerHTML = groupes.map(([k, nom, cls, ouvert]) => {
+    const items = (DATA.roadmap || []).filter(x => x.statut === k);
+    return items.length ? `<details class="rm"${ouvert ? ' open' : ''}><summary><span class="badge${cls}">${nom}</span><span class="hint">${items.length}</span></summary><ul>${items.map(x => `<li>${esc(x.titre)}</li>`).join('')}</ul></details>` : '';
+  }).join('');
+}
+
+renderCards(); renderRows(); renderBars(); renderPanel(); renderRoadmap();
 const fromHash = location.hash.slice(1);
 let start = document.getElementById(fromHash) && document.getElementById(fromHash).classList.contains('view') && fromHash !== 'arbre' ? fromHash : null;
 try { if (!start) { const v = localStorage.getItem('carte-vue'); if (v && document.getElementById(v) && v !== 'arbre') start = v; } } catch (e) {}
@@ -815,6 +840,7 @@ else if (start && start !== 'carte') showView(start); else requestAnimationFrame
 // ---------- Avis ----------
 // Formulaire Tally « Ton avis sur la carte des compétences » (pebxPy), avec la vue d'où vient l'avis
 const FORM_AVIS = 'pebxPy';
+document.getElementById('proposer').onclick = () => document.getElementById('feedback').click();
 document.getElementById('feedback').onclick = () => {
   const page = location.hash.slice(1) || (document.querySelector('.view.active') || {}).id || 'carte';
   if (window.Tally) Tally.openPopup(FORM_AVIS, { layout: 'modal', width: 520, overlay: true, autoClose: 3000, hiddenFields: { page } });

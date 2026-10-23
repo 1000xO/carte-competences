@@ -198,10 +198,14 @@ def construire():
     sous = json.loads(fichier_sous.read_text(encoding="utf-8")) if fichier_sous.exists() else {}
     sous = {k: v for k, v in sous.items() if k.startswith("C") and isinstance(v, list)}
 
+    # Feuille de route de l'onglet Roadmap (roadmap.json)
+    fichier_rm = ICI / "roadmap.json"
+    roadmap = json.loads(fichier_rm.read_text(encoding="utf-8")).get("elements", []) if fichier_rm.exists() else []
+
     niveaux = lire_niveaux()
     exigences = cocher(ressources)
     return {"competences": competences, "ressources": ressources, "export": export, "sousCompetences": sous,
-            "niveaux": niveaux, "exigences": exigences}
+            "niveaux": niveaux, "exigences": exigences, "roadmap": roadmap}
 
 
 def lire_niveaux():

@@ -158,3 +158,13 @@ Statut : prêt en local, pas encore publié.
 - À savoir : la mise à jour du lundi ne lit pas le calendrier. Une SF ajoutée plus tard au calendrier doit être ajoutée à la main dans `sf-a-venir.json` (ou avoir sa fiche Notion).
 
 - Même jour, retour de Léon : « Les compétences les plus nourries » retiré du panneau d'accueil de la carte (rendu jugé peu réussi). Publié.
+
+## 2026-10-23 : onglet Roadmap
+
+Statut : prêt en local, pas encore publié.
+
+- Demande de Léon, sur le modèle de la page Roadmap de Tally : un onglet qui liste ce qui est fait, en cours et prévu, avec un bouton pour proposer une idée.
+- Contenu dans `roadmap.json` (16 éléments : 9 faits, 3 en cours, 4 prévus), à tenir à jour à chaque changement du site. Le bouton « Proposer une idée » ouvre le même formulaire Tally que « Donner un avis ».
+- Le système de relance n'y figure pas : Léon veut d'abord le proposer en SD.
+- Même jour, retour de Léon : liste raccourcie à 14 titres courts comme chez Tally (retrait du bouton d'avis et des SF à venir), et un bloc repliable par statut (En cours et Prévu ouverts, Fait replié).
+- Même jour : « Choix des prochaines SF du semestre » passe dans En cours (questionnaire envoyé à l'équipe).
