@@ -1,20 +1,69 @@
 {
  "_lisezmoi": "Feuille de route affichée dans l'onglet Roadmap du site. Statuts possibles : fait, encours, prevu. Titres courts, à la manière de la roadmap de Tally. À tenir à jour à chaque changement du site (voir historique-des-changements.md).",
  "elements": [
-  {"titre": "Carte des compétences", "statut": "fait"},
-  {"titre": "Page de chaque compétence", "statut": "fait"},
-  {"titre": "Recherche et filtres", "statut": "fait"},
-  {"titre": "Ressources en cours", "statut": "fait"},
-  {"titre": "Auteurs des ressources", "statut": "fait"},
-  {"titre": "Responsables de compétence", "statut": "fait"},
-  {"titre": "Experts des SF", "statut": "fait"},
-  {"titre": "Mise à jour automatique", "statut": "encours"},
-  {"titre": "Niveaux des compétences", "statut": "encours"},
-  {"titre": "Recommandations de lecture", "statut": "encours"},
-  {"titre": "Choix des prochaines SF du semestre", "statut": "encours"},
-  {"titre": "Sous-compétences et tags", "statut": "prevu"},
-  {"titre": "15e compétence", "statut": "prevu"},
-  {"titre": "Document de validation des 15e et 16e compétences", "statut": "prevu"},
-  {"titre": "Situations apprenantes", "statut": "prevu"}
+  {
+   "titre": "Carte des compétences",
+   "statut": "fait"
+  },
+  {
+   "titre": "Page de chaque compétence",
+   "statut": "fait"
+  },
+  {
+   "titre": "Recherche et filtres",
+   "statut": "fait"
+  },
+  {
+   "titre": "Ressources en cours",
+   "statut": "fait"
+  },
+  {
+   "titre": "Auteurs des ressources",
+   "statut": "fait"
+  },
+  {
+   "titre": "Responsables de compétence",
+   "statut": "fait"
+  },
+  {
+   "titre": "Experts des SF",
+   "statut": "fait"
+  },
+  {
+   "titre": "Mise à jour automatique",
+   "statut": "encours"
+  },
+  {
+   "titre": "Niveaux des compétences",
+   "statut": "fait"
+  },
+  {
+   "titre": "Recommandations de lecture",
+   "statut": "fait"
+  },
+  {
+   "titre": "Choix des prochaines SF du semestre",
+   "statut": "encours"
+  },
+  {
+   "titre": "Ressources par critère",
+   "statut": "fait"
+  },
+  {
+   "titre": "Recherche dans le contenu, en français et en anglais",
+   "statut": "fait"
+  },
+  {
+   "titre": "Vérifier une idée de lecture",
+   "statut": "fait"
+  },
+  {
+   "titre": "Arbres de compétence",
+   "statut": "fait"
+  },
+  {
+   "titre": "Situations apprenantes",
+   "statut": "prevu"
+  }
  ]
 }

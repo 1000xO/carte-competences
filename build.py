@@ -127,7 +127,8 @@ def construire():
     competences = []
     for titre, champs in sections(texte):
         m = re.match(r"(\d{1,2})\s*\.\s*(.+)", titre)
-        if m:
+        # Seulement les 14 compétences communes : la 15e est personnelle à chacun (décision de Léon du 2026-11-07)
+        if m and int(m.group(1)) <= 14:
             competences.append({"id": "C" + m.group(1).zfill(2), "num": m.group(1).zfill(2), "nom": m.group(2).strip(),
                                 "responsable": champs.get("Resp. Compétence", ""), "suppleant": champs.get("Suppléant", "")})
 
@@ -137,6 +138,7 @@ def construire():
         for titre, champs in sections((EXPORT / fichier).read_text(encoding="utf-8")):
             valeur = champs.get("14 Compétences") or champs.get("14 compétences") or ""
             nums, corrige = corriger_trop_de_competences(valeur)
+            nums = [n for n in nums if int(n) <= 14]
             if not nums:
                 continue
             statut = champs.get("Statut", "")
@@ -204,8 +206,131 @@ def construire():
 
     niveaux = lire_niveaux()
     exigences = cocher(ressources)
+    # Combien de personnes visent chaque niveau (niveaux-vises.json, totaux seulement, sans noms)
+    fichier_vises = ICI / "niveaux-vises.json"
+    vises = json.loads(fichier_vises.read_text(encoding="utf-8")) if fichier_vises.exists() else {}
+    vises = {k: v for k, v in vises.items() if k.startswith("C") and isinstance(v, dict)}
+    # Contenu des fiches LI et AR (contenus.py) : critères des niveaux et recherche dans le contenu
+    bruts = lire_contenus(ressources)
+    fichiers = lire_fichiers(ressources)
+    # Pour les critères : texte de la fiche + mots des fichiers joints (supports de SF, rendus de LI)
+    criteres = rattacher_criteres(ressources, {r["id"]: sans_accents(bruts.get(r["id"], "")) + " " + fichiers.get(r["id"], {}).get("mots", "") for r in ressources})
+    for r in ressources:
+        # Le texte de la fiche, pour la recherche du site (« Gantt » trouvé même s'il n'est pas dans le titre, avec l'extrait)
+        r["c"] = bruts.get(r["id"], "")
+        # Les fichiers joints : leurs noms et leurs mots (sans le texte, qui appartient à leurs auteurs)
+        if r["id"] in fichiers:
+            r["fn"] = fichiers[r["id"]]["noms"]
+            r["f"] = fichiers[r["id"]]["mots"]
+    # Résumés faits par IA (resumes.json, clé = identifiant de la page Notion)
+    fichier_res = ICI / "resumes.json"
+    resumes = json.loads(fichier_res.read_text(encoding="utf-8")) if fichier_res.exists() else {}
+    for r in ressources:
+        g = re.search(r"([0-9a-f]{32})", r.get("notion") or "")
+        if g:
+            s = g.group(1)
+            texte = resumes.get(f"{s[:8]}-{s[8:12]}-{s[12:16]}-{s[16:20]}-{s[20:]}", "").strip()
+            if texte:
+                r["s"] = texte
+    fichier_syn = ICI / "synonymes.json"
+    synonymes = json.loads(fichier_syn.read_text(encoding="utf-8")).get("groupes", []) if fichier_syn.exists() else []
     return {"competences": competences, "ressources": ressources, "export": export, "sousCompetences": sous,
-            "niveaux": niveaux, "exigences": exigences, "roadmap": roadmap}
+            "niveaux": niveaux, "exigences": exigences, "roadmap": roadmap, "vises": vises,
+            "criteres": criteres, "synonymes": synonymes, "arbres": lire_arbres(ressources)}
+
+
+def lire_arbres(ressources):
+    """Les arbres de compétence (arbres.json) : pour chaque compétence, ses branches et les identifiants des ressources rangées dedans.
+
+    Une ressource est désignée par un morceau de son titre (sans accents ni majuscules), suivi au besoin de « |date ».
+    Les références introuvables sont signalées dans donnees-direct/verification-arbres.txt.
+    """
+    fichier = ICI / "arbres.json"
+    if not fichier.exists():
+        return {}
+    source = json.loads(fichier.read_text(encoding="utf-8"))
+    sortie, introuvables = {}, []
+    for cid, branches in source.items():
+        if not cid.startswith("C"):
+            continue
+        sortie[cid] = []
+        for b in branches:
+            ids = []
+            for ref in b.get("r", []):
+                morceau, _, date = ref.partition("|")
+                trouvees = [r for r in ressources if sans_accents(morceau) in sans_accents(r["titre"])
+                            and (not date or (r.get("date") or "").startswith(date))]
+                if not trouvees:
+                    introuvables.append(f"{cid} {b['n']} : {ref}")
+                ids += [r["id"] for r in trouvees if r["id"] not in ids]
+            sortie[cid].append({"n": b["n"], "d": b.get("d", ""), "niv": b.get("niv", []), "hors": bool(b.get("hors")), "res": ids})
+    dossier = ICI / "donnees-direct"
+    if dossier.exists():
+        (dossier / "verification-arbres.txt").write_text("\n".join(introuvables) or "Tout est trouvé.", encoding="utf-8")
+    return sortie
+
+
+def lire_contenus(ressources):
+    """Texte de chaque ressource (contenu de la fiche Notion, sans les passages qui citent les autres) : {id ressource : texte}."""
+    fichier = ICI / "donnees-direct" / "contenus.json"
+    brut = json.loads(fichier.read_text(encoding="utf-8")) if fichier.exists() else {}
+    manifeste = json.loads((EXPORT / "manifest.json").read_text(encoding="utf-8"))
+    par_titre = {}
+    for ident, info in manifeste.items():
+        if ident in brut:
+            par_titre.setdefault(info.get("title", "").strip(), brut[ident])
+    return {r["id"]: unicodedata.normalize("NFC", par_titre.get(r["titre"], "")) for r in ressources}
+
+
+def lire_fichiers(ressources):
+    """Noms et mots des fichiers joints à chaque ressource (contenus-fichiers.json, fait par fichiers.py)."""
+    fichier = ICI / "contenus-fichiers.json"
+    brut = json.loads(fichier.read_text(encoding="utf-8")) if fichier.exists() else {}
+    manifeste = json.loads((EXPORT / "manifest.json").read_text(encoding="utf-8"))
+    par_titre = {}
+    for ident, info in manifeste.items():
+        if ident in brut:
+            par_titre.setdefault(info.get("title", "").strip(), brut[ident])
+    return {r["id"]: par_titre[r["titre"]] for r in ressources if r["titre"] in par_titre}
+
+
+def compte(mot, texte):
+    """Nombre de fois où le mot-clé apparaît dans un texte déjà sans accents (début de mot)."""
+    return len(re.findall(r"(?<![a-z0-9])" + re.escape(sans_accents(mot)), texte))
+
+
+def rattacher_criteres(ressources, contenus):
+    """Pour chaque critère des niveaux visés (criteres.json), les ressources qui en parlent.
+
+    Gardée : une ressource dont le titre contient un mot-clé, ou dont le contenu en parle
+    au moins 2 fois (si elle est rattachée à la compétence) ou au moins 5 fois (sinon).
+    Les mots-clés de 3 lettres ou moins ne sont cherchés que dans les titres (« ai », « roi »).
+    """
+    fichier = ICI / "criteres.json"
+    if not fichier.exists():
+        return {}
+    source = json.loads(fichier.read_text(encoding="utf-8"))
+    sortie = {}
+    for cid, par_niveau in source.items():
+        if not cid.startswith("C"):
+            continue
+        sortie[cid] = {}
+        for niv, criteres in par_niveau.items():
+            liste = []
+            for cr in criteres:
+                gardees = []
+                for r in ressources:
+                    kw = cr.get("kw", [])
+                    titre = any(cherche(k, r["titre"]) for k in kw)
+                    n = sum(compte(k, contenus.get(r["id"], "")) for k in kw if len(k) > 3)
+                    seuil = 2 if cid in r["competences"] else 5
+                    if titre or n >= seuil:
+                        gardees.append((not r["valide"], -(100 if titre else 0) - n, r["id"]))
+                gardees.sort()
+                # kw : utilisés aussi par « Vérifier une idée » sur le site
+                liste.append({"t": cr["t"], "kw": cr.get("kw", []), "res": [g[2] for g in gardees]})
+            sortie[cid][niv] = liste
+    return sortie
 
 
 def lire_niveaux():

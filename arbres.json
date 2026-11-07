@@ -1,0 +1,1497 @@
+{
+ "_lisezmoi": "Les arbres de compétence : pour chaque compétence, ses branches (4 à 8). n = nom, d = description, niv = niveaux du référentiel (1 à 5) où la branche apparaît, hors = branche hors référentiel, r = les ressources rangées dans la branche (un morceau du titre exact, sans souci de majuscules ni d'accents). Les branches couvrent tout le référentiel, du niveau 1 au niveau 5. Une branche hors référentiel (hors: true) n'existe que si des ressources de la compétence n'entrent dans aucune branche du référentiel (règle de Léon du 2026-11-07). Version du 2026-11-07 : compétences 1, 4, 6, 9, 11 et 14 à partir des arbres des responsables, complétés et corrigés par Claude ; les 8 autres faites par Claude sur la même méthode (voir ../arbres/arbres-finaux.md). Après modification, relancer python build.py.",
+ "C01": [
+  {
+   "n": "Méthodes de recherche",
+   "d": "Trouver une information fiable avec la bonne méthode (moteurs, sources bibliographiques, entretiens, experts) et savoir décrire la méthode suivie.",
+   "niv": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "r": [
+    "The Mom Test",
+    "The Delphi Method",
+    "SF Méthodologie et Veille|2025-11-18",
+    "SF Méthodologie et veille|2026-04-21"
+   ]
+  },
+  {
+   "n": "Veille stratégique",
+   "d": "Monter un plan et des outils de veille, la pratiquer dans tous ses projets, jusqu'à la veille prospective et aux mandats de veille.",
+   "niv": [
+    2,
+    3,
+    4,
+    5
+   ],
+   "r": [
+    "100 fiches pour organiser sa veille",
+    "SF Méthodologie et Veille 2"
+   ]
+  },
+  {
+   "n": "Esprit critique",
+   "d": "Comparer les sources, repérer la manipulation et les chiffres trompeurs.",
+   "niv": [
+    3
+   ],
+   "r": [
+    "Propaganda",
+    "How to Make the World Add Up"
+   ]
+  },
+  {
+   "n": "Structurer l'information",
+   "d": "Résumer, synthétiser, citer et organiser l'information selon l'usage, business ou académique.",
+   "niv": [
+    2,
+    3
+   ],
+   "r": [
+    "The Pyramid Principle",
+    "The Knowledge Creating Company"
+   ]
+  },
+  {
+   "n": "Bases de données",
+   "d": "Accéder aux bases de données, gratuites ou payantes, et garder une information traçable et fiable.",
+   "niv": [
+    2,
+    4
+   ],
+   "r": [
+    "Big Data, Small Data, Stupid Data"
+   ]
+  },
+  {
+   "n": "Intelligence artificielle",
+   "d": "Comprendre les enjeux des contenus générés par l'IA, la citer, puis l'utiliser de façon critique en gérant ses risques.",
+   "niv": [
+    1,
+    2,
+    4
+   ],
+   "r": [
+    "Co-Intelligence"
+   ]
+  },
+  {
+   "n": "Cadre juridique",
+   "d": "Normes APA, plagiat, droit d'auteur, protection des données, recherche de marques et de brevets.",
+   "niv": [
+    2,
+    4
+   ],
+   "r": [
+    "Droit de l'intelligence artificielle",
+    "La protection des données personnelles"
+   ]
+  },
+  {
+   "n": "Outils bureautiques",
+   "d": "Utiliser Word, PowerPoint et Excel pour produire des documents et des présentations de qualité.",
+   "niv": [
+    1
+   ],
+   "r": []
+  }
+ ],
+ "C02": [
+  {
+   "n": "Enjeux socio-économiques",
+   "d": "Repérer les grands enjeux (climat, transition énergétique, commerce, richesses, industrie 4.0), en débattre en Team Company, animer des workshops et publier des argumentaires critiques.",
+   "niv": [
+    1,
+    2,
+    4,
+    5
+   ],
+   "r": [
+    "La quatrième révolution industrielle",
+    "Guerre en Iran",
+    "Métaux rares",
+    "Désinformation économique",
+    "The Israeli-Palestinian conflict",
+    "L'intelligence artificielle : moteur de la transition",
+    "L'impact de l'IA et la digitalisation",
+    "L'intelligence artificielle à travers les trois piliers",
+    "Le Hack VS a-t-il servi"
+   ]
+  },
+  {
+   "n": "Marchés et microéconomie",
+   "d": "Les bases de la microéconomie et de l'économie de marché, puis le comportement des entreprises selon le type de marché.",
+   "niv": [
+    2,
+    4
+   ],
+   "r": [
+    "Economix",
+    "Économie politique contemporaine",
+    "Google Story",
+    "The Zero Marginal Cost Society",
+    "Comment analyser une entreprise cotée",
+    "How much is a Google review worth",
+    "Mettre en avant un bien qui se vendrait tout seul",
+    "Dans quelles conditions une prestation gratuite",
+    "Investing in AI for an accounting product",
+    "Comment un projet créatif peut-il construire un modèle économique",
+    "Comprendre avant d'entreprendre",
+    "Integrated Marketing Communications"
+   ]
+  },
+  {
+   "n": "Économie internationale",
+   "d": "La globalisation du commerce et ses effets sur les entreprises, jusqu'aux petites entreprises qui dépendent de chaînes mondiales.",
+   "niv": [
+    1,
+    2
+   ],
+   "r": [
+    "Globalisation and sustainability",
+    "Quel est le coût réel et l'impact carbone",
+    "What Finland taught me",
+    "Quelle est l'influence du contexte économique"
+   ]
+  },
+  {
+   "n": "Monnaie et macroéconomie",
+   "d": "La comptabilité nationale et ses résultats, les fondamentaux de la politique monétaire et leur effet sur un projet.",
+   "niv": [
+    3
+   ],
+   "r": [
+    "La monnaie et ses mécanismes",
+    "Quand la BNS bouge",
+    "Quand la BNS entre dans mon budget",
+    "SF Economie|2026-11-03"
+   ]
+  },
+  {
+   "n": "Limites de la croissance",
+   "d": "Un regard critique sur la croissance économique et ses impacts à court et long terme.",
+   "niv": [
+    3,
+    5
+   ],
+   "r": [
+    "Les Limites à la croissance",
+    "La théorie du donut"
+   ]
+  },
+  {
+   "n": "Durabilité et ODD",
+   "d": "Connaître les 17 objectifs de développement durable et mesurer l'impact de ses projets par rapport à eux.",
+   "niv": [
+    1,
+    2,
+    4
+   ],
+   "r": [
+    "Let's Make a Change",
+    "Comment anticiper le gaspillage alimentaire",
+    "Comment choisir un mode de livraison",
+    "Comment un projet alimentaire peut-il réduire",
+    "Comment notre plateforme immobilière",
+    "Quel est l'impact durable d'un événement",
+    "Comment l'usage de plateformes collaboratives",
+    "Le coût caché du remplacement",
+    "Peut-on revendiquer un impact durable",
+    "SF Economie et durabilité",
+    "SF économie et durabilité 2"
+   ]
+  },
+  {
+   "n": "Entreprise responsable",
+   "d": "La RSE et la lecture critique des rapports RSE, et la durabilité comme critère de décision de l'entreprise.",
+   "niv": [
+    3,
+    4
+   ],
+   "r": [
+    "Business Model Vert",
+    "Entrepreneuriat Durable",
+    "Piloter un développement responsable",
+    "Pour une prospérité durable",
+    "L'Entreprise Robuste",
+    "Modèles économiques de demain",
+    "10 Leçons iconoclastes",
+    "Comment la durabilité peut-elle devenir un critère",
+    "When Profit Conflicts with Sustainability",
+    "Jusqu'où vaut-il la peine de viser l'idéal"
+   ]
+  },
+  {
+   "n": "Politiques publiques",
+   "d": "Les instruments de l'État pour intervenir sur les marchés : politiques économiques, énergétiques et environnementales.",
+   "niv": [
+    4
+   ],
+   "r": [
+    "Libérer la Suisse des énergies fossiles"
+   ]
+  }
+ ],
+ "C03": [
+  {
+   "n": "Lancer un projet",
+   "d": "Passer d'une idée à un projet, de la conception (pré-Motorola) à la mise en œuvre (Motorola), en commençant par de petits projets et le 24h client.",
+   "niv": [
+    1,
+    3
+   ],
+   "r": [
+    "Concevoir et lancer un projet",
+    "L'art de se lancer",
+    "Comment lancer un projet",
+    "How to organize and manage an event",
+    "The Creative Habit"
+   ]
+  },
+  {
+   "n": "Planifier",
+   "d": "Découper les tâches, Gantt, chemin critique, jalons, objectifs SMART, budget : planifier puis tenir le plan.",
+   "niv": [
+    2,
+    3
+   ],
+   "r": [
+    "Gestion de projets, le guide exhaustif",
+    "Organiser la conduite d'un projet",
+    "Comment définir les bonnes priorités",
+    "Comment maintenir la qualité et la continuité",
+    "SF Gestion de projet 1",
+    "SF Gestion de projet 2"
+   ]
+  },
+  {
+   "n": "Risques et imprévus",
+   "d": "Identifier les risques, adapter le plan face aux imprévus et redresser un projet en difficulté.",
+   "niv": [
+    2,
+    4
+   ],
+   "r": [
+    "Managing the Unknown",
+    "Comment redresser un projet en difficulté",
+    "Comment apprendre de ces échecs"
+   ]
+  },
+  {
+   "n": "Méthodes agiles",
+   "d": "Les principes de l'agilité (Scrum, kanban, sprints) et leur usage pour gérer les ressources de façon dynamique.",
+   "niv": [
+    3,
+    4
+   ],
+   "r": [
+    "Scrum: The Art",
+    "Actionable Agile Metrics"
+   ]
+  },
+  {
+   "n": "Organiser l'équipe de projet",
+   "d": "Recruter, répartir les profils et les responsabilités, organiser les réunions, puis mentorer les autres à la gestion de projet.",
+   "niv": [
+    2,
+    5
+   ],
+   "r": [
+    "Who : The A Method",
+    "Comment gêrer un rectructement",
+    "Comment structurer efficacement l'organisation",
+    "Comment organiser une co-direction",
+    "Comment rendre les réunions d'équipe plus efficaces",
+    "Pro en management"
+   ]
+  },
+  {
+   "n": "Motiver et gérer les conflits",
+   "d": "Donner un cadre et des objectifs motivants à l'équipe, puis gérer les conflits et les crises.",
+   "niv": [
+    3,
+    4
+   ],
+   "r": [
+    "Glasl",
+    "From Project Manager to Leader",
+    "Comment lutter contre l'ingérence"
+   ]
+  },
+  {
+   "n": "Piloter et rendre compte",
+   "d": "Suivre le projet avec des indicateurs, mener des projets complexes et rédiger des rapports de projet complets et professionnels.",
+   "niv": [
+    3,
+    5
+   ],
+   "r": [
+    "Measure What Matters",
+    "Making Things Happen",
+    "Gestion de projet 3"
+   ]
+  },
+  {
+   "n": "Outils de suivi",
+   "d": "Les plateformes de suivi (Notion, Teams…) puis les logiciels professionnels de gestion de projet (MS Project ou autre).",
+   "niv": [
+    1,
+    4
+   ],
+   "r": [
+    "Comment utiliser mes outils de planification"
+   ]
+  }
+ ],
+ "C04": [
+  {
+   "n": "Analyser l'environnement",
+   "d": "Lire ce qui entoure l'entreprise (tendances, concurrents, parties prenantes, éthique) avec le PESTEL, la veille et le benchmark.",
+   "niv": [
+    1,
+    2
+   ],
+   "r": [
+    "Benchmarking: The Search",
+    "The Zero Marginal Cost Society"
+   ]
+  },
+  {
+   "n": "Positionnement stratégique",
+   "d": "Choisir où jouer et comment gagner : SWOT, cinq forces de Porter, facteurs clés de succès, blue ocean, puis comparer les choix stratégiques.",
+   "niv": [
+    2,
+    4
+   ],
+   "r": [
+    "Playing to Win",
+    "Zero to One",
+    "Existing alongside a near-monopoly",
+    "Comment valoriser correctement son travail",
+    "Analyser Pablo Escobar",
+    "SF Stratégie d'entreprise"
+   ]
+  },
+  {
+   "n": "Chaîne de valeur",
+   "d": "Comprendre les activités qui créent la valeur, de l'approvisionnement à la livraison (value chain, supply chain, logistique).",
+   "niv": [
+    2
+   ],
+   "r": [
+    "La chaîne de valeur de Porter",
+    "Supply chain management",
+    "Global value chains"
+   ]
+  },
+  {
+   "n": "Gestion des processus",
+   "d": "Décrire, mesurer et améliorer les processus pour une qualité constante (BPM, QMS, normes ISO).",
+   "niv": [
+    3
+   ],
+   "r": [
+    "Fundamentals of Business Process Management",
+    "Manager vraiment par la qualité"
+   ]
+  },
+  {
+   "n": "Innovation stratégique",
+   "d": "Faire de l'innovation un levier de la stratégie : nouveaux modèles économiques, ruptures, créer un marché.",
+   "niv": [
+    3
+   ],
+   "r": [
+    "Modèles économiques de demain",
+    "La révolution Google",
+    "Le modèle Google",
+    "Free Game",
+    "10 Leçons iconoclastes"
+   ]
+  },
+  {
+   "n": "Scénarios et risques",
+   "d": "Construire plusieurs options face à l'incertitude, analyser les risques stratégiques et en tirer un plan d'action.",
+   "niv": [
+    3,
+    4
+   ],
+   "r": [
+    "Good Strategy / Bad Strategy",
+    "The art of the long view",
+    "How can PMT choose its next pivot",
+    "Comment structurer une stratégie viable"
+   ]
+  },
+  {
+   "n": "Modèles organisationnels",
+   "d": "Les bases de l'organisation et de la gouvernance, puis les modèles hiérarchique, matriciel, holacratique ou libéré, testés en Team Company.",
+   "niv": [
+    1,
+    3
+   ],
+   "r": [
+    "Reinventing Organizations",
+    "L'entreprise libérée",
+    "Comprendre l'holacracy",
+    "Accélérez",
+    "L'entreprise parfaite existe-t-elle"
+   ]
+  },
+  {
+   "n": "Pilotage de la performance",
+   "d": "Suivre la performance avec des KPI et un balanced scorecard, et piloter des plans stratégiques soutenables entre opérationnel et stratégique.",
+   "niv": [
+    4,
+    5
+   ],
+   "r": [
+    "Customer Feedback Strategy",
+    "Making Things Happen",
+    "Confessions d'un entrepreneur"
+   ]
+  }
+ ],
+ "C05": [
+  {
+   "n": "Comprendre le client",
+   "d": "Cerner les besoins et les comportements d'achat, avec des données de terrain, et décider en partant du client.",
+   "niv": [
+    1,
+    2,
+    4
+   ],
+   "r": [
+    "Psycho Marketing",
+    "Comment intégrer et répondre aux besoins de clients"
+   ]
+  },
+  {
+   "n": "Marché et positionnement",
+   "d": "Segmentation, taille de marché, USP, marketing stratégique (Porter, Kotler), analyse de la concurrence et positionnement clair.",
+   "niv": [
+    1,
+    2,
+    4
+   ],
+   "r": [
+    "Stratégie océan bleu",
+    "Marketing 3.0",
+    "Marketing stratégique et opérationnel",
+    "The Purple Cow",
+    "Zag",
+    "Marketing B to B",
+    "Comment innover sur un marché déjà saturé",
+    "Lancement Immunotec Suisse"
+   ]
+  },
+  {
+   "n": "Plan marketing",
+   "d": "Le marketing mix (4P), puis un plan marketing complet avec son budget et ses indicateurs de performance.",
+   "niv": [
+    1,
+    3,
+    4
+   ],
+   "r": [
+    "La boîte à outils du responsable marketing",
+    "Le Marketing en action",
+    "Marc Vandercammen",
+    "Marketing insights from A-Z",
+    "De l'intuition à la méthode",
+    "How can you maximise your marketing reach"
+   ]
+  },
+  {
+   "n": "Prix",
+   "d": "Fixer un prix et tester des techniques de pricing.",
+   "niv": [
+    3
+   ],
+   "r": [
+    "The Strategy and Tactics of Pricing"
+   ]
+  },
+  {
+   "n": "Marque",
+   "d": "Branding et proposition de valeur, puis créer une marque et une identité visuelle, et construire sa réputation.",
+   "niv": [
+    2,
+    3
+   ],
+   "r": [
+    "Branding management",
+    "Building a StoryBrand",
+    "Le story-telling en marketing",
+    "Et si je me vendais mieux",
+    "Un nom peut-il vraiment faire réussir",
+    "Why has PimpMyTable sold neither",
+    "Comment se crée une réputation de professionnel",
+    "Comment developper un concept"
+   ]
+  },
+  {
+   "n": "Communication et canaux",
+   "d": "Construire un customer journey et mener des campagnes en ligne et hors ligne, jusqu'aux actions marketing significatives.",
+   "niv": [
+    3,
+    5
+   ],
+   "r": [
+    "Hacking Growth",
+    "DotCom Secrets",
+    "Le marketing digital tout-en-un",
+    "Socialnomics",
+    "Integrated Marketing Communications",
+    "Le guide de la communication sans risque",
+    "Propaganda",
+    "The Tipping Point",
+    "Comment être actif sur LinkedIn",
+    "SF English and Marketing",
+    "SF English et marketing"
+   ]
+  },
+  {
+   "n": "Vendre et négocier",
+   "d": "Approcher les clients et préparer les rendez-vous, argumenter (méthode CAB), négocier et mener une démarche commerciale qui génère des ventes.",
+   "niv": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "r": [
+    "The way of the wolf",
+    "The Psychology of Persuasion",
+    "Comment ma posture commerciale",
+    "Comment lever ce blocage invisible"
+   ]
+  },
+  {
+   "n": "Relation client",
+   "d": "Suivre et fidéliser les clients, même dans les situations difficiles, avec un CRM.",
+   "niv": [
+    3,
+    4
+   ],
+   "r": [
+    "Customer Feedback Strategy"
+   ]
+  }
+ ],
+ "C06": [
+  {
+   "n": "Comptabilité",
+   "d": "Partie double, écritures et plan comptable, puis tenir la comptabilité complète d'un projet : facturation, paiements, clôture, bilan et compte de résultat.",
+   "niv": [
+    1,
+    2,
+    3
+   ],
+   "r": [
+    "Introduction à la comptabilité",
+    "Comptabilité Générale",
+    "SF Comptabilité"
+   ]
+  },
+  {
+   "n": "Cadre juridique et fiscal",
+   "d": "Formes juridiques suisses et responsabilité financière, parties prenantes, bases de l'impôt, de la TVA et des assurances sociales.",
+   "niv": [
+    1,
+    2
+   ],
+   "r": []
+  },
+  {
+   "n": "Budget et trésorerie",
+   "d": "Construire et suivre un budget de projet, suivre les flux de trésorerie et prévoir les besoins financiers à court et moyen terme.",
+   "niv": [
+    1,
+    2,
+    3
+   ],
+   "r": [
+    "Faire un budget",
+    "Comment gérer les premiers revenus des projets",
+    "SF Prévision financière"
+   ]
+  },
+  {
+   "n": "Analyse financière",
+   "d": "Lire les états financiers et les ratios : cash-flow, ROI, liquidité, rentabilité, marge, EBIT, endettement.",
+   "niv": [
+    2,
+    3,
+    4
+   ],
+   "r": [
+    "Les 5 clés pour parler de finance",
+    "Financial Intelligence for Entrepreneurs",
+    "which simple financial indicators",
+    "Comment analyser une entreprise cotée",
+    "How can tools and theories from the entrepreneurial world",
+    "The Personal MBA",
+    "SF Finance d'entreprise"
+   ]
+  },
+  {
+   "n": "Investir et se financer",
+   "d": "Choisir un investissement selon ses indicateurs, et trouver l'argent : fonds propres, prêts, investisseurs, levée de fonds.",
+   "niv": [
+    3,
+    4
+   ],
+   "r": [
+    "Lever des fonds",
+    "De quelle manière financer son projet",
+    "Forum de la création d'entreprises",
+    "Investing in AI for an accounting product",
+    "Adaptive Markets",
+    "The Truth About Money"
+   ]
+  },
+  {
+   "n": "Pilotage financier",
+   "d": "Planifier des scénarios financiers, relier le plan financier aux opérations et à la stratégie, tenir les finances d'un projet ou d'une start-up sur la durée.",
+   "niv": [
+    4,
+    5
+   ],
+   "r": [
+    "Lean office, lean administration"
+   ]
+  },
+  {
+   "n": "Prix et revenus",
+   "d": "Fixer un prix, valoriser son travail et répartir les premiers revenus.",
+   "niv": [],
+   "hors": true,
+   "r": [
+    "Comment valoriser correctement son travail",
+    "How much is a Google review worth"
+   ]
+  }
+ ],
+ "C07": [
+  {
+   "n": "Données et cycle de vie",
+   "d": "Les enjeux de la digitalisation des données, leur cycle de vie, la découverte de connaissances (KDD) et la protection des données.",
+   "niv": [
+    1
+   ],
+   "r": [
+    "La protection des données personnelles"
+   ]
+  },
+  {
+   "n": "Collecter et structurer",
+   "d": "Collecter des données (enquêtes, études de marché, ventes) et les structurer dans un tableur.",
+   "niv": [
+    1,
+    2
+   ],
+   "r": [
+    "Comment identifier les attentes des joueurs"
+   ]
+  },
+  {
+   "n": "Statistique descriptive",
+   "d": "Moyenne, médiane, écart type, analyse univariée et bivariée, principaux tests, et la structure d'un rapport statistique.",
+   "niv": [
+    1,
+    2
+   ],
+   "r": [
+    "Statistiques pour l'économie et la gestion",
+    "SF Statistique|2026-04-28"
+   ]
+  },
+  {
+   "n": "Explorer et visualiser",
+   "d": "Analyse exploratoire (EDA) avec l'IA générative, tableaux de bord pour suivre les données d'un projet.",
+   "niv": [
+    2,
+    3
+   ],
+   "r": [
+    "Exploratory Data Analysis",
+    "Storytelling with Data"
+   ]
+  },
+  {
+   "n": "Prédire",
+   "d": "Statistical learning et apprentissage automatique (régression, random forest, k-means), prédictions avec l'IA générative.",
+   "niv": [
+    3,
+    4
+   ],
+   "r": [
+    "An Introduction to Statistical Learning",
+    "SF Statistiques|2026-12-01"
+   ]
+  },
+  {
+   "n": "Données non structurées",
+   "d": "Analyser du texte (analyse de sentiment, topic modeling) et mêler données structurées et non structurées.",
+   "niv": [
+    4
+   ],
+   "r": []
+  },
+  {
+   "n": "Science des données",
+   "d": "Maîtriser des outils de science des données, éviter les biais statistiques, analyser un CRM et en tirer des recommandations.",
+   "niv": [
+    4,
+    5
+   ],
+   "r": [
+    "Data science for Business",
+    "Big Data, Small Data, Stupid Data"
+   ]
+  }
+ ],
+ "C08": [
+  {
+   "n": "Plan d'apprentissage",
+   "d": "LCI et journal d'apprentissage, plan d'apprentissage personnel, LCE, jusqu'au plan de développement des compétences de l'équipe.",
+   "niv": [
+    1,
+    2,
+    3,
+    5
+   ],
+   "r": [
+    "Ultralearning",
+    "Comment mettre en place concrètement les apprentissages"
+   ]
+  },
+  {
+   "n": "Se connaître comme apprenant",
+   "d": "Ses forces et faiblesses d'apprenant, son style d'apprentissage, son auto-évaluation et sa motivation à apprendre.",
+   "niv": [
+    2,
+    3,
+    4
+   ],
+   "r": [
+    "Thinking Fast and Slow",
+    "La procrastination",
+    "Comment vaincre la routine"
+   ]
+  },
+  {
+   "n": "Dialogue et feedback",
+   "d": "Suspendre son jugement, écouter avec bienveillance, dialoguer de façon constructive, donner et recevoir des feedbacks.",
+   "niv": [
+    1,
+    2
+   ],
+   "r": [
+    "The art of thinking together"
+   ]
+  },
+  {
+   "n": "Apprendre en équipe",
+   "d": "Les théories de l'apprentissage en équipe, les choix d'apprentissage collectifs, accompagner une équipe et diriger un apprentissage collaboratif.",
+   "niv": [
+    2,
+    3,
+    4,
+    5
+   ],
+   "r": [
+    "Construire les compétences individuelles et collectives"
+   ]
+  },
+  {
+   "n": "Partager les connaissances",
+   "d": "Ramener des connaissances de l'extérieur pour nourrir l'équipe et tester des outils de knowledge management.",
+   "niv": [
+    1,
+    3
+   ],
+   "r": [
+    "The Knowledge Creating Company",
+    "Comment améliorer l'impact des Lectures Individuelles"
+   ]
+  },
+  {
+   "n": "Apprendre par l'action",
+   "d": "Les birth givings et le 24h client, l'action comme moyen d'apprendre, jusqu'aux résultats mesurables en mandat.",
+   "niv": [
+    2,
+    4
+   ],
+   "r": []
+  },
+  {
+   "n": "Pensée systémique",
+   "d": "Combiner des théories comme la cinquième discipline de Senge pour résoudre des problèmes complexes.",
+   "niv": [
+    4
+   ],
+   "r": [
+    "Fifth discipline"
+   ]
+  }
+ ],
+ "C09": [
+  {
+   "n": "Générer des idées",
+   "d": "Brainstorming et techniques de créativité, partir d'une contrainte ou d'une opportunité, puis trier les idées selon des critères.",
+   "niv": [
+    1,
+    2
+   ],
+   "r": [
+    "The Medici Effect",
+    "Pourquoi je n'ai pas d'idées de projet",
+    "Comment transformer une contrainte de marché",
+    "Comment vaincre la routine"
+   ]
+  },
+  {
+   "n": "Innover en équipe",
+   "d": "Faire ressortir la créativité des autres, puis l'innovation organisationnelle et l'open innovation.",
+   "niv": [
+    1,
+    4
+   ],
+   "r": [
+    "The Progress Principle",
+    "Oups Innover",
+    "Innover, ça ne s'invente pas",
+    "Accélérez"
+   ]
+  },
+  {
+   "n": "Expérimenter vite",
+   "d": "Lean startup, types de MVP, prétotypes : prototyper et tester les idées, en itérant jusqu'à une solution qui tient.",
+   "niv": [
+    2,
+    3,
+    5
+   ],
+   "r": [
+    "The Lean Startup",
+    "Pretotype It",
+    "Running Lean"
+   ]
+  },
+  {
+   "n": "Proposition de valeur",
+   "d": "Comprendre le besoin réel des clients et valider que l'offre y répond (customer validation, value proposition design).",
+   "niv": [
+    3
+   ],
+   "r": [
+    "Value Proposition Design",
+    "SF Innovation 2",
+    "L'importance du dialogue avec les utilisateurs"
+   ]
+  },
+  {
+   "n": "Design thinking",
+   "d": "Innover en partant des usages des gens et du sens donné au produit.",
+   "niv": [
+    4
+   ],
+   "r": [
+    "Change by Design",
+    "Design-driven innovation",
+    "SF Innovation 1"
+   ]
+  },
+  {
+   "n": "Business model innovant",
+   "d": "Distinguer innovation produit et innovation de business model, puis bâtir des modèles viables et soutenables.",
+   "niv": [
+    2,
+    4,
+    5
+   ],
+   "r": [
+    "De zéro à un",
+    "Zero to One",
+    "Modèles économiques de demain",
+    "Free Game",
+    "Comment innover sur un marché déjà saturé"
+   ]
+  },
+  {
+   "n": "Premiers clients",
+   "d": "Créer de la valeur, trouver ses premiers clients et générer du chiffre d'affaires, par exemple avec un crowdfunding, en mesurant l'impact.",
+   "niv": [
+    3,
+    4
+   ],
+   "r": [
+    "Traction",
+    "Lancement Immunotec Suisse"
+   ]
+  },
+  {
+   "n": "Créer un concept",
+   "d": "S'inspirer de bons concepts créatifs, puis transformer une idée en concept clair et attractif : nom, identité, expérience.",
+   "niv": [
+    1,
+    3
+   ],
+   "r": [
+    "Comment transformer une idée créative en un concept",
+    "Comment developper un concept",
+    "Un nom peut-il vraiment faire réussir un projet"
+   ]
+  }
+ ],
+ "C10": [
+  {
+   "n": "Prendre la parole",
+   "d": "Pitcher en une minute, présenter sous pression et dans l'imprévu, devant des publics exigeants, jusqu'à avoir un impact mesurable sur un auditoire.",
+   "niv": [
+    1,
+    3,
+    4,
+    5
+   ],
+   "r": [
+    "Comment améliorer ses présentations orales"
+   ]
+  },
+  {
+   "n": "Écrire",
+   "d": "Rédiger des documents adaptés au lecteur (mails, AR, rapports, portfolio) avec une forme irréprochable.",
+   "niv": [
+    1,
+    3
+   ],
+   "r": [
+    "Le guide de la communication sans risque"
+   ]
+  },
+  {
+   "n": "Rhétorique et persuasion",
+   "d": "Les bases de la rhétorique et de l'influence pour formuler et défendre ses idées.",
+   "niv": [
+    2
+   ],
+   "r": [
+    "De Oratore",
+    "La rhétorique : comment formuler",
+    "How to win friends",
+    "L'art de motiver"
+   ]
+  },
+  {
+   "n": "Modèles de communication",
+   "d": "Les grands modèles (CNV, désescalade des conflits, types de personnalité) et leur effet en pratique.",
+   "niv": [
+    2,
+    4
+   ],
+   "r": [
+    "La Communication NonViolente au quotidien",
+    "La communication non violente au quotidien",
+    "Les mots sont des fenêtres",
+    "Glasl",
+    "Comment comprendre, gérer et aider les différents types de personnalités",
+    "L'importance du dialogue avec les utilisateurs"
+   ]
+  },
+  {
+   "n": "Communiquer en équipe",
+   "d": "Adapter sa communication à chacun, construire la confiance, collecter et valoriser les feedbacks.",
+   "niv": [
+    2
+   ],
+   "r": [
+    "Comment construire la confiance au sein d'une équipe nouvelle",
+    "Maîtriser son ego",
+    "La colère au service du Selfleadership",
+    "Comment réussir à prendre sa place",
+    "Apprendre à déléguer",
+    "Comment trouver un équilibre entre responsabilisation",
+    "Le management des manuels",
+    "L'entreprise parfaite existe-t-elle",
+    "Un retour donné en public vs en privé",
+    "When Cultures Collide",
+    "La procrastination"
+   ]
+  },
+  {
+   "n": "Faciliter et animer",
+   "d": "Animer des workshops et des séances participatives, présenter des lectures, puis mentorer les autres à communiquer.",
+   "niv": [
+    3,
+    5
+   ],
+   "r": [
+    "Facilitator's Guide to Participatory Decision Making",
+    "Les obstacles à la participation collective",
+    "Comment améliorer l'impact des Lectures Individuelles",
+    "Fifth discipline"
+   ]
+  },
+  {
+   "n": "Anglais",
+   "d": "Présenter, travailler, rédiger et animer en anglais, du niveau B1 au C2.",
+   "niv": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "r": [
+    "SF English and Marketing",
+    "SF English et marketing"
+   ]
+  }
+ ],
+ "C11": [
+  {
+   "n": "Connaissance de soi",
+   "d": "Forces et faiblesses, zones de contrainte, d'influence et d'excellence, identité professionnelle, et ce que le coaching y apporte.",
+   "niv": [
+    1,
+    3,
+    4,
+    5
+   ],
+   "r": [
+    "Ikigai",
+    "La Roue De La Vie",
+    "Les 7 habitudes",
+    "Maîtriser son ego",
+    "Psychologie sociale",
+    "Big Potential",
+    "How to win friends",
+    "SF Self-leadership et dynamique de groupe"
+   ]
+  },
+  {
+   "n": "Objectifs motivants",
+   "d": "Se fixer des objectifs à court puis à long terme qui donnent envie d'avancer, et garder sa motivation.",
+   "niv": [
+    1,
+    2,
+    3
+   ],
+   "r": [
+    "The Progress Principle",
+    "Which Goals Really Helped Me Grow",
+    "En quoi des objectifs trop ambitieux",
+    "Comment faire la part des choses entre objectifs",
+    "Comment garder sa motivation quand le projet stagne",
+    "Comment maintenir la motivation au sein d'un projet",
+    "Un rien peut tout changer"
+   ]
+  },
+  {
+   "n": "Gestion du temps",
+   "d": "Les bases de la gestion du temps, puis choisir et maîtriser les outils qui organisent son travail.",
+   "niv": [
+    2,
+    3,
+    5
+   ],
+   "r": [
+    "The PARA Method",
+    "Comment améliorer ma planification",
+    "Comment me diriger moi-même"
+   ]
+  },
+  {
+   "n": "Priorisation",
+   "d": "Choisir quoi faire en premier et s'y tenir avec autodiscipline, même sous pression ou avec des interruptions.",
+   "niv": [
+    2,
+    3
+   ],
+   "r": [
+    "Enssentialism",
+    "The One Thing",
+    "Deep Work",
+    "Comment canaliser sa concentration",
+    "La procrastination",
+    "Comment rester constant et autodiscipliné",
+    "Comment maintenir la qualité et la continuité",
+    "Comment vaincre la routine"
+   ]
+  },
+  {
+   "n": "Stress et émotions",
+   "d": "Comprendre ses besoins face à la pression, identifier ses émotions, puis gérer son stress dans des situations variées.",
+   "niv": [
+    2,
+    3,
+    4
+   ],
+   "r": [
+    "Emotional Intelligence",
+    "Quand le stress devient permanent",
+    "La colère au service du Selfleadership",
+    "Pourquoi nous dormons"
+   ]
+  },
+  {
+   "n": "Sortir du confort",
+   "d": "Repérer sa zone d'habitude et ses barrières, puis avoir le courage d'en sortir.",
+   "niv": [
+    2,
+    3
+   ],
+   "r": [
+    "Comment identifier puis sortir de sa zone de confort",
+    "Trouver ma place"
+   ]
+  },
+  {
+   "n": "Tenir dans la difficulté",
+   "d": "Persévérance et résilience, choix managériaux difficiles et leur impact émotionnel sur soi et l'équipe.",
+   "niv": [
+    4,
+    5
+   ],
+   "r": [
+    "Comment trouver un juste équilibre entre mon envie d'implication",
+    "Comment motiver une équipe grâce au leadership",
+    "Réussir vite ou réussir juste"
+   ]
+  },
+  {
+   "n": "Apprendre de ses erreurs",
+   "d": "Documenter sa progression, porter un regard critique sur ses choix, assumer leur impact et capitaliser sur ses succès et ses échecs.",
+   "niv": [
+    1,
+    3,
+    5
+   ],
+   "r": [
+    "Mindset",
+    "Comment accepter l'échec",
+    "Comment apprendre de ces échecs",
+    "Comment mettre en place concrètement les apprentissages",
+    "Comment le perfectionnisme"
+   ]
+  }
+ ],
+ "C12": [
+  {
+   "n": "Fonctionnement d'équipe",
+   "d": "Les bases du fonctionnement d'une équipe (étapes de développement, dynamique de groupe, diversité, décisions communes) appliquées au travail en équipe.",
+   "niv": [
+    1,
+    2,
+    3
+   ],
+   "r": [
+    "Development Sequences in Small Group",
+    "Teaming",
+    "The Five Dysfunctions of a Team",
+    "Psychologie sociale",
+    "Systémique et entreprise",
+    "Fifth discipline",
+    "SF Self-leadership et dynamique de groupe",
+    "Trouver des décisions communes dans une grande équipe",
+    "Comment gérer les différentes demandes du groupe",
+    "Comment le perfectionnisme",
+    "Comment rendre les réunions d'équipe plus efficaces",
+    "Comment organiser une co-direction",
+    "Comment faire avancer rapidement un projet",
+    "Comment lancer un projet"
+   ]
+  },
+  {
+   "n": "Vision et valeurs",
+   "d": "Construire une vision partagée, des valeurs et des règles communes qui encadrent l'action de l'équipe.",
+   "niv": [
+    1,
+    2
+   ],
+   "r": [
+    "The Culture Code",
+    "Good to great",
+    "L'entreprise parfaite existe-t-elle"
+   ]
+  },
+  {
+   "n": "Rôles et profils",
+   "d": "Répartir les rôles et tenir compte des profils de chacun (Belbin, Leonardo, types de personnalité).",
+   "niv": [
+    1,
+    3
+   ],
+   "r": [
+    "La danse des rôles",
+    "Les 7 types de personnalités",
+    "Comment comprendre, gérer et aider les différents types de personnalités",
+    "Comment gêrer une équipe et attribuer des rôles"
+   ]
+  },
+  {
+   "n": "Motiver l'équipe",
+   "d": "Formuler des objectifs et entretenir la motivation de l'équipe, surtout quand elle baisse.",
+   "niv": [
+    3
+   ],
+   "r": [
+    "L'art de motiver",
+    "Big Potential",
+    "Comment maintenir la motivation au sein d'un projet",
+    "Comment motiver une équipe grâce au leadership"
+   ]
+  },
+  {
+   "n": "Gérer les conflits",
+   "d": "Gérer les tensions et les conflits, et tenir l'équipe dans les phases de crise ou de changement.",
+   "niv": [
+    3,
+    5
+   ],
+   "r": [
+    "Crucial Conversations",
+    "Quel est le rôle du chef de projet dans la gestion d'un conflit"
+   ]
+  },
+  {
+   "n": "Culture de dialogue",
+   "d": "Établir et faire vivre une culture de dialogue et de feedback, et s'en servir pour améliorer son leadership.",
+   "niv": [
+    1,
+    3,
+    4
+   ],
+   "r": [
+    "The art of thinking together",
+    "Les mots sont des fenêtres"
+   ]
+  },
+  {
+   "n": "Styles de leadership",
+   "d": "Les modèles de leadership, prendre sa place de leader, déléguer, concilier bienveillance et exigence sur le long terme.",
+   "niv": [
+    2,
+    3,
+    4,
+    5
+   ],
+   "r": [
+    "Dare to Lead",
+    "Leaderspritz",
+    "SF Leadership 1",
+    "SF Leadership 2",
+    "Apprendre à déléguer",
+    "Comment trouver un juste équilibre entre mon envie d'implication",
+    "Comment trouver un équilibre entre responsabilisation",
+    "From Project Manager to Leader",
+    "J'ai osé me lancer",
+    "Leadership naturel ou leadership négocié",
+    "Le management des manuels"
+   ]
+  },
+  {
+   "n": "Coaching",
+   "d": "Les bases du coaching (écoute, accompagnement), accompagner les compétences de chacun, coacher des individus et des équipes jusqu'à une attestation.",
+   "niv": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "r": [
+    "Coacher et être coaché",
+    "Coaching d'équipe",
+    "SF Coaching 1",
+    "Comment coacher une équipe qui perd en motivation"
+   ]
+  }
+ ],
+ "C13": [
+  {
+   "n": "Construire son réseau",
+   "d": "Comprendre à quoi sert un réseau, repérer le sien et réseauter, d'abord dans son entourage proche.",
+   "niv": [
+    1,
+    2,
+    3
+   ],
+   "r": [
+    "Never Eat Alone",
+    "How to win friends",
+    "Trouver ma place"
+   ]
+  },
+  {
+   "n": "Activer son réseau",
+   "d": "Utiliser ses réseaux pour promouvoir ses projets, nouer des relations d'affaires et des partenariats.",
+   "niv": [
+    2,
+    3,
+    4
+   ],
+   "r": [
+    "Je réussis grâce à mon réseau",
+    "Forum de la création d'entreprises",
+    "Comment lever ce blocage invisible"
+   ]
+  },
+  {
+   "n": "Stratégie de réseautage",
+   "d": "Exploiter l'information de son réseau, bâtir sa réputation et une stratégie de réseautage dont on mesure l'impact.",
+   "niv": [
+    4,
+    5
+   ],
+   "r": [
+    "The Business of Belonging",
+    "Comment se crée une réputation de professionnel"
+   ]
+  },
+  {
+   "n": "Réseau international",
+   "d": "S'intéresser aux autres Team Academy, prendre des premiers contacts à l'international et les activer.",
+   "niv": [
+    1,
+    2,
+    3
+   ],
+   "r": []
+  },
+  {
+   "n": "Comprendre les cultures",
+   "d": "Saisir les enjeux d'une collaboration avec d'autres milieux culturels, linguistiques ou sociaux, et repérer les différences culturelles.",
+   "niv": [
+    1,
+    4
+   ],
+   "r": [
+    "Riding the Waves of Culture",
+    "La misère du monde",
+    "Comment intégrer et répondre aux besoins de clients"
+   ]
+  },
+  {
+   "n": "Équipes multiculturelles",
+   "d": "Travailler dans une équipe multiculturelle, en connaître les bases théoriques, puis gérer la diversité culturelle d'un projet international.",
+   "niv": [
+    3,
+    4,
+    5
+   ],
+   "r": [
+    "The Culture Map",
+    "When Cultures Collide"
+   ]
+  }
+ ],
+ "C14": [
+  {
+   "n": "Contribuer à sa Team Company",
+   "d": "Participer activement à la vie de la Team Company par le dialogue et la collaboration, et contribuer à son développement.",
+   "niv": [
+    1,
+    2
+   ],
+   "r": [
+    "Comment construire la confiance au sein d'une équipe nouvelle",
+    "Trouver des décisions communes dans une grande équipe"
+   ]
+  },
+  {
+   "n": "Passer à l'action",
+   "d": "Curiosité et initiative, oser se lancer, sortir de sa zone de confort et prendre des risques, jusqu'aux projets audacieux.",
+   "niv": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "r": [
+    "Le risque, clé de voûte",
+    "Comment lever ce blocage invisible",
+    "Confessions d'un entrepreneur",
+    "10 Leçons iconoclastes"
+   ]
+  },
+  {
+   "n": "Tester ses idées",
+   "d": "Repérer des opportunités de projet et les vérifier vite sur le terrain avec la bonne approche.",
+   "niv": [
+    2
+   ],
+   "r": [
+    "Testing Business Ideas",
+    "Le manuel du créateur de start-up",
+    "Pourquoi je n'ai pas d'idées de projet"
+   ]
+  },
+  {
+   "n": "Méthodes entrepreneuriales",
+   "d": "Les modèles pour entreprendre (effectuation, disciplined entrepreneurship, lean startup), testés dans la pratique.",
+   "niv": [
+    3
+   ],
+   "r": [
+    "Effectuation",
+    "Disciplined Entrepreneurship",
+    "Sept ans de réflexion",
+    "Planifier ou saisir les opportunités",
+    "How can tools and theories from the entrepreneurial world",
+    "Analyser Pablo Escobar"
+   ]
+  },
+  {
+   "n": "Lancer un projet",
+   "d": "Mobiliser et combiner les ressources (équipe, fournisseurs, argent), créer de la valeur, générer un chiffre d'affaires et pérenniser le projet.",
+   "niv": [
+    2,
+    3,
+    4,
+    5
+   ],
+   "r": [
+    "Rework",
+    "Comment choisir son fournisseur",
+    "How to find an external professional worker",
+    "Comment gérer les premiers revenus des projets",
+    "Forum de la création d'entreprises"
+   ]
+  },
+  {
+   "n": "Business plan",
+   "d": "Écrire et défendre un business plan complet devant des investisseurs ou des partenaires, avec les moyens humains, techniques, financiers et juridiques, et trouver l'argent pour le réaliser.",
+   "niv": [
+    4
+   ],
+   "r": [
+    "The Invincible Company",
+    "Lever des fonds",
+    "De quelle manière financer son projet"
+   ]
+  },
+  {
+   "n": "Entreprendre responsable",
+   "d": "Connaître les contextes où avoir un impact positif, transformer un problème en projet soutenable et viser un impact durable.",
+   "niv": [
+    1,
+    4,
+    5
+   ],
+   "r": [
+    "Modèles économiques de demain",
+    "The Zero Marginal Cost Society",
+    "La misère du monde",
+    "When Profit Conflicts with Sustainability",
+    "Réussir vite ou réussir juste"
+   ]
+  }
+ ]
+}

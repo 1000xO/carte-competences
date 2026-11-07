@@ -83,6 +83,12 @@ nav { display: flex; gap: 2px; background: var(--surface-2); border-radius: 999p
 nav button { background: none; border: 0; border-radius: 999px; padding: 5px 16px; cursor: pointer; color: var(--ink-2); font-size: 14px; transition: background .2s, color .2s; }
 nav button:hover { color: var(--ink); }
 nav button[aria-selected="true"] { background: var(--surface); color: var(--ink); font-weight: 600; box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12); }
+/* L'onglet « Vérifier une idée » se démarque : pastille de couleur, et fond teinté sur sa page */
+nav button.special { background: var(--accent); color: #fff; font-weight: 600; margin-left: 4px; }
+nav button.special:hover { color: #fff; filter: brightness(1.1); }
+nav button.special[aria-selected="true"] { background: var(--accent); color: #fff; box-shadow: 0 0 0 3px rgba(47, 95, 143, 0.3); }
+#idee .scroll { background: linear-gradient(180deg, rgba(47, 95, 143, 0.10), rgba(47, 95, 143, 0.02) 60%); }
+#idee h2 { color: var(--accent); }
 .theme { justify-self: end; width: 34px; height: 34px; border-radius: 50%; border: 0; background: var(--surface-2); cursor: pointer; color: var(--ink-2); }
 .theme:hover { color: var(--ink); }
 
@@ -156,6 +162,20 @@ dl.meta dd { margin: 0; }
 .reset { margin-top: 6px; border: 0; background: var(--surface-2); border-radius: 10px; padding: 7px 12px; font-size: 13px; cursor: pointer; width: 100%; }
 .reset:hover { background: var(--line); }
 .panel .close { float: right; border: 0; background: var(--surface-2); border-radius: 50%; width: 28px; height: 28px; cursor: pointer; color: var(--ink-2); }
+/* Fiche d'une ressource : la fiche prend la place, la carte passe dans un petit cadran */
+#carte.fiche aside.panel { left: 20px; right: 340px; width: auto; top: 20px; bottom: 20px; max-height: none; padding: 40px 48px; }
+#carte.fiche .fiche-in { max-width: 760px; margin: 0 auto; }
+#carte.fiche .panel h2 { font-size: 32px; letter-spacing: -0.02em; }
+#carte.fiche #graph { inset: auto; top: 20px; right: 20px; width: 300px; height: 260px; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow); background: var(--surface); z-index: 6; }
+#carte.fiche .legend { display: none; }
+.agrandir { display: none; position: absolute; left: 10px; bottom: 10px; z-index: 2; border: 0; border-radius: 999px; padding: 6px 12px; font-size: 12px; font-weight: 600; background: var(--glass); box-shadow: var(--shadow); cursor: pointer; color: var(--ink-2); }
+.agrandir:hover { color: var(--ink); }
+#carte.fiche .agrandir { display: block; }
+.resume p { font-size: 16px; line-height: 1.6; margin: 0 0 12px; }
+.resume .hint { margin-top: 4px; }
+ul.crit-l { margin: 0; padding-left: 18px; font-size: 14px; line-height: 1.5; color: var(--ink-2); }
+ul.crit-l li { margin-bottom: 6px; }
+ul.crit-l b { color: var(--ink); font-weight: 600; }
 .btn { display: inline-block; border: 0; background: var(--accent); color: #fff; border-radius: 999px; padding: 8px 18px; font-size: 14px; font-weight: 600; cursor: pointer; }
 
 /* Arbre d'une compétence */
@@ -192,6 +212,41 @@ dl.meta dd { margin: 0; }
 .level li .refs .chip { font-size: 12px; padding: 3px 10px; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .level li .refs .chip.pending { background: none; box-shadow: inset 0 0 0 1px var(--line); color: var(--ink-2); }
 .level .rien { margin: 0 0 16px; }
+.level.hors-cible { background: none; box-shadow: inset 0 0 0 1px var(--line); }
+.level.hors-cible summary h3 { color: var(--ink-3); }
+.level summary .vise { font-size: 12px; font-weight: 600; padding: 2px 10px; border-radius: 999px; background: var(--accent); color: #fff; white-space: nowrap; }
+.level.hors-cible summary .vise { background: none; color: var(--ink-3); font-weight: 500; padding: 0; }
+.reco { list-style: none; margin: 16px 0 0; padding: 0; }
+.reco li { padding: 10px 0; border-top: 1px solid var(--line); font-size: 15px; }
+.reco li .hint { margin-left: 6px; }
+.level .sous-titre { font-size: 13px; font-weight: 600; color: var(--ink-2); margin: 4px 0 6px; }
+.level .sous-titre .hint { font-weight: 400; }
+.crits { list-style: none; margin: 0 0 18px; padding: 0; }
+.crits > li { border-top: 1px solid var(--line); font-size: 15px; }
+.crits summary, .crits li.vide { display: flex; gap: 12px; align-items: baseline; padding: 10px 0; }
+.crits summary { cursor: pointer; list-style: none; }
+.crits summary::-webkit-details-marker { display: none; }
+.crits summary > span:first-child { flex: 1; }
+.crits summary:hover > span:first-child { color: var(--accent); }
+.crits .n { font-size: 12px; color: var(--ink-3); white-space: nowrap; }
+.crits summary .n { color: var(--accent); font-weight: 600; }
+.crits li.vide > span:first-child { flex: 1; color: var(--ink-2); }
+.crits .refs { display: flex; flex-wrap: wrap; gap: 6px; padding: 0 0 12px; }
+.crits .refs .chip { font-size: 12px; padding: 3px 10px; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.crits .refs .chip.pending { background: none; box-shadow: inset 0 0 0 1px var(--line); color: var(--ink-2); }
+.dans-contenu { display: block; font-size: 12px; color: var(--ink-3); margin-top: 4px; line-height: 1.45; }
+.dans-contenu b { color: var(--ink); font-weight: 600; }
+.crit-texte { margin-bottom: 6px; }
+.crit { cursor: pointer; border-radius: 4px; transition: background .15s; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+.crit.a { text-decoration: underline dotted var(--ink-3); text-underline-offset: 3px; }
+.crit:hover { background: var(--line); }
+.crit.on { background: var(--accent); color: #fff; text-decoration: none; }
+.crit-aide { margin: 0 0 12px; }
+.crit-panel { background: var(--bg); border-radius: 14px; padding: 12px 14px; margin: 0 0 16px; }
+.crit-panel .crit-titre { font-size: 13px; color: var(--ink-2); margin-bottom: 8px; }
+.crit-panel .refs { display: flex; flex-wrap: wrap; gap: 6px; }
+.crit-panel .chip { font-size: 12px; padding: 3px 10px; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.crit-panel .chip.pending { background: none; box-shadow: inset 0 0 0 1px var(--line); color: var(--ink-2); }
 .tag { display: inline-block; margin-left: 6px; padding: 1px 8px; border-radius: 999px; font-size: 11px; font-weight: 600; background: var(--accent); color: #fff; vertical-align: 1px; }
 .keymarks { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 16px; font-size: 13px; color: var(--ink-2); }
 .keymarks b { font-weight: 600; }
@@ -253,6 +308,13 @@ td.t button:hover { color: var(--accent); }
 .bar-track { height: 8px; background: var(--surface-2); border-radius: 999px; overflow: hidden; }
 .bar-fill { height: 100%; background: var(--bar); border-radius: 999px; }
 .bar-row .v { font-variant-numeric: tabular-nums; text-align: right; color: var(--ink-2); font-weight: 600; }
+.idee-box { margin-top: 32px; display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
+.idee-box textarea { width: 100%; box-sizing: border-box; padding: 14px 16px; border: 0; border-radius: 14px; background: var(--surface); box-shadow: var(--shadow); font: inherit; font-size: 16px; color: var(--ink); resize: vertical; outline: none; }
+.idee-box textarea:focus { box-shadow: 0 0 0 3px rgba(47, 95, 143, 0.3); }
+.verdict { margin-top: 32px; font-size: 20px; font-weight: 600; color: var(--ink); }
+.verdict + .hint { margin-top: 6px; }
+#idee-res .callout h4 { margin: 0 0 12px; font-size: 13px; font-weight: 600; color: var(--ink-3); }
+#idee-res ul.crit-l { padding-left: 18px; }
 .callout { background: var(--surface); border-radius: 22px; padding: 24px 28px; margin-top: 24px; box-shadow: var(--shadow); color: var(--ink-2); }
 .callout b { color: var(--ink); }
 
@@ -278,6 +340,8 @@ td.t button:hover { color: var(--accent); }
   .bar-row { grid-template-columns: 1fr 80px 32px; }
   .bar-row .split { display: none; }
   .legend { position: static; margin: 12px 16px 0; flex-wrap: wrap; border-radius: 14px; }
+  #carte.fiche aside.panel { position: static; padding: 24px; order: 1; }
+  #carte.fiche #graph { position: relative; top: auto; right: auto; width: auto; height: 260px; margin: 0 16px 16px; order: 2; }
   .gear { top: 12px; left: 12px; }
   .settings { top: 60px; left: 12px; }
   .inner > h2 { font-size: 34px; }
@@ -305,6 +369,7 @@ td.t button:hover { color: var(--accent); }
     <button role="tab" data-view="competences" aria-selected="false">Compétences</button>
     <button role="tab" data-view="ressources" aria-selected="false">Ressources</button>
     <button role="tab" data-view="trous" aria-selected="false">Trous</button>
+    <button role="tab" class="special" data-view="idee" aria-selected="false">✦ Vérifier une idée</button>
     <button role="tab" data-view="roadmap" aria-selected="false">Roadmap</button>
     <button role="tab" data-view="apropos" aria-selected="false">Comment ça marche</button>
   </nav>
@@ -313,21 +378,8 @@ td.t button:hover { color: var(--accent); }
 
 <main>
   <div class="view active" id="carte">
-    <div id="graph"><svg aria-label="Carte des compétences et de leurs ressources"></svg><div id="tip"></div></div>
-    <div class="legend"><span><span class="dot" style="background:var(--node-comp)"></span>Compétence</span><span><span class="dot" style="background:var(--s-li)"></span>LI</span><span><span class="dot" style="background:var(--s-ar)"></span>AR</span><span><span class="dot" style="background:var(--s-sf)"></span>SF</span><span><span class="ring"></span>Pas encore validée</span></div>
-    <button class="gear" id="gear" title="Réglages de la carte" aria-expanded="false">⚙</button>
-    <aside class="settings" id="settings" hidden>
-      <h3>Affichage</h3>
-      <label class="slider"><span>Fondu du texte</span><input type="range" data-k="fonduTexte" min="-3" max="3" step="0.1"></label>
-      <label class="slider"><span>Taille des nœuds</span><input type="range" data-k="tailleNoeuds" min="0.2" max="4" step="0.05"></label>
-      <label class="slider"><span>Épaisseur des liens</span><input type="range" data-k="epaisseurLiens" min="0.1" max="5" step="0.05"></label>
-      <h3>Forces</h3>
-      <label class="slider"><span>Force centrale</span><input type="range" data-k="centre" min="0" max="1" step="0.01"></label>
-      <label class="slider"><span>Force de répulsion</span><input type="range" data-k="repulsion" min="0" max="20" step="0.1"></label>
-      <label class="slider"><span>Force des liens</span><input type="range" data-k="forceLiens" min="0" max="1" step="0.01"></label>
-      <label class="slider"><span>Distance des liens</span><input type="range" data-k="distanceLiens" min="30" max="500" step="1"></label>
-      <button class="reset" id="reset">Réglages par défaut</button>
-    </aside>
+    <div id="graph"><svg aria-label="Carte des compétences et de leurs ressources"></svg><div id="tip"></div><button class="agrandir" id="agrandir" title="Revenir à la grande carte">⤢ Grande carte</button></div>
+    <div class="legend"><span><span class="dot" style="background:var(--node-comp)"></span>Compétence</span><span><span class="dot" style="background:var(--ink-3)"></span>Branche</span><span><span class="dot" style="background:var(--s-li)"></span>LI</span><span><span class="dot" style="background:var(--s-ar)"></span>AR</span><span><span class="dot" style="background:var(--s-sf)"></span>SF</span><span><span class="ring"></span>Pas encore validée</span></div>
     <aside class="panel" id="panel"></aside>
   </div>
 
@@ -346,20 +398,22 @@ td.t button:hover { color: var(--accent); }
     <h3 class="section-title">Les niveaux</h3>
     <div class="callout niv-attente"><b>En cours.</b> Les niveaux arrivent dès que chacun aura donné son niveau actuel et le niveau qu'il vise ce semestre. Ils montreront alors la théorie à couvrir pour les niveaux visés par l'équipe.</div>
     <div class="niv-detail">
-    <p class="lead" style="font-size:17px">Le texte du référentiel, puis la théorie que chaque niveau demande. Une coche quand une ressource validée de l'équipe la couvre, d'après les titres.</p>
+    <p class="lead" style="font-size:17px">Les niveaux que l'équipe vise à la fin du semestre portent le nombre de personnes qui les visent. Ouvre un niveau visé : chaque critère du texte se clique et montre les LI, AR et SF de l'équipe qui en parlent, d'après leur titre et leur contenu. Dessous, la théorie demandée, cochée quand une ressource de l'équipe la couvre.</p>
     <div class="keymarks"><span><b style="color:var(--ink)">✓</b> couvert par l'équipe</span><span><b style="color:var(--ink-2)">◐</b> en cours ou annoncé</span><span><b style="color:var(--ink-3)">○</b> personne pour l'instant</span><span><b style="color:var(--ink-3)">✎</b> à prouver soi-même</span><span><span class="tag" style="margin:0">exigé</span> lecture explicitement demandée</span></div>
     <div class="levels" id="niveaux"></div>
     </div>
     <h3 class="section-title">Les recommandations</h3>
-    <div class="callout"><b>En cours.</b> Les lectures conseillées pour atteindre les niveaux visés, d'après la théorie que l'équipe n'a pas encore couverte. Elles arrivent avec les niveaux.</div>
-    <h3 class="section-title">Les ressources</h3>
+    <p class="lead" style="font-size:17px">Pour les niveaux visés : la théorie que personne n'a encore couverte (une bonne idée de prochaine LI), puis celle qui est en cours.</p>
+    <div id="reco"></div>
+    <h3 class="section-title">L'arbre de la compétence</h3>
+    <p class="lead" style="font-size:17px">Les branches de la compétence, tirées du référentiel (niveaux 1 à 5), avec les LI, AR et SF de l'équipe rangées dedans. Une branche vide est un trou à combler. Survole une branche pour lire sa description et ses niveaux.</p>
     <div class="tree-wrap"><svg id="tree"></svg></div>
   </div></div></div>
 
   <div class="view" id="ressources"><div class="scroll"><div class="inner">
     <h2>Toutes les ressources.</h2>
     <div class="filters">
-      <input type="search" id="q2" placeholder="Chercher un titre ou un nom…">
+      <input type="search" id="q2" placeholder="Chercher un titre, un nom ou un outil (Gantt, pricing…)">
       <select id="f-type"><option value="">Tous les types</option><option value="LI">Lectures (LI)</option><option value="AR">Articles réflexifs (AR)</option><option value="SF">Sessions de formation (SF)</option></select>
       <select id="f-comp"><option value="">Toutes les compétences</option></select>
       <select id="f-etape"><option value="">Toutes les étapes</option><option value="validee">Validées</option><option value="encours">En cours</option><option value="annoncee">Annoncées ou à venir</option><option value="pas">Pas encore validées</option><option value="sfvenir">SF à venir</option></select>
@@ -377,7 +431,7 @@ td.t button:hover { color: var(--accent); }
     <p class="lead">Par compétence, les LI et AR validées et les SF suivies, de la moins nourrie à la plus nourrie. Les ressources en cours ne comptent pas encore. Données Notion du <span class="export-date"></span>.</p>
     <div class="bars" id="bars"></div>
     <div class="callout">
-      <b>Ce qui manque encore partout.</b> Les sous-compétences ne sont pas encore définies. Elles le seront avec les responsables de compétence, et l'arbre de chaque compétence les affichera.
+      <b>Les arbres de compétence.</b> Chaque compétence a maintenant son arbre, découpé en branches. Une branche sans ressource est un trou à combler : ouvre l'arbre depuis l'onglet Compétences.
     </div>
     <h3 class="section-title">Les SF à venir</h3>
     <p class="lead" style="font-size:17px">Les sessions de formation prévues ce semestre, d'après le calendrier de l'école et Notion.</p>
@@ -385,9 +439,20 @@ td.t button:hover { color: var(--accent); }
     <h3 class="section-title">La théorie que personne n'a encore couverte</h3>
     <div class="callout niv-attente"><b>En cours.</b> Les niveaux arrivent dès que chacun aura donné son niveau actuel et le niveau qu'il vise ce semestre. Ils montreront alors la théorie à couvrir pour les niveaux visés par l'équipe.</div>
     <div class="niv-detail">
-    <p class="lead" style="font-size:17px">Ce que le référentiel demande, niveau par niveau, et qu'aucune ressource de l'équipe ne couvre encore, même en cours. De bonnes idées de prochaines LI.</p>
+    <p class="lead" style="font-size:17px">Ce que le référentiel demande aux niveaux visés par l'équipe ce semestre, et qu'aucune ressource ne couvre encore, même en cours. De bonnes idées de prochaines LI.</p>
     <div class="gaps" id="gaps"></div>
     </div>
+  </div></div></div>
+
+  <div class="view" id="idee"><div class="scroll"><div class="inner">
+    <h2>Vérifier une idée.</h2>
+    <p class="lead">Avant d'annoncer une LI ou un AR, écris ton idée ici : un titre de livre, un sujet ou quelques phrases de l'annonce. Le site te dit si le sujet est déjà traité, quels critères des niveaux visés il touche, et où il manque encore des ressources.</p>
+    <div class="idee-box">
+      <textarea id="idee-txt" rows="4" placeholder="Ex. : LI sur The Lean Startup, tester un MVP auprès des premiers clients"></textarea>
+      <button class="btn" id="idee-go">Vérifier</button>
+    </div>
+    <div id="idee-res"></div>
+    <p class="hint" style="margin-top:32px">Rien n'est enregistré : ton texte reste dans ton navigateur. Les rapprochements se font par mots-clés, en français et en anglais : à vérifier toi-même en ouvrant les fiches.</p>
   </div></div></div>
 
   <div class="view" id="roadmap"><div class="scroll"><div class="inner">
@@ -419,9 +484,8 @@ const DATA = /*DONNEES*/null;
 
 const TYPES = { LI: { nom: 'Lecture (LI)', pluriel: 'Lectures (LI)', c: '--s-li' }, AR: { nom: 'Article réflexif (AR)', pluriel: 'Articles réflexifs (AR)', c: '--s-ar' }, SF: { nom: 'Session de formation (SF)', pluriel: 'Sessions de formation (SF)', c: '--s-sf' } };
 // Réglages par défaut : ceux de la vue graphique Obsidian de Léon (.obsidian/graph.json)
-const DEFAUT = { centre: 0.52, repulsion: 10, forceLiens: 1, distanceLiens: 250, tailleNoeuds: 1, epaisseurLiens: 1, fonduTexte: 0 };
-let REG = { ...DEFAUT };
-try { Object.assign(REG, JSON.parse(localStorage.getItem('carte-reglages') || '{}')); } catch (e) {}
+// Réglages fixes de la carte (plus de molette : décision de Léon du 2026-11-07)
+const REG = { repulsion: 10, forceLiens: 1, distanceLiens: 250, epaisseurLiens: 1, fonduTexte: 0 };
 const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const comps = DATA.competences;
@@ -432,7 +496,11 @@ const NIV = DATA.niveaux || {}, EXIG = DATA.exigences || {};
 const ETAPES = { validee: 'Validée', encours: 'En cours', annoncee: 'Annoncée' };
 const MARKS = { couvert: '✓', encours: '◐', vide: '○', preuve: '✎' };
 // Niveaux en attente des niveaux actuels et visés de chacun (questionnaire Tally). Passer à true pour les afficher.
-const NIVEAUX_PRETS = false;
+const NIVEAUX_PRETS = true;
+// Nombre de personnes qui visent chaque niveau (niveaux-vises.json) ; un niveau visé par personne reste replié
+const VISES = DATA.vises || {};
+const nbVise = (cid, n) => (VISES[cid] || {})[n] || 0;
+const exigVisee = cid => Object.entries(EXIG[cid] || {}).filter(([n]) => nbVise(cid, n) > 0).flatMap(([n, l]) => l.map(i => ({ n, i })));
 document.querySelectorAll('.niv-detail').forEach(e => e.hidden = !NIVEAUX_PRETS);
 document.querySelectorAll('.niv-attente').forEach(e => e.hidden = NIVEAUX_PRETS);
 const exigOf = cid => Object.values(EXIG[cid] || {}).flat();
@@ -494,8 +562,10 @@ function compLinks(list) {
 // ---------- Carte ----------
 const svg = d3.select('#graph svg');
 const tip = document.getElementById('tip');
-let sim, nodeSel, linkSel, labelSel, zoomLayer, adj, deg, transformK = 1, grossi = 1;
-const base = d => REG.tailleNoeuds * Math.max(8, Math.min(3 * Math.sqrt(deg(d) + 1), 30));
+let sim, nodeSel, linkSel, labelSel, zoomLayer, adj, deg, transformK = 1, grossi = 1, zoomObj, nodesAll = [], byIdG = new Map();
+// Gros ronds pour les compétences, moyens pour les branches, petits pour les ressources
+// Trois tailles seulement : compétence un peu plus grosse que ses branches, ressources toutes pareilles
+const base = d => d.kind === 'comp' ? 11 : d.kind === 'br' ? 8 : 4;
 const rad = d => base(d) * grossi;
 // Les titres des ressources apparaissent en zoomant ; le réglage « fondu du texte » décale ce seuil
 const fondu = k => Math.max(0, Math.min(1, (k - (0.9 + 0.3 * REG.fonduTexte)) / 0.3));
@@ -503,17 +573,27 @@ const fondu = k => Math.max(0, Math.min(1, (k - (0.9 + 0.3 * REG.fonduTexte)) / 
 function styleLabels() {
   if (!labelSel) return;
   const k = transformK;
+  // Les noms des branches apparaissent plus tôt que ceux des ressources quand on zoome
+  const vis = d => d.kind === 'comp' ? 1 : d.kind === 'br' ? fondu(k * 1.6) : fondu(k);
   labelSel.style('font-size', d => (d.kind === 'comp' ? 12 : 11) / k + 'px').style('stroke-width', (4 / k) + 'px')
-    .style('fill-opacity', d => d.kind === 'comp' ? 1 : fondu(k)).style('stroke-opacity', d => d.kind === 'comp' ? 1 : fondu(k))
-    .style('visibility', d => d.kind === 'comp' || fondu(k) > 0 ? 'visible' : 'hidden')
+    .style('font-weight', d => d.kind === 'br' ? 600 : null)
+    .style('fill-opacity', vis).style('stroke-opacity', vis)
+    .style('visibility', d => vis(d) > 0 ? 'visible' : 'hidden')
     .attr('y', d => d.y + rad(d) + 6);
 }
+// La structure (compétences et branches) est fixe : les forces ne déplacent que les ressources
 function applyForces() {
-  sim.force('link').distance(REG.distanceLiens).strength(l => REG.forceLiens / Math.min(deg(l.source), deg(l.target)));
-  sim.force('charge').strength(-REG.repulsion * 100);
-  sim.force('collide').radius(d => rad(d) + (d.kind === 'comp' ? 70 : 4));
-  sim.force('x').strength(REG.centre * 0.2);
-  sim.force('y').strength(REG.centre * 0.2);
+  // Branche-compétence : lien solide à une distance propre à chaque branche (irrégulier) ;
+  // compétence-compétence : lien très léger quand elles partagent des ressources ; ressources : liens souples
+  sim.force('link')
+    .distance(l => l.dist || 70)
+    .strength(l => l.x ? 0.015 : l.dist ? 0.6 : 0.5 / Math.max(1, deg(l.source)));
+  sim.force('charge').strength(d => d.kind === 'res' ? -110 : d.kind === 'br' ? -220 : -500);
+  sim.force('collide').radius(d => rad(d) + (d.kind === 'res' ? 3 : 10));
+  // Les ressources sont doucement attirées vers le centre, pour remplir le milieu de la carte
+  sim.force('x').strength(d => d.kind === 'res' ? 0.025 : 0);
+  sim.force('y').strength(d => d.kind === 'res' ? 0.025 : 0);
+  sim.force('r', d3.forceRadial(d => d.r0 || 0).strength(d => d.kind === 'comp' ? 0.12 : 0));
 }
 
 function draw() {
@@ -523,11 +603,54 @@ function draw() {
   svg.selectAll('*').remove();
   if (sim) sim.stop();
   const list = DATA.ressources;
-  const nodes = comps.map(c => ({ id: c.id, kind: 'comp', c, n: resOf(c.id).length })).concat(list.map(r => ({ id: r.id, kind: 'res', r })));
-  const links = list.flatMap(r => r.competences.map(cid => ({ source: r.id, target: cid })));
+  // Les branches des arbres de compétence forment un étage entre la compétence et ses ressources
+  const brNodes = comps.flatMap(c => ((DATA.arbres || {})[c.id] || []).map((b, i) => ({ id: `B|${c.id}|${i}`, kind: 'br', b, cid: c.id })));
+  const dansBranche = {};
+  brNodes.forEach(n => n.b.res.forEach(rid => (dansBranche[rid] = dansBranche[rid] || []).push(n)));
+  const nodes = comps.map(c => ({ id: c.id, kind: 'comp', c, n: resOf(c.id).length })).concat(brNodes, list.map(r => ({ id: r.id, kind: 'res', r })));
+  const links = brNodes.map(n => ({ source: n.id, target: n.cid })).concat(list.flatMap(r => {
+    const brs = dansBranche[r.id] || [];
+    return brs.map(n => ({ source: r.id, target: n.id })).concat(r.competences.filter(cid => !brs.some(n => n.cid === cid)).map(cid => ({ source: r.id, target: cid })));
+  }));
   adj = new Map(nodes.map(n => [n.id, new Set()]));
   links.forEach(l => { adj.get(l.source).add(l.target); adj.get(l.target).add(l.source); });
   deg = d => adj.get(d.id).size;
+  // Hasard « fixe » : la carte est irrégulière, mais la même à chaque visite
+  const alea = d3.randomLcg(7);
+  const entre = (a, b) => a + (b - a) * alea();
+  // Les 14 compétences à peu près en cercle (rayon et angle un peu décalés), sans position bloquée
+  const nb = comps.length, rBr = 210, RC = 1050;
+  const pos = {};
+  comps.forEach((c, i) => {
+    const a = -Math.PI / 2 + 2 * Math.PI * (i + entre(-0.2, 0.2)) / nb, r0 = RC * entre(0.8, 1.1);
+    pos[c.id] = { x: r0 * Math.cos(a), y: r0 * Math.sin(a), a, r0 };
+  });
+  nodes.forEach(n => {
+    if (n.kind === 'comp') { n.x = pos[n.id].x; n.y = pos[n.id].y; n.r0 = pos[n.id].r0; }
+  });
+  // Les branches autour de leur compétence, à des distances et des angles irréguliers
+  const brLinks = new Map(links.filter(l => l.source.startsWith('B|')).map(l => [l.source, l]));
+  comps.forEach(c => {
+    const bs = brNodes.filter(n => n.cid === c.id), p0 = pos[c.id];
+    bs.forEach((n, j) => {
+      const a = p0.a + 2 * Math.PI * (j + entre(-0.3, 0.3)) / bs.length, d = rBr * entre(0.75, 1.5);
+      n.x = p0.x + d * Math.cos(a); n.y = p0.y + d * Math.sin(a);
+      brLinks.get(n.id).dist = d;
+    });
+  });
+  // Liens discrets entre compétences qui partagent au moins 3 ressources (ils ne comptent pas comme voisins)
+  for (let i = 0; i < nb; i++) for (let j = i + 1; j < nb; j++) {
+    const a = comps[i].id, b = comps[j].id;
+    const n = list.filter(r => r.competences.includes(a) && r.competences.includes(b)).length;
+    if (n >= 3) links.push({ source: a, target: b, x: true, dist: 900 });
+  }
+  // Chaque ressource part du milieu de ce à quoi elle est reliée, un peu vers l'extérieur
+  const byId = new Map(nodes.map(n => [n.id, n]));
+  nodes.filter(n => n.kind === 'res').forEach((n, i) => {
+    const vs = [...adj.get(n.id)].map(v => byId.get(v));
+    const mx = d3.mean(vs, v => v.x) || 0, my = d3.mean(vs, v => v.y) || 0, a = i * 2.39996;
+    n.x = mx * 1.05 + 40 * Math.cos(a); n.y = my * 1.05 + 40 * Math.sin(a);
+  });
 
   zoomLayer = svg.append('g');
   const zoom = d3.zoom().scaleExtent([0.05, 6]).on('zoom', e => {
@@ -542,17 +665,21 @@ function draw() {
   // Un clic dans le vide ferme la sélection
   svg.on('click', e => { if (e.target === svg.node()) select(null); });
 
+  // Liens de structure (compétence, branche) bien visibles ; liens des ressources discrets
+  const structure = l => (typeof l.source === 'object' ? l.source.kind : byId.get(l.source).kind) !== 'res';
   linkSel = zoomLayer.append('g').selectAll('line').data(links).join('line')
-    .attr('stroke', css('--link')).attr('stroke-width', REG.epaisseurLiens)
+    .attr('stroke', css('--link')).attr('stroke-width', l => l.x ? 1 : structure(l) ? REG.epaisseurLiens * 2 : REG.epaisseurLiens)
+    .attr('stroke-opacity', l => l.x ? 0.25 : structure(l) ? 1 : 0.35)
+    .attr('stroke-dasharray', l => l.x ? '4 6' : null)
     .attr('vector-effect', 'non-scaling-stroke').attr('stroke-linecap', 'round');
 
   // Une ressource pas encore validée est dessinée en anneau : contour de sa couleur, centre vide
   nodeSel = zoomLayer.append('g').selectAll('circle').data(nodes).join('circle')
-    .attr('fill', d => d.kind === 'comp' ? css('--node-comp') : d.r.valide ? css(TYPES[d.r.type].c) : css('--bg'))
+    .attr('fill', d => d.kind === 'comp' ? css('--node-comp') : d.kind === 'br' ? css('--ink-3') : d.r.valide ? css(TYPES[d.r.type].c) : css('--bg'))
     .attr('stroke', d => d.kind === 'res' && !d.r.valide ? css(TYPES[d.r.type].c) : css('--bg'))
-    .attr('stroke-width', d => d.kind === 'res' && !d.r.valide ? 2.5 : 1.5).attr('vector-effect', 'non-scaling-stroke')
+    .attr('stroke-width', d => d.kind === 'res' ? (d.r.valide ? 0 : 1.5) : 1.5).attr('vector-effect', 'non-scaling-stroke')
     .style('cursor', 'pointer')
-    .on('mousemove', (e, d) => showTip(e, d.kind === 'comp' ? `${d.c.num}. ${d.c.nom} · ${d.n} ressource${d.n > 1 ? 's' : ''}` : `${TYPES[d.r.type].nom}${d.r.valide ? '' : ' (' + ETAPES[d.r.etape].toLowerCase() + ')'} · ${d.r.titre}`))
+    .on('mousemove', (e, d) => showTip(e, d.kind === 'comp' ? `${d.c.num}. ${d.c.nom} · ${d.n} ressource${d.n > 1 ? 's' : ''}` : d.kind === 'br' ? `${d.b.n} (branche de la compétence ${compById[d.cid].num}) · ${d.b.res.length} ressource${d.b.res.length > 1 ? 's' : ''}` : `${TYPES[d.r.type].nom}${d.r.valide ? '' : ' (' + ETAPES[d.r.etape].toLowerCase() + ')'} · ${d.r.titre}`))
     .on('mouseenter', (e, d) => highlight(d.id))
     .on('mouseleave', () => { hideTip(); highlight(state.selected); })
     .on('click', (e, d) => { e.stopPropagation(); select(state.selected === d.id ? null : d.id); })
@@ -564,7 +691,7 @@ function draw() {
   const petit = W < 700;
   labelSel = zoomLayer.append('g').selectAll('text').data(nodes.filter(n => n.kind === 'comp' || !petit)).join('text')
     .attr('class', d => d.kind === 'comp' ? 'lbl' : 'lbl res').attr('text-anchor', 'middle').attr('dy', '1em')
-    .text(d => d.kind === 'comp' ? (petit ? d.c.num : `${d.c.num}. ${short(d.c.nom)}`) : short(d.r.titre));
+    .text(d => d.kind === 'comp' ? (petit ? d.c.num : `${d.c.num}. ${short(d.c.nom)}`) : d.kind === 'br' ? short(d.b.n) : short(d.r.titre));
 
   // Forces Obsidian : centrale (vers le centre, dans toutes les directions, d'où la forme ronde), répulsion, force et distance des liens
   sim = d3.forceSimulation(nodes)
@@ -584,15 +711,37 @@ function draw() {
   sim.stop();
   for (let i = 0; i < 300; i++) sim.tick();
   sim.on('tick')();
-  const xs = d3.extent(nodes, d => d.x), ys = d3.extent(nodes, d => d.y);
-  const R = W > 900 ? 380 : 0, cx = (W - R) / 2;
-  const k = Math.min(1.6, 0.92 * Math.min((W - R) / (xs[1] - xs[0] + 60), H / (ys[1] - ys[0] + 80)));
-  svg.call(zoom.transform, d3.zoomIdentity.translate(cx - k * (xs[0] + xs[1]) / 2, H / 2 - k * (ys[0] + ys[1]) / 2).scale(k));
+  zoomObj = zoom; nodesAll = nodes; byIdG = byId;
+  recadre(false);
   nodeSel.attr('r', rad);
   sim.alpha(0.05).restart();
   zoomLayer.attr('opacity', 0).transition().duration(450).attr('opacity', 1);
   highlight(state.selected);
 }
+// Cadre la carte : centrée sur la ressource ouverte dans le petit cadran, sinon toute la carte
+function recadre(anim) {
+  if (!zoomObj || !nodesAll.length) return;
+  const box = svg.node().getBoundingClientRect(), W = box.width || 800, H = box.height || 600;
+  const n = document.getElementById('carte').classList.contains('fiche') && byIdG.get(state.selected);
+  let t;
+  if (n) {
+    const k = 0.45;
+    t = d3.zoomIdentity.translate(W / 2 - k * n.x, H / 2 - k * n.y).scale(k);
+  } else {
+    const xs = d3.extent(nodesAll, d => d.x), ys = d3.extent(nodesAll, d => d.y);
+    const R = W > 900 ? 380 : 0, cx = (W - R) / 2;
+    const k = Math.min(1.6, 0.92 * Math.min((W - R) / (xs[1] - xs[0] + 60), H / (ys[1] - ys[0] + 80)));
+    t = d3.zoomIdentity.translate(cx - k * (xs[0] + xs[1]) / 2, H / 2 - k * (ys[0] + ys[1]) / 2).scale(k);
+  }
+  (anim ? svg.transition().duration(450) : svg).call(zoomObj.transform, t);
+}
+// Une ressource ouverte s'affiche en grande fiche, sauf si on a demandé la grande carte
+function appliquerFiche() {
+  const on = !!(state.selected && resById[state.selected]) && !state.grande;
+  document.getElementById('carte').classList.toggle('fiche', on);
+  return on;
+}
+document.getElementById('agrandir').onclick = e => { e.stopPropagation(); state.grande = true; appliquerFiche(); renderPanel(); recadre(true); };
 function short(nom) { return nom.length > 26 ? nom.slice(0, 24).trim() + '…' : nom; }
 function showTip(e, text) {
   const b = document.getElementById('graph').getBoundingClientRect();
@@ -612,35 +761,24 @@ function highlight(id) {
 window.addEventListener('resize', () => { clearTimeout(window._rz); window._rz = setTimeout(draw, 200); });
 document.addEventListener('keydown', e => { if (e.key === 'Escape') select(null); });
 
-// ---------- Réglages (la molette) ----------
-const gear = document.getElementById('gear'), settings = document.getElementById('settings');
-gear.onclick = () => { settings.hidden = !settings.hidden; gear.setAttribute('aria-expanded', !settings.hidden); };
-function syncSliders() { settings.querySelectorAll('input[type=range]').forEach(i => i.value = REG[i.dataset.k]); }
-settings.querySelectorAll('input[type=range]').forEach(i => i.oninput = () => {
-  REG[i.dataset.k] = +i.value;
-  try { localStorage.setItem('carte-reglages', JSON.stringify(REG)); } catch (e) {}
-  if (!sim) return;
-  if (i.dataset.k === 'epaisseurLiens') linkSel.attr('stroke-width', REG.epaisseurLiens);
-  else if (i.dataset.k === 'fonduTexte') styleLabels();
-  else { nodeSel.attr('r', rad); styleLabels(); applyForces(); sim.alpha(0.4).restart(); }
-});
-document.getElementById('reset').onclick = () => {
-  REG = { ...DEFAUT };
-  try { localStorage.removeItem('carte-reglages'); } catch (e) {}
-  syncSliders(); draw();
-};
-syncSliders();
-
 // ---------- Panneau de détail ----------
 function select(id) {
   state.selected = id;
+  state.grande = false;
+  const avant = document.getElementById('carte').classList.contains('fiche');
+  const on = appliquerFiche();
   highlight(id);
   renderPanel();
+  if (on || avant) recadre(true);
 }
 function openOnMap(id) {
   state.selected = id;
-  showView('carte');
+  state.grande = false;
+  appliquerFiche();
+  if (!document.getElementById('carte').classList.contains('active')) showView('carte');
+  else highlight(id);
   renderPanel();
+  recadre(true);
 }
 const pill = (id, text) => `<button class="chip" data-go="${id}">${esc(text)}</button>`;
 function resItem(r) {
@@ -652,7 +790,7 @@ function renderPanel() {
   const fermer = '<button class="close" id="close" title="Fermer (Échap)">✕</button>';
   if (!id) {
     p.innerHTML = `<div class="eyebrow">Bienvenue</div><h2>Ce que l'équipe a appris</h2>
-      <p class="hint">${comps.length} compétences et ${DATA.ressources.length} ressources (LI, AR, SF), reliées entre elles. Clique sur un point pour voir ses liens, clique dans le vide ou sur Échap pour revenir à la vue d'ensemble. La molette en haut à gauche règle l'affichage.</p>`;
+      <p class="hint">${comps.length} compétences et ${DATA.ressources.length} ressources (LI, AR, SF), reliées entre elles. Clique sur un point pour voir ses liens, clique dans le vide ou sur Échap pour revenir à la vue d'ensemble.</p>`;
   } else if (compById[id]) {
     const c = compById[id];
     const mine = resOf(id);
@@ -667,21 +805,43 @@ function renderPanel() {
       <section><h4>Qui demander</h4>${quiListe(id)}${expertsListe(id)}</section>
       <section><h4>Compétences liées</h4>${voisins.length ? `<div class="chips">${voisins.map(v => pill(v.o, `${compById[v.o].num}. ${short(compById[v.o].nom)} · ${v.w}`)).join('')}</div>` : '<p class="hint">Aucune ressource partagée avec une autre compétence.</p>'}</section>
       ${['LI', 'AR', 'SF'].map(t => by(t).length ? `<section><h4>${TYPES[t].pluriel}</h4><ul class="res">${by(t).sort((a, b) => (b.valide - a.valide) || (b.date || '').localeCompare(a.date || '')).map(resItem).join('')}</ul></section>` : '').join('')}`;
+  } else if (id.startsWith('B|')) {
+    // Une branche d'un arbre de compétence
+    const [, cid, i] = id.split('|'), b = DATA.arbres[cid][+i], c = compById[cid];
+    const rs = b.res.map(x => resById[x]).filter(Boolean).sort((a, z) => (z.valide - a.valide) || a.titre.localeCompare(z.titre));
+    p.innerHTML = `${fermer}<div class="eyebrow">Branche · compétence ${c.num}</div><h2>${esc(b.n)}</h2>
+      <p class="hint">${esc(b.d)}</p>
+      <section><dl class="meta"><dt>Compétence</dt><dd>${pill(cid, `${c.num}. ${short(c.nom)}`)}</dd><dt>Niveaux</dt><dd>${b.niv.length ? esc(b.niv.join(', ')) : 'hors référentiel'}</dd></dl></section>
+      <section><button class="btn" data-arbre="${cid}">Ouvrir l'arbre de la compétence</button></section>
+      <section><h4>Ressources · ${rs.length}</h4>${rs.length ? `<ul class="res">${rs.map(resItem).join('')}</ul>` : '<p class="hint">Aucune ressource pour l’instant : un trou à combler.</p>'}</section>`;
   } else {
+    // La fiche d'une ressource : type, titre, résumé, compétences, branches, critères, ressources liées, lien Notion
     const r = resById[id];
-    p.innerHTML = `${fermer}<div class="eyebrow" style="color:var(${TYPES[r.type].c})">${TYPES[r.type].nom}</div><h2>${esc(r.titre)}</h2>
-      <section><dl class="meta">
-        ${(r.personnes || []).length ? `<dt>${r.type === 'SF' ? 'Responsables' : 'Par'}</dt><dd>${r.personnes.map(p => `<button class="chip" data-qui="${esc(p)}">${esc(p)}</button>`).join(' ')}</dd>` : ''}
-        ${(r.experts || []).length ? `<dt>Expert${r.experts.length > 1 ? 's' : ''}</dt><dd>${esc(r.experts.join(', '))}</dd>` : ''}
-        <dt>Statut</dt><dd>${esc(r.statut || '-')}</dd>
-        ${r.semestre ? `<dt>Semestre</dt><dd>${esc(r.semestre)}</dd>` : ''}
-        ${r.date ? `<dt>Date${(r.dates || []).length > 1 ? 's' : ''}</dt><dd>${esc((r.dates || [r.date]).join(', '))}</dd>` : ''}
-        ${r.agenda ? `<dt>Source</dt><dd>Calendrier de l'école (pas encore de fiche Notion)</dd>` : ''}
-        ${r.format ? `<dt>Format</dt><dd>${esc(r.format)}</dd>` : ''}
-      </dl></section>
-      <section><h4>Compétences</h4><div class="chips">${r.competences.map(cid => pill(cid, `${compById[cid].num}. ${short(compById[cid].nom)}`)).join('')}</div>
+    const brs = Object.entries(DATA.arbres || {}).flatMap(([cid, bs]) => bs.map((b, i) => ({ cid, b, i })).filter(x => x.b.res.includes(r.id)));
+    const crits = [];
+    Object.entries(DATA.criteres || {}).forEach(([cid, parNiv]) => Object.entries(parNiv).forEach(([niv, liste]) =>
+      liste.forEach(cr => { if (cr.res.includes(r.id)) crits.push({ cid, niv, t: cr.t }); })));
+    // Ressources liées : mêmes branches (2 points), mêmes critères (1 point), même compétence (1 point)
+    const score = new Map();
+    const ajoute = (x, n) => { if (x !== r.id) score.set(x, (score.get(x) || 0) + n); };
+    brs.forEach(x => x.b.res.forEach(o => ajoute(o, 2)));
+    crits.forEach(c => (DATA.criteres[c.cid][c.niv].find(cr => cr.t === c.t).res || []).forEach(o => ajoute(o, 1)));
+    DATA.ressources.forEach(o => { if (o.competences.some(c => r.competences.includes(c))) ajoute(o.id, 1); });
+    const lies = [...score.entries()].filter(([, s]) => s >= 2).sort((a, b) => b[1] - a[1]).slice(0, 8).map(([o]) => resById[o]).filter(Boolean);
+    const resume = r.s ? r.s.split(/\n\s*\n/).map(t => `<p>${esc(t)}</p>`).join('') + '<p class="hint">Résumé fait par IA à partir de la fiche Notion et de ses fichiers joints.</p>'
+      : '<p class="hint">Pas encore de résumé : la fiche Notion est vide ou presque.</p>';
+    const fiche = document.getElementById('carte').classList.contains('fiche');
+    p.innerHTML = `<div class="fiche-in">${fermer}<div class="eyebrow" style="color:var(${TYPES[r.type].c})">${TYPES[r.type].nom}</div><h2>${esc(r.titre)}</h2>
+      ${fiche ? '' : '<section><button class="btn" id="voir-fiche">Ouvrir la fiche</button></section>'}
+      <section class="resume"><h4>Résumé</h4>${resume}</section>
+      <section><h4>Compétence${r.competences.length > 1 ? 's' : ''}</h4><div class="chips">${r.competences.map(cid => pill(cid, `${compById[cid].num}. ${compById[cid].nom}`)).join('')}</div>
       ${r.corrige ? '<p class="hint">Dans Notion, cette fiche est cochée sur presque toutes les compétences, sans doute par erreur. Le site ne garde que la ou les premières cochées.</p>' : ''}</section>
-      ${r.notion ? `<section><a href="${r.notion}" target="_blank" rel="noopener">Ouvrir la fiche dans Notion ↗</a></section>` : ''}`;
+      ${brs.length ? `<section><h4>Branche${brs.length > 1 ? 's' : ''}</h4><div class="chips">${brs.map(x => pill(`B|${x.cid}|${x.i}`, `${compById[x.cid].num} › ${x.b.n}`)).join('')}</div></section>` : ''}
+      <section><h4>Critères couverts${crits.length ? ' · ' + crits.length : ''}</h4>${crits.length ? `<ul class="crit-l">${crits.map(c => `<li><b>${compById[c.cid].num}, niveau ${c.niv} :</b> ${esc(c.t)}</li>`).join('')}</ul>` : '<p class="hint">Aucun critère des niveaux visés repéré dans cette fiche.</p>'}</section>
+      ${lies.length ? `<section><h4>Ressources liées</h4><ul class="res">${lies.map(resItem).join('')}</ul></section>` : ''}
+      ${r.notion ? `<section><a class="btn" href="${r.notion}" target="_blank" rel="noopener">Ouvrir dans Notion ↗</a></section>` : ''}</div>`;
+    const vf = document.getElementById('voir-fiche');
+    if (vf) vf.onclick = () => { state.grande = false; appliquerFiche(); renderPanel(); recadre(true); };
   }
   p.querySelectorAll('[data-go]').forEach(b => b.onclick = () => openOnMap(b.dataset.go));
   p.querySelectorAll('[data-arbre]').forEach(b => b.onclick = () => openArbre(b.dataset.arbre));
@@ -707,12 +867,27 @@ function drawTree(cid) {
   const qui = document.getElementById('arbre-qui');
   qui.innerHTML = quiListe(cid) + expertsListe(cid); brancherQui(qui);
   renderNiveaux(cid);
-  const sous = SOUS[cid] || [];
-  const groupes = [{ nom: 'Sous-compétences', kind: 'grp', children: sous.length ? sous.map(s => ({ nom: s, kind: 'sous' })) : [{ nom: 'À définir avec le responsable de compétence', kind: 'todo' }] }];
-  ['LI', 'AR', 'SF'].forEach(t => {
-    const rs = mine.filter(r => r.type === t).sort((a, b) => (b.valide - a.valide) || a.titre.localeCompare(b.titre));
-    if (rs.length) groupes.push({ nom: `${TYPES[t].pluriel} · ${rs.length}`, kind: 'grp', type: t, children: rs.map(r => ({ nom: r.titre + (r.valide ? '' : ` (${ETAPES[r.etape].toLowerCase()})`), kind: 'res', r })) });
-  });
+  const feuille = r => ({ nom: r.titre + (r.valide ? '' : ` (${ETAPES[r.etape].toLowerCase()})`), kind: 'res', r });
+  const tri = (a, b) => (b.valide - a.valide) || a.type.localeCompare(b.type) || a.titre.localeCompare(b.titre);
+  const branches = (DATA.arbres || {})[cid] || [];
+  let groupes;
+  if (branches.length) {
+    // L'arbre de la compétence : une branche par sous-compétence, avec les ressources rangées dedans
+    const ranges = new Set(branches.flatMap(b => b.res));
+    groupes = branches.map(b => {
+      const rs = b.res.map(i => resById[i]).filter(Boolean).sort(tri);
+      const niv = b.niv.length ? `niveaux ${b.niv.join(', ')}` : 'hors référentiel';
+      return { nom: `${b.n} · ${rs.length}`, kind: 'grp', info: `${b.d} (${niv})`, children: rs.length ? rs.map(feuille) : [{ nom: 'Aucune ressource pour l’instant', kind: 'todo' }] };
+    });
+    const autres = mine.filter(r => !ranges.has(r.id)).sort(tri);
+    if (autres.length) groupes.push({ nom: `Pas encore rangées · ${autres.length}`, kind: 'grp', info: 'Ressources arrivées après la construction de l’arbre.', children: autres.map(feuille) });
+  } else {
+    groupes = [];
+    ['LI', 'AR', 'SF'].forEach(t => {
+      const rs = mine.filter(r => r.type === t).sort(tri);
+      if (rs.length) groupes.push({ nom: `${TYPES[t].pluriel} · ${rs.length}`, kind: 'grp', type: t, children: rs.map(feuille) });
+    });
+  }
   const root = d3.hierarchy({ nom: c.num, kind: 'root', children: groupes });
   const dy = 300, dx = 26;
   d3.tree().nodeSize([dx, dy])(root);
@@ -731,6 +906,7 @@ function drawTree(cid) {
     .attr('stroke', d => enAttente(d) ? css(TYPES[d.data.r.type].c) : 'none').attr('stroke-width', 2);
   n.append('text').attr('dy', '0.32em').attr('x', d => d.children ? -14 : 10).attr('text-anchor', d => d.children ? 'end' : 'start')
     .text(d => d.data.nom).attr('paint-order', 'stroke').attr('stroke', css('--surface')).attr('stroke-width', 4);
+  n.filter(d => d.data.info).style('cursor', 'help').append('title').text(d => d.data.info);
   n.filter(d => d.data.kind === 'res').on('click', (e, d) => { if (d.data.r.notion) window.open(d.data.r.notion, '_blank', 'noopener'); });
 }
 
@@ -743,10 +919,39 @@ function renderNiveaux(cid) {
     const comptables = items.filter(i => i.etat !== 'preuve');
     const faits = comptables.filter(i => i.etat === 'couvert').length;
     const lignes = items.map(i => `<li><span class="mark ${i.etat}">${MARKS[i.etat]}</span><span>${esc(i.t)}${i.exige ? '<span class="tag">exigé</span>' : ''}${i.etat === 'preuve' ? ' <span class="hint">à prouver soi-même, ne se voit pas dans un titre</span>' : ''}</span>${i.res.length ? `<span class="refs">${i.res.slice(0, 5).map(ref).join('')}${i.res.length > 5 ? `<span class="hint">+ ${i.res.length - 5} autres</span>` : ''}</span>` : ''}</li>`).join('');
-    return `<details class="level"${nv.num > 1 && nv.num < 5 ? ' open' : ''}><summary><h3>Niveau ${nv.num} <span>· ${esc(nv.nom)}</span></h3>${comptables.length ? `<span class="score">${faits} / ${comptables.length} couverts</span>` : ''}</summary>
-      <p class="texte">${esc(nv.texte)}</p>${items.length ? `<ul>${lignes}</ul>` : '<p class="hint rien">Pas de théorie nommée à ce niveau : il se prouve par l’action.</p>'}</details>`;
+    const nb = nbVise(cid, nv.num);
+    // Critères des niveaux visés (criteres.json), chacun dépliable avec les ressources qui en parlent
+    const crits = nb ? ((DATA.criteres || {})[cid] || {})[nv.num] || [] : [];
+    // Le texte du niveau reste un seul paragraphe ; chaque critère (phrase) est cliquable et ouvre ses ressources dessous
+    const texte = crits.length
+      ? `<p class="texte crit-texte">${crits.map((k, i) => `<span class="crit${k.res.length ? ' a' : ''}" data-crit="${cid}|${nv.num}|${i}" title="${k.res.length ? `${k.res.length} ressource${k.res.length > 1 ? 's' : ''} de l’équipe, clique pour voir` : 'Aucune ressource de l’équipe pour l’instant'}">${esc(k.t)}</span>`).join(' ')}</p>
+         <p class="hint crit-aide">Passe la souris sur une phrase : chaque critère souligné renvoie à des ressources de l’équipe. Clique pour les voir.</p><div class="crit-panel" hidden></div>`
+      : `<p class="texte">${esc(nv.texte)}</p>`;
+    return `<details class="level${nb ? '' : ' hors-cible'}"><summary><h3>Niveau ${nv.num} <span>· ${esc(nv.nom)}</span></h3>${comptables.length ? `<span class="score" title="Éléments de théorie demandés à ce niveau et déjà couverts par une ressource validée de l’équipe">Théorie : ${faits} / ${comptables.length} couverte${faits > 1 ? "s" : ""}</span>` : ''}<span class="vise">${nb ? `visé par ${nb}` : 'pas visé ce semestre'}</span></summary>
+      ${texte}${crits.length && items.length ? '<div class="sous-titre">La théorie demandée</div>' : ''}${items.length ? `<ul>${lignes}</ul>` : '<p class="hint rien">Pas de théorie nommée à ce niveau : il se prouve par l’action.</p>'}</details>`;
   }).join('') || '<p class="hint">Niveaux non disponibles.</p>';
   box.querySelectorAll('[data-go]').forEach(b => b.onclick = () => openOnMap(b.dataset.go));
+  // Clic sur un critère : ses ressources s'affichent sous le paragraphe ; un second clic referme
+  box.querySelectorAll('[data-crit]').forEach(s => s.onclick = () => {
+    const [c, n, i] = s.dataset.crit.split('|');
+    const k = DATA.criteres[c][n][+i];
+    const lvl = s.closest('.level'), panel = lvl.querySelector('.crit-panel');
+    const deja = s.classList.contains('on');
+    lvl.querySelectorAll('.crit.on').forEach(x => x.classList.remove('on'));
+    if (deja) { panel.hidden = true; return; }
+    s.classList.add('on');
+    panel.innerHTML = `<div class="crit-titre">${esc(k.t)}</div>` + (k.res.length
+      ? `<div class="refs">${k.res.slice(0, 15).map(ref).join('')}${k.res.length > 15 ? `<span class="hint">+ ${k.res.length - 15} autres</span>` : ''}</div>`
+      : '<p class="hint" style="margin:0">Aucune ressource de l’équipe n’en parle encore : une bonne idée de prochaine LI ou d’AR.</p>');
+    panel.hidden = false;
+    panel.querySelectorAll('[data-go]').forEach(b => b.onclick = () => openOnMap(b.dataset.go));
+  });
+  // Recommandations : théorie des niveaux visés, d'abord ce que personne n'a couvert, puis ce qui est en cours
+  const vises = exigVisee(cid);
+  const ligne = v => `<li>Niveau ${v.n} : ${esc(v.i.t)}${v.i.exige ? '<span class="tag">exigé</span>' : ''}${v.i.etat === 'encours' ? '<span class="hint">en cours dans l’équipe</span>' : ''}</li>`;
+  const aLire = [...vises.filter(v => v.i.etat === 'vide'), ...vises.filter(v => v.i.etat === 'encours')];
+  document.getElementById('reco').innerHTML = aLire.length ? `<ul class="reco">${aLire.map(ligne).join('')}</ul>`
+    : '<p class="hint">Toute la théorie nommée aux niveaux visés est déjà couverte par l’équipe : appuie-toi sur les ressources cochées plus haut.</p>';
 }
 
 // ---------- Compétences ----------
@@ -754,11 +959,11 @@ function renderCards() {
   document.getElementById('cards').innerHTML = comps.map(c => {
     const mine = resOf(c.id);
     const n = t => mine.filter(r => r.type === t).length;
-    const e = exigOf(c.id).filter(i => i.etat !== 'preuve');
+    const e = exigVisee(c.id).map(v => v.i).filter(i => i.etat !== 'preuve');
     return `<button class="card" data-arbre="${c.id}"><div class="num">${c.num}</div><h3>${esc(c.nom)}</h3>
       <div class="mini">${['LI', 'AR', 'SF'].map(t => `<span>${n(t)} ${t}</span>`).join('')}</div>
-      ${NIVEAUX_PRETS && e.length ? `<div class="theo">Théorie des niveaux : ${e.filter(i => i.etat === 'couvert').length} / ${e.length} couverte</div>` : ''}</button>`;
-  }).join('') + `<div class="card attente" aria-disabled="true"><div class="num">15</div><h3>15e compétence</h3><div class="theo">En attente</div></div>`;
+      ${NIVEAUX_PRETS && e.length ? `<div class="theo">Théorie des niveaux visés : ${e.filter(i => i.etat === 'couvert').length} / ${e.length} couverte</div>` : ''}</button>`;
+  }).join('');
   document.querySelectorAll('#cards [data-arbre]').forEach(b => b.onclick = () => openArbre(b.dataset.arbre));
 }
 
@@ -785,14 +990,41 @@ function trouve(titre, q) {
   const mots = t.split(/[^a-z0-9]+/).filter(Boolean);
   return q.split(/\s+/).every(m => m.length < 4 ? t.includes(m) : mots.some(w => w.includes(m) || proche(m, w)));
 }
+const SYN = DATA.synonymes || [];
+// Position de la recherche dans le texte de la fiche (en début de mot), ou -1
+function posContenu(r, a) {
+  if (!r.c || a.length < 3) return -1;
+  if (r.cn === undefined) r.cn = norm(r.c);
+  let i = r.cn.indexOf(a);
+  while (i > 0 && /[a-z0-9]/.test(r.cn[i - 1])) i = r.cn.indexOf(a, i + 1);
+  return i;
+}
+// L'extrait de la fiche autour du mot trouvé, pour juger soi-même si la ressource en parle vraiment
+function extrait(r, i, n) {
+  const d = Math.max(0, r.c.lastIndexOf(' ', Math.max(0, i - 70)) + 1), f = r.c.indexOf(' ', i + n + 70);
+  const bout = r.c.slice(d, f < 0 ? undefined : f);
+  return (d > 0 ? '…' : '') + esc(bout.slice(0, i - d)) + '<b>' + esc(bout.slice(i - d, i - d + n)) + '</b>' + esc(bout.slice(i - d + n)) + (f > 0 ? '…' : '');
+}
 function renderRows() {
   const q = norm(document.getElementById('q2').value.trim());
   const t = document.getElementById('f-type').value, c = fComp.value, e = document.getElementById('f-etape').value, w = fQui.value;
-  const rows = DATA.ressources.filter(r => (!q || trouve(r.titre, q) || trouve(par(r), q)) && (!w || (r.personnes || []).includes(w)) && (!t || r.type === t) && (!c || r.competences.includes(c)) && (!e || (e === 'pas' ? !r.valide : e === 'sfvenir' ? r.type === 'SF' && !r.valide : r.etape === e)))
-    .sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+  // Recherche : titre et auteurs d'abord, puis le contenu de la fiche, avec les mots équivalents (français et anglais)
+  const alts = q ? [q, ...SYN.filter(g => g.some(x => x === q || (q.length >= 4 && !q.includes(' ') && !x.includes(' ') && proche(q, x)))).flat().filter(x => x !== q)] : [];
+  const ou = {};
+  const ext = {};
+  DATA.ressources.forEach(r => {
+    if (!q) return;
+    if (alts.some(a => trouve(r.titre, a) || trouve(par(r), a))) { ou[r.id] = 'titre'; return; }
+    ou[r.id] = '';
+    for (const a of alts) { const i = posContenu(r, a); if (i >= 0) { ou[r.id] = 'contenu'; ext[r.id] = extrait(r, i, a.length); break; } }
+    // Puis les fichiers joints (supports de SF, rendus de LI) : on dit lequel, sans extrait
+    if (!ou[r.id] && r.f && alts.some(a => { const m = a.split(/[^a-z0-9-]+/).filter(x => x.length >= 3); return m.length && m.every(x => (' ' + r.f).includes(' ' + x)); })) ou[r.id] = 'fichier';
+  });
+  const rows = DATA.ressources.filter(r => (!q || ou[r.id]) && (!w || (r.personnes || []).includes(w)) && (!t || r.type === t) && (!c || r.competences.includes(c)) && (!e || (e === 'pas' ? !r.valide : e === 'sfvenir' ? r.type === 'SF' && !r.valide : r.etape === e)))
+    .sort((a, b) => (q ? (ou[a.id] === 'titre' ? 0 : 1) - (ou[b.id] === 'titre' ? 0 : 1) : 0) || (b.date || '').localeCompare(a.date || ''));
   document.getElementById('n-res').textContent = `${rows.length} ressource${rows.length > 1 ? 's' : ''}`;
   document.getElementById('rows').innerHTML = rows.map(r => `<tr>
-    <td class="t"><button data-go="${r.id}">${esc(r.titre)}</button></td>
+    <td class="t"><button data-go="${r.id}">${esc(r.titre)}</button>${q && ou[r.id] === 'contenu' ? `<span class="dans-contenu">Mentionné dans la fiche : « ${ext[r.id]} »</span>` : ''}${q && ou[r.id] === 'fichier' ? `<span class="dans-contenu">Dans le fichier joint : ${esc((r.fn || []).join(', '))}</span>` : ''}</td>
     <td class="nw"><span class="dot" style="background:var(${TYPES[r.type].c})"></span> ${r.type}</td>
     <td>${esc(par(r))}</td>
     <td>${r.competences.map(x => compById[x].num).join(', ')}</td>
@@ -813,7 +1045,7 @@ function renderBars() {
   document.querySelectorAll('#bars [data-arbre]').forEach(b => b.onclick = () => openArbre(b.dataset.arbre));
   // Théorie demandée par le référentiel qu'aucune ressource ne couvre, même en cours
   document.getElementById('gaps').innerHTML = comps.map(c => {
-    const vides = Object.entries(EXIG[c.id] || {}).flatMap(([n, l]) => l.filter(i => i.etat === 'vide').map(i => ({ n, i })));
+    const vides = exigVisee(c.id).filter(v => v.i.etat === 'vide');
     return vides.length ? `<div class="gap"><h4 data-arbre="${c.id}">${c.num}. ${esc(c.nom)} ›</h4><ul>${vides.map(v => `<li>Niveau ${v.n} : ${esc(v.i.t)}${v.i.exige ? '<span class="tag">exigé</span>' : ''}</li>`).join('')}</ul></div>` : '';
   }).join('');
   document.querySelectorAll('#gaps [data-arbre]').forEach(b => b.onclick = () => openArbre(b.dataset.arbre));
@@ -839,6 +1071,92 @@ let start = document.getElementById(fromHash) && document.getElementById(fromHas
 try { if (!start) { const v = localStorage.getItem('carte-vue'); if (v && document.getElementById(v) && v !== 'arbre') start = v; } } catch (e) {}
 if (/^C\d\d$/.test(fromHash) && compById[fromHash]) openArbre(fromHash);
 else if (start && start !== 'carte') showView(start); else requestAnimationFrame(draw);
+
+// ---------- Vérifier une idée de LI ou d'AR ----------
+// Tout se calcule dans le navigateur, avec les ressources, résumés, critères et arbres déjà sur le site
+const VIDES = new Set(('pour dans avec sans sous des les aux par que qui quoi dont sont etre avoir comment pourquoi quand faire fait plus moins tres bien entre leur leurs nous vous mon mes son ses cette ces votre notre comme mais donc alors aussi lecture lire livre article articles reflexif annonce idee sujet the and for with from into what how why your this that about book chez apres avant tout tous toute toutes elle elles ils autre autres peut veux vais aupres grace travers depuis vers afin lors selon via mieux comment sein cadre').split(' '));
+const echappe = m => m.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+// Un mot de l'idée est cherché par sa racine, en début de mot (« créativité » trouve « créatif »)
+const racine = m => m.length > 6 ? m.slice(0, m.length - 2) : m;
+const contient = (t, m) => new RegExp('(^|[^a-z0-9])' + echappe(m)).test(t);
+function verifierIdee() {
+  const brut = document.getElementById('idee-txt').value.trim();
+  const box = document.getElementById('idee-res');
+  if (!brut) { box.innerHTML = ''; return; }
+  const texte = norm(brut);
+  const mots = [...new Set(texte.split(/[^a-z0-9]+/).filter(m => m.length >= 4 && !VIDES.has(m)))];
+  if (!mots.length) { box.innerHTML = '<p class="verdict">Écris un peu plus : un titre, un sujet ou un outil.</p>'; return; }
+  // Mots équivalents en français et en anglais (gantt, pricing / prix…)
+  // (« gants » retrouve « gantt » grâce à la tolérance aux fautes de frappe)
+  const pareil = (m, x) => m === x || (m.length >= 4 && !x.includes(' ') && proche(m, x));
+  const groupes = mots.map(m => [racine(m), ...SYN.map(g => g.map(norm)).filter(g => g.some(x => pareil(m, x))).flat().filter(x => !x.includes(' ') && x !== m).map(racine)]);
+
+  // Poids de chaque mot : un mot rare dans la base compte beaucoup (« crise »), un mot présent partout presque rien (« équipe »)
+  const fiches = DATA.ressources.map(r => r._n || (r._n = { t: norm(r.titre), s: norm(r.s || ''), c: norm(r.c || ''), f: r.f || '' }));
+  const N = fiches.length;
+  const poids = groupes.map(g => {
+    const df = fiches.filter(n => g.some(m => contient(n.t, m) || contient(n.s, m) || contient(n.c, m))).length;
+    return Math.max(0.1, Math.log((N + 1) / (df + 1)));
+  });
+  const W = poids.reduce((a, b) => a + b, 0);
+  const cle = poids.indexOf(Math.max(...poids));   // le mot le plus rare : le cœur de l'idée
+
+  // 1. Ressources qui en parlent déjà : titre (×3), résumé (×2), texte de la fiche (×1), fichiers joints (×0,5), multipliés par le poids du mot
+  const res = DATA.ressources.map((r, j) => {
+    const n = fiches[j];
+    let score = 0, couvre = 0, couvrePrincipal = 0, aCle = false, cleVisible = false, nb = 0, nbPrincipal = 0;
+    groupes.forEach((g, i) => {
+      const dans = k => g.some(m => contient(n[k], m));
+      const t = dans('t'), s = dans('s'), c = dans('c'), f = dans('f');
+      const facteur = t ? 3 : s ? 2 : c ? 1 : f ? 0.5 : 0;
+      score += poids[i] * facteur;
+      if (facteur) { couvre += poids[i]; nb++; }
+      if (t || s) { couvrePrincipal += poids[i]; nbPrincipal++; }
+      if (i === cle && facteur) aCle = true;
+      if (i === cle && (t || s)) cleVisible = true;
+    });
+    return { r, score, part: couvre / W, partPrincipale: couvrePrincipal / W, aCle, cleVisible, nb, nbPrincipal };
+  }).filter(x => x.nb >= Math.min(2, groupes.length) && (x.part >= 0.5 || x.aCle))
+    .sort((a, b) => b.score - a.score).slice(0, 8);
+  // « Bien traité » seulement si le mot le plus important est dans le titre ou le résumé, et l'essentiel de l'idée aussi
+  // et la plupart des mots de l'idée aussi (« crise » seule ne suffit pas pour « gérer une équipe en crise »)
+  const forts = res.filter(x => x.cleVisible && x.partPrincipale >= 0.6 && x.nbPrincipal >= Math.ceil(groupes.length * 2 / 3));
+  const avecCle = res.filter(x => x.aCle);
+
+  // 2. Critères des niveaux visés touchés par l'idée (mots-clés du critère trouvés dans l'idée)
+  const crits = [];
+  Object.entries(DATA.criteres || {}).forEach(([cid, parNiv]) => Object.entries(parNiv).forEach(([niv, liste]) => liste.forEach(cr => {
+    const kw = (cr.kw || []).map(norm).filter(k => k.length > 3);
+    const touche = kw.filter(k => contient(texte, racine(k)) || groupes.some(g => g.some(m => contient(k, m)))).length;
+    // Score : mots-clés du critère trouvés (2 points chacun) + mots de l'idée présents dans la phrase du critère (3 points chacun)
+    const t = norm(cr.t), dansPhrase = groupes.reduce((a, g, i) => a + (g.some(m => contient(t, m)) ? poids[i] : 0), 0);
+    if (touche || dansPhrase) crits.push({ cid, niv, cr, score: touche + 3 * dansPhrase });
+  })));
+  crits.sort((a, b) => b.score - a.score || a.cr.res.length - b.cr.res.length);
+
+  // 3. Branches des arbres proches de l'idée (nom et description), plus celles des ressources trouvées
+  const brs = [];
+  Object.entries(DATA.arbres || {}).forEach(([cid, bs]) => bs.forEach((b, i) => {
+    const t = norm(b.n + ' ' + (b.d || ''));
+    let s = 2 * groupes.reduce((a, g, i) => a + (g.some(m => contient(t, m)) ? poids[i] : 0), 0);
+    s += res.filter(x => b.res.includes(x.r.id)).length;
+    if (s >= 2) brs.push({ cid, i, b, s });
+  }));
+  brs.sort((a, b) => b.s - a.s);
+
+  const motCle = `« ${esc(mots[cle])} »`;
+  const verdict = forts.length >= 2 ? ['Déjà bien traité.', 'Plusieurs ressources parlent déjà de ce sujet. Lis-les d\'abord et cherche un angle nouveau : un autre livre, un autre outil ou ton propre cas.']
+    : avecCle.length ? ['Déjà abordé en partie.', `Des ressources parlent de ${motCle} sans en faire leur sujet principal : ton idée peut les compléter.`]
+    : res.length ? ['Proche, mais le cœur du sujet manque.', `Des ressources traitent du thème général, mais aucune ne parle de ${motCle} : ton idée comblerait un vrai manque.`]
+    : ['Sujet neuf.', 'Aucune ressource proche dans la base : ton idée apporterait quelque chose de nouveau.'];
+  box.innerHTML = `<p class="verdict">${verdict[0]}</p><p class="hint">${verdict[1]}</p>
+    <div class="callout"><h4>Ressources qui en parlent déjà${res.length ? ' · ' + res.length : ''}</h4>${res.length ? `<ul class="res">${res.map(x => resItem(x.r)).join('')}</ul>` : '<p class="hint">Aucune.</p>'}</div>
+    <div class="callout"><h4>Critères des niveaux visés que l'idée touche</h4>${crits.length ? `<ul class="crit-l">${crits.slice(0, 6).map(c => `<li><b>${compById[c.cid].num}. ${esc(short(compById[c.cid].nom))}, niveau ${c.niv} :</b> ${esc(c.cr.t)} <span class="hint">(${c.cr.res.length ? c.cr.res.length + ' ressource' + (c.cr.res.length > 1 ? 's' : '') + ' déjà' : 'aucune ressource : un trou à combler'})</span></li>`).join('')}</ul>` : '<p class="hint">Aucun critère repéré. Essaie avec d\'autres mots, ou des mots du référentiel.</p>'}</div>
+    <div class="callout"><h4>Branches où ranger l'idée</h4>${brs.length ? `<ul class="crit-l">${brs.slice(0, 3).map(x => `<li><button class="chip" data-go="B|${x.cid}|${x.i}">${compById[x.cid].num} › ${esc(x.b.n)}</button> <span class="hint">${x.b.res.length} ressource${x.b.res.length > 1 ? 's' : ''}${x.b.res.length <= 2 ? ' : peu fournie, ton idée comblerait un manque' : ''}</span></li>`).join('')}</ul>` : '<p class="hint">Aucune branche repérée.</p>'}</div>`;
+  box.querySelectorAll('[data-go]').forEach(b => b.onclick = () => openOnMap(b.dataset.go));
+}
+document.getElementById('idee-go').onclick = verifierIdee;
+document.getElementById('idee-txt').addEventListener('keydown', e => { if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) verifierIdee(); });
 
 // ---------- Avis ----------
 // Formulaire Tally « Ton avis sur la carte des compétences » (pebxPy), avec la vue d'où vient l'avis

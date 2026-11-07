@@ -171,7 +171,7 @@ Statut : prêt en local, pas encore publié.
 
 ## 2026-10-23 : couleurs plus unies
 
-Statut : prêt en local, pas encore publié.
+Statut : publié le 2026-10-23 (GitHub Pages et Vercel).
 
 - Demande de Léon : le bleu, l'orange et le vert ne faisaient pas uni. Les trois types de ressources sont maintenant trois nuances d'un même bleu ardoise (LI foncé, AR moyen, SF clair ; l'inverse en mode sombre), et la couleur des liens et boutons passe dans ce même bleu.
 - Compétences : les cartes gardent le nombre de LI, d'AR et de SF, mais sans les pastilles de couleur.
@@ -180,13 +180,73 @@ Statut : prêt en local, pas encore publié.
 
 ## 2026-10-23 : roadmap, document de validation
 
-Statut : prêt en local, pas encore publié.
+Statut : publié le 2026-10-23 (GitHub Pages et Vercel).
 
 - Demande de Léon : ajout dans « Prévu » du document de validation des 15e et 16e compétences. L'idée : un seul document qui rassemble toutes les compétences proposées, envoyé d'un coup à Antoine pour qu'il les valide toutes en une fois.
 
 ## 2026-10-23 : retouches des couleurs
 
-Statut : prêt en local, pas encore publié.
+Statut : publié le 2026-10-23 (GitHub Pages et Vercel).
 
 - Retour de Léon : la Roadmap retrouve son vert (Fait) et son orange (En cours) d'origine.
 - Retour de Léon : pas assez de contraste entre les trois bleus. Nouvelle palette plus écartée : bleu nuit pour les LI, bleu vif pour les AR, bleu ciel pour les SF (en mode sombre : presque blanc, bleu vif, bleu profond).
+
+## 2026-11-07 : niveaux visés et recommandations
+
+Statut : prêt en local, pas encore publié (Léon dira « publie »).
+
+- Demande de Léon : afficher les niveaux maintenant que les niveaux visés sont connus. Afficher en priorité les niveaux visés (3, et 4 quand quelqu'un le vise), avec leurs critères et leurs lectures ; les autres restent visibles mais signalés comme non visés.
+- Source : questionnaire Tally « Tes niveaux et la prochaine SF » (17 réponses) et les niveaux visés de Léon. Seuls les totaux sont gardés, dans `niveaux-vises.json` (site public, pas de noms).
+- Page d'une compétence : chaque niveau affiche « visé par N » ou « pas visé ce semestre » ; les niveaux visés sont ouverts, les autres repliés et grisés. La section « Les recommandations » liste la théorie des niveaux visés que personne n'a couverte, puis celle qui est en cours.
+- Onglet Trous et cartes des compétences : ne comptent plus que la théorie des niveaux visés.
+- Roadmap : niveaux et recommandations passent dans Fait ; ajout de « Ressources par critère » dans Prévu (idée de la discussion du 02.11, voir `../idees-equipe-2026-11-02.md`).
+- Vérifié en local sur la compétence 6 (niveaux 2 et 3 visés par 10 et 8 personnes).
+
+## 2026-11-07 : ressources par critère et recherche dans le contenu
+
+Statut : prêt en local, pas encore publié (Léon regarde le site en local avant).
+
+- Demande de Léon, d'après la discussion d'équipe du 02.11 : cliquer sur un critère d'un niveau et voir toutes les LI, AR et SF liées ; chercher un outil (« Gantt ») et le trouver même dans une LI faite en anglais.
+- Nouveau `contenus.py` : lit le texte des 284 fiches LI et AR qui ont un contenu sur le Notion public (lecture seule). Ajouté à la mise à jour du lundi.
+- Nouveau `criteres.json` : les 147 critères des niveaux visés, avec des mots-clés en français et en anglais écrits par Claude. Une ressource est rattachée si un mot-clé est dans son titre, ou s'il revient au moins 2 fois dans son contenu (5 fois si elle n'est pas rattachée à la compétence). 128 critères ont au moins une ressource ; les 19 autres affichent « rien pour l'instant ».
+- Page d'une compétence : dans un niveau visé, la liste des critères, chacun dépliable avec ses ressources (les validées d'abord).
+- Recherche de l'onglet Ressources : titre et auteurs, puis contenu de la fiche (mention « trouvé dans le contenu de la fiche »), avec les équivalents de `synonymes.json` et une faute de frappe tolérée (« gants » trouve Gantt).
+- Notion compte maintenant une 15e compétence (« Compétence personnelle ») : la carte « 15e compétence, en attente » disparaît quand elle existe.
+- Vérifié en local : compétence 3 (7 critères au niveau 2, Gantt et planification reliés à 13 ressources), recherche « gants » (8 fiches) et « negociation » (5).
+- Même jour, retour de Léon : tous les niveaux fermés au départ (les niveaux visés gardent leur fond et leur pastille « visé par N ») ; les critères redeviennent un seul paragraphe, comme le texte du référentiel. Chaque phrase se surligne au survol, les phrases soulignées en pointillé ont des ressources, et un clic les affiche sous le paragraphe (un second clic referme).
+- Même jour, retour de Léon : « Gantt » trouvait *Measure What Matters* alors que le mot venait de la question « Quelles sont les lectures, articles et SF en lien » (les ressources des autres). `contenus.py` lit maintenant la fiche dans l'ordre et saute cette question et sa réponse, ainsi que « En quoi cette lecture vient enrichir… », l'origine du livre, la co-création et le texte des questions du modèle. Les 328 fiches ont été relues. La recherche montre aussi l'extrait de la fiche où le mot apparaît (« Mentionné dans la fiche : … »), pour juger si la ressource en parle vraiment ; une fiche peut citer un outil sans l'enseigner. Les critères utilisent le même texte nettoyé.
+
+## 2026-11-07 : la 15e compétence retirée du site
+
+Statut : prêt en local, pas encore publié.
+
+- Décision de Léon : la 15e compétence est personnelle à chacun, elle n'a pas sa place sur le site commun. Le site ne garde que les compétences 1 à 14 (`build.py` ignore la « Compétence personnelle » ajoutée dans Notion, et ce lien dans les ressources) ; la carte « 15e compétence, en attente » est supprimée.
+- Roadmap : retrait de « 15e compétence » et de « Document de validation des 15e et 16e compétences ».
+- Même jour : le compteur des niveaux devient « Théorie : 1 / 2 couverte » (avec une explication au survol), pour ne pas le confondre avec les critères.
+
+## 2026-11-07 : fichiers joints, fiches SF et arbres de compétence
+
+Statut : prêt en local, pas encore publié ; arbres pas encore affichés sur le site (Léon les relit d'abord).
+
+- Nouveau `fichiers.py` : télécharge les PDF, PowerPoint et Word joints aux fiches LI, AR et SF du Notion public (393 fichiers, 231 fiches ; un seul PDF scanné illisible) dans `donnees-direct/fichiers/` (jamais envoyé en ligne), et n'en garde que la liste des mots dans `contenus-fichiers.json` (envoyé sur GitHub, sans le texte des supports). Les critères et la recherche s'en servent ; la recherche affiche « Dans le fichier joint : nom », sans extrait.
+- `contenus.py` lit aussi les fiches SF (26). « Gantt » ressort maintenant par la SF Gestion de projet 2.
+- Nouveau `arbres.json` : les 14 arbres de compétence (106 branches), couvrant les niveaux 1 à 5, chaque ressource rangée. Relecture dans `../arbres/arbres-finaux.md`. Pas encore utilisés par la page.
+- Même jour, accord de Léon (« go mettre sur le site ») : la page de chaque compétence montre son arbre (section « L'arbre de la compétence ») : une branche par sous-compétence, avec ses ressources, une description et ses niveaux au survol, « Aucune ressource pour l'instant » pour une branche vide, et un groupe « Pas encore rangées » pour les ressources arrivées après l'arbre. `build.py` lit `arbres.json` et note les références introuvables dans `donnees-direct/verification-arbres.txt` (aucune). Roadmap : « Sous-compétences et tags » devient « Arbres de compétence », fait. Vérifié en local sur la compétence 14.
+- Même jour, demande de Léon (« mettre les nœuds sur la mindmap ») : sur la carte, les 106 branches deviennent des nœuds gris entre la compétence et ses ressources (compétence, branche, ressources). Une ressource rangée dans une branche est reliée à la branche ; sinon elle reste reliée à la compétence. Le nom des branches apparaît en zoomant, avant celui des ressources. Un clic sur une branche ouvre son panneau (description, niveaux, ressources, bouton vers l'arbre). Légende : ajout de « Branche ». Vérifié en local.
+- Même jour, retour de Léon (carte trop emmêlée) : nouvelle disposition fixe. Les 14 compétences (gros ronds) sur un grand cercle, chacune entourée du cercle de ses branches ; cette structure ne bouge plus. Seules les LI, AR et SF sont placées par les forces, autour de leurs branches, avec des liens plus fins et plus clairs ; une ressource partagée entre plusieurs compétences se place entre elles. On peut toujours déplacer un point à la souris. Vérifié en local.
+- Même jour, retour de Léon : trois tailles de points seulement (compétence un peu plus grosse que ses branches, toutes les ressources pareilles, même contour fin pour celles pas encore validées) ; la molette de réglages façon Obsidian est supprimée, les réglages sont fixes.
+
+## 2026-11-07, carte moins rigide et plus remplie
+
+Quoi : les compétences ne sont plus bloquées sur un cercle parfait (rayon et angle un peu décalés), les branches sont à des distances et angles irréguliers, les ressources sont attirées vers le centre, et des liens pointillés discrets relient les compétences qui partagent au moins 3 ressources. Pourquoi : Léon trouvait la carte trop régulière et vide au milieu. Statut : en local, pas publié.
+
+
+## 2026-11-07, résumés par ressource et grande fiche
+
+Quoi : 303 fiches résumées par IA (2 paragraphes, rangés dans resumes.json, clé = page Notion ; 300 ressources du site en ont un, 34 sont des annonces seulement). build.py les ajoute aux ressources. Un clic sur une LI, un AR ou une SF ouvre une grande fiche (type, titre, résumé, compétences, branches, critères couverts, ressources liées, lien Notion) et la carte passe dans un petit cadran en haut à droite, avec un bouton « Grande carte ». Pourquoi : demande de Léon, le petit cadran ne montrait que le statut. Limite : la mise à jour automatique du lundi ne résume pas les nouvelles fiches ; les relancer à la demande (« résumés »). Statut : en local, pas publié.
+
+
+## 2026-11-07, onglet « Vérifier une idée »
+
+Quoi : nouvel onglet où l'on écrit une idée de LI ou d'AR ; le site donne un verdict (déjà bien traité, abordé en partie, sujet neuf), les ressources qui en parlent (titre, résumé, fiche, fichiers joints), les critères des niveaux visés touchés (avec le nombre de ressources qui les couvrent déjà) et les branches où la ranger. Tout se calcule dans le navigateur, rien n'est enregistré ni envoyé. build.py transmet maintenant les mots-clés des critères. Roadmap : « Vérifier une idée de lecture » passe en fait. Le texte périmé sur les sous-compétences de l'onglet Trous est remplacé. Pourquoi : étape 5 du plan, validée par Léon. Statut : en local, pas publié.
+

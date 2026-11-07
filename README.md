@@ -26,7 +26,8 @@ Chaque onglet s'ouvre aussi par un lien direct, par exemple `index.html#trous`.
 ## Mettre à jour
 
 1. Dans ce dossier, lancer `python notion_direct.py` : il lit en direct les bases LI, AR, SF et Compétences du Notion Sedniner (quelques secondes, lecture seule) et les range dans `donnees-direct/`.
-2. Puis lancer `python build.py`. Il relit ces données et réécrit `index.html`.
+2. Puis `python contenus.py` : il lit le texte de chaque fiche LI et AR (lecture seule, seulement les fiches nouvelles ; `--tout` pour tout relire) et le range dans `donnees-direct/contenus.json`.
+3. Puis lancer `python build.py`. Il relit ces données et réécrit `index.html`.
 
 Si `donnees-direct/` n'existe pas, `build.py` reprend l'export complet (`04 PROJET/bta/team-academy/notion-sedniner/`).
 
@@ -46,3 +47,9 @@ Les changements successifs sont notés dans `historique-des-changements.md`.
 Après `python notion_direct.py` puis `python build.py`, envoyer les changements sur GitHub (`git add -A`, `git commit`, `git push` dans ce dossier, ou le demander à Claude). Le site en ligne se met à jour en une à deux minutes.
 
 Sur Vercel : dans ce dossier, lancer `npx vercel deploy --prod --yes` (compte Vercel de Léon, projet `carte-competences`). `.vercelignore` empêche l'envoi des données brutes (`donnees-direct/`).
+
+`niveaux-vises.json` : combien de personnes visent chaque niveau ce semestre (totaux, sans noms). Les niveaux visés s'affichent ouverts sur la page de chaque compétence.
+
+`criteres.json` : les critères des niveaux visés, une phrase du référentiel par critère, avec les mots-clés (français et anglais) cherchés dans le titre et le contenu des ressources. Un clic sur un critère montre les ressources qui en parlent. À corriger à la main si un lien est faux ou manque.
+
+`synonymes.json` : les mots équivalents pour la recherche (« négociation » trouve aussi « negotiation »). La recherche de l'onglet Ressources regarde le titre, les auteurs, puis le contenu des fiches.

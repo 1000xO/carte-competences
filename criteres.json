@@ -1,0 +1,1523 @@
+{
+ "_mode_d_emploi": "Les critères des niveaux visés par l'équipe : une phrase du référentiel par critère (t), et les mots-clés (kw, sans accents ni majuscules, français et anglais) cherchés dans le titre et le contenu des LI, AR et SF. Écrits par Claude le 2026-11-07, à corriger à la main si un lien est faux ou manque. Après modification, relancer python build.py.",
+ "C01": {
+  "2": [
+   {
+    "t": "Utilise couramment le traitement de l'information, recherche et analyse des connaissances spécifiques via diverses sources.",
+    "kw": [
+     "recherche d'information",
+     "sources",
+     "information research",
+     "fact-check",
+     "desinformation"
+    ]
+   },
+   {
+    "t": "Maitrise l'accès aux bases de données (gratuites ou payantes).",
+    "kw": [
+     "base de donnees",
+     "bases de donnees",
+     "database",
+     "google scholar",
+     "swisscovery"
+    ]
+   },
+   {
+    "t": "A acquis des savoirs et expériences en veille et structuration de l'information.",
+    "kw": [
+     "veille",
+     "second brain",
+     "second cerveau",
+     "prise de notes",
+     "obsidian",
+     "zettelkasten",
+     "knowledge management"
+    ]
+   },
+   {
+    "t": "Sait résumer, synthétiser, utiliser et citer diverses sources : livres, vidéos, presse, blogs, articles scientifiques, IA, etc.",
+    "kw": [
+     "resume",
+     "synthese",
+     "synthetiser",
+     "citer",
+     "citation",
+     "note-taking"
+    ]
+   },
+   {
+    "t": "Maitrise les normes APA et respecte les règles antiplagiat et de droit d'auteur.",
+    "kw": [
+     "apa",
+     "plagiat",
+     "droit d'auteur",
+     "copyright",
+     "citation"
+    ]
+   }
+  ],
+  "3": [
+   {
+    "t": "Utilise différentes sources d'information, envisage l'information d'une façon critique et comparative (par exemple pour des articles réflexifs).",
+    "kw": [
+     "esprit critique",
+     "critical thinking",
+     "desinformation",
+     "biais",
+     "fake news",
+     "fact-check"
+    ]
+   },
+   {
+    "t": "Structure l'information pour différents usages (business et/ou académique).",
+    "kw": [
+     "structurer l'information",
+     "second brain",
+     "second cerveau",
+     "zettelkasten"
+    ]
+   },
+   {
+    "t": "Est capable de décrire les méthodes de recherche utilisées à cet effet.",
+    "kw": [
+     "methode de recherche",
+     "methodes de recherche",
+     "methodologie",
+     "research method"
+    ]
+   },
+   {
+    "t": "A mis en place des outils de veille stratégique, a réalisé et suivi un plan de veille afin de collecter des informations utiles et utilisées.",
+    "kw": [
+     "veille",
+     "plan de veille",
+     "veille strategique",
+     "monitoring"
+    ]
+   }
+  ],
+  "4": [
+   {
+    "t": "A des connaissances théoriques en méthodes de recherche, veille prospective, IA générative et autres thèmes qui en découlent.",
+    "kw": [
+     "methode de recherche",
+     "methodologie",
+     "prospective",
+     "ia generative",
+     "intelligence artificielle",
+     "chatgpt",
+     "generative ai",
+     "prediction machines"
+    ]
+   },
+   {
+    "t": "Utilise efficacement le traitement de l'information et pratique la veille stratégique dans tous ses projets.",
+    "kw": [
+     "veille strategique",
+     "veille"
+    ]
+   },
+   {
+    "t": "Sait faire une recherche sur les marques et brevets déposés.",
+    "kw": [
+     "brevet",
+     "marque deposee",
+     "propriete intellectuelle",
+     "patent",
+     "trademark"
+    ]
+   },
+   {
+    "t": "La gestion et le traitement de l'information sont traçables et fiables.",
+    "kw": [
+     "tracabilite",
+     "fiabilite"
+    ]
+   },
+   {
+    "t": "Est capable d'utiliser de façon conséquente et critique des outils d'IA et de gérer les risques y relatifs.",
+    "kw": [
+     "intelligence artificielle",
+     "ia",
+     "ai",
+     "chatgpt",
+     "prompt",
+     "risques de l'ia"
+    ]
+   }
+  ]
+ },
+ "C02": {
+  "2": [
+   {
+    "t": "Comprend les bases théoriques de la microéconomie ainsi que les principales caractéristiques d'un système d'économie de marché.",
+    "kw": [
+     "microeconomie",
+     "economie de marche",
+     "offre et demande",
+     "microeconomics"
+    ]
+   },
+   {
+    "t": "Connait les bases sur les théories en matière d'économie internationale (par ex. sur la globalisation du commerce international et ses effets) et en matière de durabilité.",
+    "kw": [
+     "economie internationale",
+     "mondialisation",
+     "globalisation",
+     "commerce international",
+     "durabilite",
+     "sustainability",
+     "developpement durable"
+    ]
+   },
+   {
+    "t": "Contribue et participe au sein de la Team Company à des débats d'actualités économiques suisses et internationales.",
+    "kw": [
+     "actualite economique",
+     "debat",
+     "economie suisse",
+     "desinformation economique"
+    ]
+   }
+  ],
+  "3": [
+   {
+    "t": "Comprend le système de la comptabilité nationale et ses principaux résultats, ainsi que les fondamentaux d'une politique monétaire.",
+    "kw": [
+     "comptabilite nationale",
+     "pib",
+     "gdp",
+     "politique monetaire",
+     "banque nationale",
+     "inflation",
+     "monnaie",
+     "macroeconomie"
+    ]
+   },
+   {
+    "t": "Est capable d'avoir un esprit critique sur les questions de la croissance économique et de ses impacts à court et long terme, en analysant notamment des rapports RSE (responsabilité sociale et écologique).",
+    "kw": [
+     "croissance",
+     "decroissance",
+     "rse",
+     "csr",
+     "doughnut",
+     "donut",
+     "economie circulaire",
+     "sustainability"
+    ]
+   },
+   {
+    "t": "A publié au moins deux articles réflexifs et transfère régulièrement des connaissances via des lectures individuelles en lien avec l'économie et la durabilité.",
+    "kw": [
+     "economie",
+     "durabilite",
+     "sustainability"
+    ]
+   }
+  ]
+ },
+ "C03": {
+  "2": [
+   {
+    "t": "Utilise des outils de gestion et planification de projet (par exemple GANTT, le découpage des tâches, le chemin critique, les « milestones », les objectifs SMART, la gestion des risques, le budget, etc.).",
+    "kw": [
+     "gantt",
+     "planification",
+     "planning",
+     "chemin critique",
+     "milestone",
+     "jalon",
+     "smart",
+     "gestion des risques",
+     "budget",
+     "wbs",
+     "decoupage des taches"
+    ]
+   },
+   {
+    "t": "A expérimenté ces outils dans au moins un projet.",
+    "kw": [
+     "gestion de projet",
+     "project management",
+     "gantt"
+    ]
+   },
+   {
+    "t": "Connait les principes les plus importants de l'organisation d'une équipe de projet (recrutement / profils des personnes impliquées, gestion des compétences / des responsabilités).",
+    "kw": [
+     "equipe de projet",
+     "recrutement",
+     "raci",
+     "organisation d'equipe"
+    ]
+   }
+  ],
+  "3": [
+   {
+    "t": "A géré plusieurs projets du début à la fin (montage, planification, budgétisation des ressources, pilotage, indicateurs).",
+    "kw": [
+     "gestion de projet",
+     "project management",
+     "pilotage",
+     "indicateur",
+     "kpi",
+     "budget"
+    ]
+   },
+   {
+    "t": "Est capable d'établir un cadre et des objectifs motivants pour une équipe de projet, ainsi que de diriger l'action vers les résultats.",
+    "kw": [
+     "objectifs",
+     "okr",
+     "motivation",
+     "goals"
+    ]
+   },
+   {
+    "t": "A mené un projet en tant que chef-fe et est capable de rédiger un rapport final de projet complet et synthétique (délivrables, résultats financiers, communication et marketing).",
+    "kw": [
+     "rapport de projet",
+     "rapport final",
+     "chef de projet",
+     "project manager",
+     "bilan de projet"
+    ]
+   },
+   {
+    "t": "Connait les principes de l'agilité en gestion de projet.",
+    "kw": [
+     "agile",
+     "agilite",
+     "scrum",
+     "kanban",
+     "sprint",
+     "lean"
+    ]
+   }
+  ]
+ },
+ "C04": {
+  "2": [
+   {
+    "t": "Sait établir une SWOT, un PESTEL, une analyse Porter, etc.",
+    "kw": [
+     "swot",
+     "pestel",
+     "porter",
+     "cinq forces",
+     "5 forces",
+     "five forces",
+     "analyse strategique"
+    ]
+   },
+   {
+    "t": "Sur la base d'une veille stratégique et d'un « benchmark concurrentiel », est capable d'identifier les enjeux et facteurs clés de succès pour un positionnement stratégique (« blue ocean », « where to play », etc.).",
+    "kw": [
+     "benchmark",
+     "concurrence",
+     "concurrentiel",
+     "blue ocean",
+     "ocean bleu",
+     "where to play",
+     "playing to win",
+     "positionnement",
+     "facteurs cles de succes"
+    ]
+   },
+   {
+    "t": "Connait différentes approches théoriques en matière d'analyse de la chaîne de valeur (« value chain ») et de la logistique (« supply chain »).",
+    "kw": [
+     "chaine de valeur",
+     "value chain",
+     "supply chain",
+     "logistique",
+     "chaine d'approvisionnement"
+    ]
+   }
+  ],
+  "3": [
+   {
+    "t": "Est capable d'établir différentes options / scénarios stratégiques et de préparer des plans d'action stratégiques opérationnels.",
+    "kw": [
+     "scenario",
+     "options strategiques",
+     "plan d'action",
+     "strategie",
+     "strategy"
+    ]
+   },
+   {
+    "t": "Sait intégrer l'innovation dans une stratégie d'entreprise.",
+    "kw": [
+     "innovation",
+     "strategie d'innovation",
+     "disruption",
+     "innovator"
+    ]
+   },
+   {
+    "t": "Connait les principes d'un QMS (quality management system) et d'un BPM (business process management).",
+    "kw": [
+     "qualite",
+     "qms",
+     "iso 9001",
+     "bpm",
+     "business process",
+     "lean office",
+     "processus"
+    ]
+   },
+   {
+    "t": "Connait différents modèles organisationnels (hiérarchique, matriciel participatif, holacratique, « libéré », etc.) et les a testés au sein de sa Team Company.",
+    "kw": [
+     "holacratie",
+     "holacracy",
+     "entreprise liberee",
+     "reinventing organizations",
+     "sociocratie",
+     "matriciel",
+     "hierarchie",
+     "teal",
+     "modele organisationnel"
+    ]
+   }
+  ]
+ },
+ "C05": {
+  "2": [
+   {
+    "t": "Les besoins / bénéfices clients sont identifiés via des données quantitatives et/ou qualitatives issues du terrain.",
+    "kw": [
+     "besoins clients",
+     "etude de marche",
+     "enquete",
+     "interview",
+     "persona",
+     "customer development",
+     "mom test"
+    ]
+   },
+   {
+    "t": "A la capacité de faire un lancement de produit / service avec une proposition de valeur testée et un positionnement clair sur le marché.",
+    "kw": [
+     "lancement",
+     "proposition de valeur",
+     "value proposition",
+     "positionnement",
+     "go to market",
+     "launch"
+    ]
+   },
+   {
+    "t": "A fait des lectures sur le marketing stratégique (p. ex. Porter, Kotler) et connait les notions de « branding », « value proposition ».",
+    "kw": [
+     "marketing strategique",
+     "kotler",
+     "porter",
+     "branding",
+     "value proposition",
+     "proposition de valeur"
+    ]
+   },
+   {
+    "t": "Est capable de construire et d'appliquer un argumentaire de vente, notamment via une approche CAB.",
+    "kw": [
+     "argumentaire",
+     "vente",
+     "cab",
+     "pitch",
+     "sales",
+     "closing",
+     "spin selling"
+    ]
+   }
+  ],
+  "3": [
+   {
+    "t": "A mis en place un plan marketing complet et testé des techniques de « pricing ».",
+    "kw": [
+     "plan marketing",
+     "marketing plan",
+     "pricing",
+     "prix",
+     "tarif",
+     "tarification"
+    ]
+   },
+   {
+    "t": "Est capable de construire un « customer journey » et d'exécuter une campagne de communication simple via divers canaux de promotion on-line et/ou off-line.",
+    "kw": [
+     "customer journey",
+     "parcours client",
+     "campagne",
+     "reseaux sociaux",
+     "social media",
+     "peso",
+     "storybrand",
+     "growth"
+    ]
+   },
+   {
+    "t": "A créé une marque et une identité visuelle pour un produit/service.",
+    "kw": [
+     "marque",
+     "brand",
+     "branding",
+     "identite visuelle",
+     "logo",
+     "storybrand"
+    ]
+   },
+   {
+    "t": "A réalisé diverses expériences de ventes et/ou de négociation avec un impact mesurable.",
+    "kw": [
+     "vente",
+     "negociation",
+     "negotiation",
+     "sales",
+     "closing",
+     "never split the difference"
+    ]
+   },
+   {
+    "t": "Est capable de gérer une relation/suivi client même dans des situations difficiles.",
+    "kw": [
+     "relation client",
+     "suivi client",
+     "service client",
+     "customer success",
+     "fidelisation"
+    ]
+   }
+  ]
+ },
+ "C06": {
+  "2": [
+   {
+    "t": "Comprend et sait appliquer un plan comptable dans la pratique (par exemple les principes d'ouverture et de clôture d'un bilan).",
+    "kw": [
+     "plan comptable",
+     "comptabilite",
+     "bilan",
+     "accounting",
+     "balance sheet"
+    ]
+   },
+   {
+    "t": "A une expérience de base en comptabilité de projet.",
+    "kw": [
+     "comptabilite de projet",
+     "comptabilite",
+     "accounting"
+    ]
+   },
+   {
+    "t": "Est capable de préparer et gérer un budget pour divers projets.",
+    "kw": [
+     "budget",
+     "budgetisation",
+     "previsionnel",
+     "budgeting"
+    ]
+   },
+   {
+    "t": "Comprend l'impact de l'évolution d'un compte de résultat (un « pertes et profits ») ainsi que l'évolution des actifs et passifs à la clôture d'un exercice.",
+    "kw": [
+     "compte de resultat",
+     "pertes et profits",
+     "actifs",
+     "passifs",
+     "bilan",
+     "income statement"
+    ]
+   },
+   {
+    "t": "Connait les bases de la fiscalité notamment en matière d'impôt, de TVA et d'assurances sociales.",
+    "kw": [
+     "fiscalite",
+     "impot",
+     "tva",
+     "assurances sociales",
+     "avs",
+     "tax",
+     "vat"
+    ]
+   }
+  ],
+  "3": [
+   {
+    "t": "Sait gérer la comptabilité complète de projets dans la pratique (budget, facturation, paiements, clôture des comptes, états financiers, etc.).",
+    "kw": [
+     "comptabilite",
+     "facturation",
+     "etats financiers",
+     "cloture",
+     "accounting",
+     "financial statements"
+    ]
+   },
+   {
+    "t": "A au moins une expérience comme responsable comptable / financier d'un projet ou de la Team Company.",
+    "kw": [
+     "responsable financier",
+     "tresorier",
+     "comptable"
+    ]
+   },
+   {
+    "t": "Est capable de préparer et de faire des choix d'investissements en fonction d'indicateurs / de ratios financiers comme le cash-flow et le ROI.",
+    "kw": [
+     "investissement",
+     "roi",
+     "cash-flow",
+     "cash flow",
+     "ratio",
+     "npv",
+     "rentabilite",
+     "indicateurs financiers"
+    ]
+   },
+   {
+    "t": "Est capable de suivre des flux de trésorerie et de prévoir les besoins financiers à court et moyen terme.",
+    "kw": [
+     "tresorerie",
+     "flux de tresorerie",
+     "cash-flow",
+     "cash flow",
+     "besoins de financement",
+     "financement",
+     "lever des fonds"
+    ]
+   }
+  ]
+ },
+ "C07": {
+  "1": [
+   {
+    "t": "Comprend l'importance des enjeux de la digitalisation des données, ainsi que le cycle de vie des données.",
+    "kw": [
+     "digitalisation",
+     "cycle de vie des donnees",
+     "donnees",
+     "data"
+    ]
+   },
+   {
+    "t": "Connait les fondamentaux d'un processus de découverte/extraction de connaissances dans les bases de données (Knowledge Discovery in Database / KDD).",
+    "kw": [
+     "kdd",
+     "knowledge discovery",
+     "data mining",
+     "fouille de donnees"
+    ]
+   },
+   {
+    "t": "Connait les bases théoriques de la statistique descriptive (moyenne, médiane, mode, écart type).",
+    "kw": [
+     "statistique descriptive",
+     "statistique",
+     "moyenne",
+     "mediane",
+     "ecart type",
+     "statistics"
+    ]
+   },
+   {
+    "t": "Sait collecter et structurer des données, ainsi que les analyser à l'aide d'un tableur simple (par exemple MS Excel).",
+    "kw": [
+     "excel",
+     "tableur",
+     "spreadsheet",
+     "collecte de donnees",
+     "google sheets"
+    ]
+   }
+  ],
+  "2": [
+   {
+    "t": "Comprend comment analyser les données de projets appliqués (ex : études marché, enquêtes de satisfaction, analyse des ventes, etc.).",
+    "kw": [
+     "analyse de donnees",
+     "etude de marche",
+     "enquete",
+     "sondage",
+     "data analysis",
+     "questionnaire"
+    ]
+   },
+   {
+    "t": "Connait la structure d'un rapport avec statistique descriptive, l'analyse univariée/bivariée des données et les principaux tests statistiques.",
+    "kw": [
+     "rapport statistique",
+     "univarie",
+     "bivarie",
+     "test statistique",
+     "correlation",
+     "regression"
+    ]
+   },
+   {
+    "t": "A l'aide d'une IA générative, a expérimenté des analyses exploratoires de données structurées (EDA) et les a visualisées dans un tableau de bord.",
+    "kw": [
+     "eda",
+     "analyse exploratoire",
+     "tableau de bord",
+     "dashboard",
+     "visualisation",
+     "data visualization",
+     "power bi",
+     "looker"
+    ]
+   }
+  ],
+  "3": [
+   {
+    "t": "Comprend les notions théoriques associées à la prédiction des données (« statistical learning ») et connait les notions d'apprentissage automatique par machine (ex : linear regression, random forest, k-means).",
+    "kw": [
+     "statistical learning",
+     "machine learning",
+     "apprentissage automatique",
+     "regression",
+     "random forest",
+     "k-means",
+     "clustering",
+     "prediction"
+    ]
+   },
+   {
+    "t": "Comprend les notions théoriques associées à la prédiction des données dans des projets appliqués.",
+    "kw": [
+     "prediction",
+     "prevision",
+     "forecast",
+     "predictive"
+    ]
+   },
+   {
+    "t": "A l'aide d'une IA générative a expérimenté des prédictions.",
+    "kw": [
+     "prediction",
+     "ia generative",
+     "machine learning"
+    ]
+   },
+   {
+    "t": "Est capable d'utiliser avec aisance des tableaux de bord pour le suivi des données dans ses projets.",
+    "kw": [
+     "tableau de bord",
+     "dashboard",
+     "kpi",
+     "indicateurs"
+    ]
+   }
+  ],
+  "4": [
+   {
+    "t": "Pratique régulièrement la création et l'analyse de données dans ses projets ou de la Team Company.",
+    "kw": [
+     "analyse de donnees",
+     "data analysis",
+     "donnees"
+    ]
+   },
+   {
+    "t": "Sait comment inclure l'analyse de données pas structurées (ex : sentiment analysis, topic modeling).",
+    "kw": [
+     "sentiment analysis",
+     "analyse de sentiment",
+     "topic modeling",
+     "nlp",
+     "donnees non structurees"
+    ]
+   },
+   {
+    "t": "Comprend les notions théoriques associées à l'analyse mixte de données structurées/pas structurées.",
+    "kw": [
+     "analyse mixte",
+     "mixed methods",
+     "donnees non structurees"
+    ]
+   },
+   {
+    "t": "A l'aide d'une IA générative, peut réaliser des prédictions après une analyse mixte.",
+    "kw": [
+     "prediction",
+     "ia generative",
+     "machine learning"
+    ]
+   }
+  ]
+ },
+ "C08": {
+  "2": [
+   {
+    "t": "Sur la base d'un LCI, est capable de rédiger un plan d'apprentissage personnel et de le mettre en pratique.",
+    "kw": [
+     "lci",
+     "plan d'apprentissage",
+     "learning contract",
+     "objectifs d'apprentissage",
+     "learning plan"
+    ]
+   },
+   {
+    "t": "Est capable d'expliciter ses forces et faiblesses en tant qu'apprenant-e.",
+    "kw": [
+     "forces et faiblesses",
+     "style d'apprentissage",
+     "apprenant",
+     "strengths",
+     "metacognition"
+    ]
+   },
+   {
+    "t": "Utilise le dialogue de façon adéquate et constructive.",
+    "kw": [
+     "dialogue",
+     "ecoute active",
+     "bohm",
+     "communication non violente"
+    ]
+   },
+   {
+    "t": "Connait les théories de base de l'apprentissage en équipe.",
+    "kw": [
+     "apprentissage en equipe",
+     "organisation apprenante",
+     "team learning",
+     "learning organization",
+     "senge",
+     "nonaka",
+     "knowledge creating"
+    ]
+   },
+   {
+    "t": "A expérimenté des « birth givings », par exemple dans le contexte de « 24h client », et utilise l'action comme moyen habituel pour construire un savoir-faire et des connaissances en équipe.",
+    "kw": [
+     "birth giving",
+     "24h client",
+     "learning by doing",
+     "apprendre par l'action"
+    ]
+   }
+  ],
+  "3": [
+   {
+    "t": "S'est approprié un style d'apprentissage personnel et gère activement son développement de compétences.",
+    "kw": [
+     "style d'apprentissage",
+     "apprendre a apprendre",
+     "learning how to learn",
+     "ultralearning",
+     "make it stick",
+     "kolb"
+    ]
+   },
+   {
+    "t": "Gère son auto-évaluation en ayant pris conscience des compétences visées et de la systémique des niveaux décrits.",
+    "kw": [
+     "auto-evaluation",
+     "autoevaluation",
+     "self-assessment"
+    ]
+   },
+   {
+    "t": "Expérimente des outils de gestion/partage de connaissances et d'expériences en équipe (« knowledge management »).",
+    "kw": [
+     "knowledge management",
+     "gestion des connaissances",
+     "partage de connaissances",
+     "second brain",
+     "nonaka",
+     "knowledge creating",
+     "seci"
+    ]
+   },
+   {
+    "t": "A expérimenté l'utilisation d'un « learning contract » d'équipe (LCE).",
+    "kw": [
+     "learning contract",
+     "lce",
+     "contrat d'apprentissage"
+    ]
+   },
+   {
+    "t": "Sur cette base est capable d'analyser et de faire des choix d'actions et d'apprentissages en équipe.",
+    "kw": [
+     "apprentissage en equipe",
+     "team learning"
+    ]
+   }
+  ],
+  "4": [
+   {
+    "t": "Est autonome et a une forte motivation intrinsèque pour apprendre.",
+    "kw": [
+     "motivation intrinseque",
+     "autonomie",
+     "drive",
+     "curiosite"
+    ]
+   },
+   {
+    "t": "Est capable de combiner des connaissances théoriques (comme la 5ème discipline de P. Senge) et de mobiliser plusieurs compétences pour résoudre des problèmes complexes.",
+    "kw": [
+     "senge",
+     "cinquieme discipline",
+     "fifth discipline",
+     "pensee systemique",
+     "systems thinking",
+     "complexite"
+    ]
+   },
+   {
+    "t": "A de très bonnes capacités théoriques et pratiques pour accompagner des équipes dans leurs apprentissages.",
+    "kw": [
+     "facilitation",
+     "coaching d'equipe",
+     "pedagogie",
+     "transmettre"
+    ]
+   },
+   {
+    "t": "Est capable d'obtenir des résultats probants et mesurables en équipe au travers de divers mandats externes et de projets.",
+    "kw": [
+     "mandat",
+     "resultats mesurables"
+    ]
+   }
+  ]
+ },
+ "C09": {
+  "2": [
+   {
+    "t": "Connait diverses techniques de créativité et les a mises en pratique.",
+    "kw": [
+     "creativite",
+     "techniques de creativite",
+     "brainstorming",
+     "creativity",
+     "scamper",
+     "six chapeaux",
+     "design thinking"
+    ]
+   },
+   {
+    "t": "Sait poser une problématique, mettre en place une session d'idéation, sélectionner les idées en fonction de critères.",
+    "kw": [
+     "ideation",
+     "problematique",
+     "brainstorming",
+     "selection des idees",
+     "design thinking"
+    ]
+   },
+   {
+    "t": "Possède les bases théoriques du management de l'innovation, notamment l'approche « lean start-up ».",
+    "kw": [
+     "management de l'innovation",
+     "lean startup",
+     "lean start-up"
+    ]
+   },
+   {
+    "t": "Comprend la différence entre la créativité, l'innovation « produit » et l'innovation sur les « business models ».",
+    "kw": [
+     "innovation produit",
+     "business model",
+     "modele d'affaires",
+     "canvas",
+     "business model generation"
+    ]
+   },
+   {
+    "t": "Connait les différents types d'innovation et de MVP.",
+    "kw": [
+     "types d'innovation",
+     "mvp",
+     "produit minimum viable",
+     "minimum viable"
+    ]
+   }
+  ],
+  "3": [
+   {
+    "t": "A un bon niveau théorique sur comment diriger la créativité vers l'innovation, notamment via les approches « customer validation » et « value proposition design ».",
+    "kw": [
+     "customer validation",
+     "value proposition design",
+     "proposition de valeur",
+     "customer development",
+     "mom test"
+    ]
+   },
+   {
+    "t": "Maitrise tout le processus de l'idéation à l'innovation.",
+    "kw": [
+     "ideation",
+     "processus d'innovation",
+     "design thinking",
+     "sprint"
+    ]
+   },
+   {
+    "t": "Sait mettre en place un plan d'action pour prototyper/tester les idées les plus prometteuses.",
+    "kw": [
+     "prototype",
+     "prototypage",
+     "sprint",
+     "experimentation",
+     "mvp"
+    ]
+   },
+   {
+    "t": "Possède une expérience avérée dans la création de valeur et a mis en place un processus pour l'acquisition de premiers clients.",
+    "kw": [
+     "creation de valeur",
+     "premiers clients",
+     "acquisition",
+     "traction",
+     "customer acquisition"
+    ]
+   },
+   {
+    "t": "A testé ce processus, en a mesuré l'impact et a pris les décisions adéquates.",
+    "kw": [
+     "mesure d'impact",
+     "pivot",
+     "lean analytics",
+     "metrics"
+    ]
+   }
+  ]
+ },
+ "C10": {
+  "2": [
+   {
+    "t": "Est capable d'adapter sa communication orale et écrite à des publics spécifiques et obtient des réponses en temps voulu.",
+    "kw": [
+     "communication ecrite",
+     "communication orale",
+     "public cible",
+     "audience",
+     "redaction",
+     "copywriting"
+    ]
+   },
+   {
+    "t": "Sait collecter et valoriser les feedbacks reçus.",
+    "kw": [
+     "feedback",
+     "critique constructive"
+    ]
+   },
+   {
+    "t": "A de bonnes bases théoriques en matière de communication et de rhétorique.",
+    "kw": [
+     "rhetorique",
+     "rhetoric",
+     "persuasion",
+     "influence",
+     "cialdini",
+     "eloquence"
+    ]
+   },
+   {
+    "t": "Réalise régulièrement des interventions orales en anglais.",
+    "kw": [
+     "anglais",
+     "english"
+    ]
+   },
+   {
+    "t": "Est capable de participer de façon active à des séances de travail ou de dialogue en anglais (niveau B1).",
+    "kw": [
+     "anglais",
+     "english"
+    ]
+   }
+  ],
+  "3": [
+   {
+    "t": "Sait présenter et rédiger divers documents dans des situations de pression.",
+    "kw": [
+     "presentation",
+     "redaction",
+     "pression",
+     "pitch"
+    ]
+   },
+   {
+    "t": "Connait les techniques de prise de parole en public (sait expliquer ses choix oratoires au cours d'une présentation).",
+    "kw": [
+     "prise de parole",
+     "public speaking",
+     "talk like ted",
+     "storytelling",
+     "eloquence"
+    ]
+   },
+   {
+    "t": "Maîtrise de façon irréprochable la forme de tous les documents produits.",
+    "kw": [
+     "mise en forme",
+     "typographie",
+     "forme des documents"
+    ]
+   },
+   {
+    "t": "A rédigé et validé au moins un article réflexif de haute qualité en anglais.",
+    "kw": [
+     "anglais",
+     "english"
+    ]
+   },
+   {
+    "t": "Présente régulièrement des lectures et a animé divers workshops en anglais (niveau B2).",
+    "kw": [
+     "anglais",
+     "english",
+     "workshop"
+    ]
+   }
+  ],
+  "4": [
+   {
+    "t": "Maîtrise les principaux modèles théoriques en matière de communication et a testé leur impact dans la pratique.",
+    "kw": [
+     "modeles de communication",
+     "communication non violente",
+     "cnv",
+     "shannon",
+     "schulz von thun",
+     "analyse transactionnelle"
+    ]
+   },
+   {
+    "t": "Sait présenter et communiquer efficacement sur ses projets dans des situations imprévues.",
+    "kw": [
+     "improvisation",
+     "imprevu",
+     "pitch"
+    ]
+   },
+   {
+    "t": "A fait plusieurs présentations face à divers publics / auditoires exigeants (TEDx, levée de fonds, jury, presse, etc.).",
+    "kw": [
+     "tedx",
+     "levee de fonds",
+     "jury",
+     "presse",
+     "pitch",
+     "public speaking"
+    ]
+   },
+   {
+    "t": "A une très bonne maîtrise opérationnelle de l'anglais parlé et écrit.",
+    "kw": [
+     "anglais",
+     "english"
+    ]
+   },
+   {
+    "t": "Est capable de communiquer dans la plupart des situations (niveau C1 attesté\\*).",
+    "kw": [
+     "anglais",
+     "english"
+    ]
+   }
+  ]
+ },
+ "C11": {
+  "3": [
+   {
+    "t": "Sait comment définir des objectifs motivants à long terme.",
+    "kw": [
+     "objectifs a long terme",
+     "vision",
+     "goals",
+     "okr",
+     "objectifs"
+    ]
+   },
+   {
+    "t": "Utilise des outils de planification qui fonctionnent bien pour ses besoins.",
+    "kw": [
+     "planification",
+     "gestion du temps",
+     "time management",
+     "getting things done",
+     "gtd",
+     "productivite",
+     "time blocking"
+    ]
+   },
+   {
+    "t": "Démontre une forte autodiscipline et une capacité à prioriser ses actions même dans des situations difficiles.",
+    "kw": [
+     "autodiscipline",
+     "discipline",
+     "prioriser",
+     "priorites",
+     "essentialism",
+     "essentialisme",
+     "habitudes",
+     "atomic habits",
+     "eisenhower"
+    ]
+   },
+   {
+    "t": "A eu le courage de sortir de sa zone d'habitude et/ou de confort et est capable d'identifier ses émotions.",
+    "kw": [
+     "zone de confort",
+     "emotions",
+     "intelligence emotionnelle",
+     "courage",
+     "comfort zone"
+    ]
+   },
+   {
+    "t": "Est capable d'un regard critique sur ses choix et ses actions.",
+    "kw": [
+     "regard critique",
+     "reflexivite",
+     "introspection",
+     "remise en question"
+    ]
+   },
+   {
+    "t": "Assume l'impact de ses choix et apprend de ses erreurs.",
+    "kw": [
+     "erreurs",
+     "echec",
+     "failure",
+     "mindset"
+    ]
+   },
+   {
+    "t": "A une bonne connaissance de soi.",
+    "kw": [
+     "connaissance de soi",
+     "self-awareness",
+     "personnalite",
+     "mbti",
+     "enneagramme",
+     "ikigai"
+    ]
+   }
+  ],
+  "4": [
+   {
+    "t": "Fait preuve de persévérance et résilience pour atteindre ses objectifs.",
+    "kw": [
+     "perseverance",
+     "resilience",
+     "grit"
+    ]
+   },
+   {
+    "t": "Sait très bien gérer son stress et ses émotions dans diverses situations.",
+    "kw": [
+     "stress",
+     "gestion du stress",
+     "emotions",
+     "meditation",
+     "intelligence emotionnelle",
+     "pleine conscience"
+    ]
+   },
+   {
+    "t": "Sait repérer ses zones de contrainte, d'influence et d'excellence.",
+    "kw": [
+     "zone d'influence",
+     "cercle d'influence",
+     "covey",
+     "7 habitudes"
+    ]
+   },
+   {
+    "t": "A une très bonne connaissance de son identité professionnelle.",
+    "kw": [
+     "identite professionnelle",
+     "ikigai",
+     "carriere",
+     "vocation"
+    ]
+   },
+   {
+    "t": "A adopté des choix managériaux difficiles (par exemple dans ses projets ou en tant que leader) et est capable d'en gérer l'impact émotionnel sur soi et son équipe.",
+    "kw": [
+     "decision difficile",
+     "prise de decision",
+     "choix managerial"
+    ]
+   },
+   {
+    "t": "A mesuré l'impact du coaching sur son développement.",
+    "kw": [
+     "coaching",
+     "coach"
+    ]
+   }
+  ]
+ },
+ "C12": {
+  "2": [
+   {
+    "t": "Sait appliquer les théories dans du travail en équipe et de la gestion d'équipe.",
+    "kw": [
+     "travail en equipe",
+     "gestion d'equipe",
+     "teamwork",
+     "dysfunctions of a team",
+     "lencioni"
+    ]
+   },
+   {
+    "t": "Sait construire une vision partagée et des valeurs communes qui encadrent l'action de l'équipe.",
+    "kw": [
+     "vision partagee",
+     "valeurs",
+     "shared vision",
+     "culture d'equipe"
+    ]
+   },
+   {
+    "t": "A des expériences dans la gestion d'une équipe en ayant une fonction de leader.",
+    "kw": [
+     "leader",
+     "leadership",
+     "manager"
+    ]
+   },
+   {
+    "t": "Accompagne les membres de son équipe dans l'identification et la planification des compétences acquises, à développer, et/ou à acquérir.",
+    "kw": [
+     "developpement des competences",
+     "mentorat",
+     "accompagnement"
+    ]
+   }
+  ],
+  "3": [
+   {
+    "t": "Connait les principaux modèles théoriques en leadership d'équipe et en processus d'accompagnement (mentoring, coaching, expert, etc.).",
+    "kw": [
+     "leadership",
+     "mentoring",
+     "coaching",
+     "leadership situationnel",
+     "servant leadership"
+    ]
+   },
+   {
+    "t": "A une bonne expérience du travail en équipe.",
+    "kw": [
+     "travail en equipe",
+     "teamwork"
+    ]
+   },
+   {
+    "t": "Est capable de développer activement et mener des actions en équipe (par exemple la gestion des conflits / de la motivation, la formulation d'objectifs, la prise en compte des valeurs/profils des personnes via Belbin, Leonardo ou autres).",
+    "kw": [
+     "gestion des conflits",
+     "conflits",
+     "motivation",
+     "belbin",
+     "leonardo",
+     "conflict"
+    ]
+   },
+   {
+    "t": "Est capable d'établir et de gérer une culture de dialogue.",
+    "kw": [
+     "culture de dialogue",
+     "dialogue",
+     "radical candor"
+    ]
+   }
+  ],
+  "4": [
+   {
+    "t": "A un très bon niveau théorique en leadership et coaching.",
+    "kw": [
+     "leadership",
+     "coaching"
+    ]
+   },
+   {
+    "t": "A accompagné plusieurs équipes dans différents contextes professionnels et académiques.",
+    "kw": [
+     "accompagnement d'equipe",
+     "coaching d'equipe",
+     "facilitation"
+    ]
+   },
+   {
+    "t": "Sait appliquer les outils appris et expérimentés pour son propre coaching, à des individus et des équipes.",
+    "kw": [
+     "coaching",
+     "grow"
+    ]
+   },
+   {
+    "t": "A adopté un leadership qui concilie bienveillance et exigence dans la conduite d'une équipe.",
+    "kw": [
+     "bienveillance",
+     "exigence",
+     "radical candor"
+    ]
+   },
+   {
+    "t": "Sait capitaliser sur les feedbacks de son équipe pour améliorer son leadership.",
+    "kw": [
+     "feedback",
+     "360"
+    ]
+   }
+  ]
+ },
+ "C13": {
+  "2": [
+   {
+    "t": "Est capable de façon indépendante et spontanée de construire des réseaux.",
+    "kw": [
+     "reseau",
+     "networking",
+     "reseautage",
+     "never eat alone"
+    ]
+   },
+   {
+    "t": "Identifie les différents réseaux dans un environnement spécifique et est capable de les utiliser dans la promotion de ses projets et de la Team Company.",
+    "kw": [
+     "reseaux",
+     "linkedin",
+     "ecosysteme",
+     "networking"
+    ]
+   },
+   {
+    "t": "Est capable d'entamer à l'international des premiers contacts en vue d'échanges académiques et/ou professionnels.",
+    "kw": [
+     "international",
+     "contacts internationaux"
+    ]
+   }
+  ],
+  "3": [
+   {
+    "t": "A une expérience pratique de travail dans une équipe multiculturelle, comme des projets de collaboration ou des séjours prolongés (voyages apprenants ou autres) à l'international.",
+    "kw": [
+     "multiculturel",
+     "interculturel",
+     "voyage apprenant",
+     "culture map",
+     "international"
+    ]
+   },
+   {
+    "t": "A une démarche active de construction et de maintien de son réseau.",
+    "kw": [
+     "reseau",
+     "networking",
+     "linkedin"
+    ]
+   },
+   {
+    "t": "Est capable d'activer les réseaux, aussi bien au niveau local qu'international.",
+    "kw": [
+     "activer son reseau",
+     "reseau",
+     "networking"
+    ]
+   },
+   {
+    "t": "A acquis les bases théoriques liées à la gestion d'équipes multiculturelles.",
+    "kw": [
+     "equipe multiculturelle",
+     "interculturel",
+     "culture map",
+     "hofstede",
+     "diversite culturelle",
+     "multicultural"
+    ]
+   }
+  ]
+ },
+ "C14": {
+  "2": [
+   {
+    "t": "A pris conscience de son potentiel pour « entreprendre » de façon responsable et autonome au sein de sa Team Company.",
+    "kw": [
+     "entrepreneuriat",
+     "entreprendre",
+     "entrepreneurship",
+     "intrapreneuriat"
+    ]
+   },
+   {
+    "t": "Se développe soi-même, et contribue au développement de sa Team Company.",
+    "kw": [
+     "developpement personnel",
+     "team company"
+    ]
+   },
+   {
+    "t": "A fait des expérimentations pour trouver et générer des projets.",
+    "kw": [
+     "experimentation",
+     "idee de projet",
+     "generer des projets",
+     "opportunite"
+    ]
+   },
+   {
+    "t": "Mobilise les ressources à disposition, sort de sa zone de confort et accepte de prendre des risques pour passer à l'action.",
+    "kw": [
+     "prise de risque",
+     "zone de confort",
+     "passer a l'action"
+    ]
+   },
+   {
+    "t": "Sait saisir des opportunités et choisir la bonne approche pour les tester.",
+    "kw": [
+     "opportunite",
+     "opportunity",
+     "lean startup"
+    ]
+   }
+  ],
+  "3": [
+   {
+    "t": "A une forte motivation intrinsèque pour entreprendre, a besoin de peu de conseils ou de guidage.",
+    "kw": [
+     "motivation intrinseque",
+     "entreprendre",
+     "drive"
+    ]
+   },
+   {
+    "t": "Comprend des modèles théoriques comme « disciplined entrepreneurship », « effectuation » (ou autres) et les a testés dans la pratique.",
+    "kw": [
+     "disciplined entrepreneurship",
+     "effectuation",
+     "lean startup",
+     "zero to one",
+     "aulet",
+     "sarasvathy"
+    ]
+   },
+   {
+    "t": "Est capable de combiner efficacement des éléments de diverses natures (humaine, technique, financière, etc.) pour résoudre des problèmes (sociaux, économiques et/ou écologiques) et a créé de la valeur sur un marché défini.",
+    "kw": [
+     "creation de valeur",
+     "innovation sociale",
+     "entrepreneuriat social"
+    ]
+   }
+  ]
+ }
+}
