@@ -254,3 +254,7 @@ Quoi : nouvel onglet où l'on écrit une idée de LI ou d'AR ; le site donne un 
 ## 2026-11-07, « Vérifier une idée » : mots rares, onglet mis en avant, publication
 
 Quoi : chaque mot de l'idée pèse selon sa rareté dans la base (« crise » compte beaucoup, « équipe » presque rien) ; « Déjà bien traité » demande le mot le plus rare et la plupart des mots dans le titre ou le résumé ; nouveau verdict « Proche, mais le cœur du sujet manque ». Onglet « ✦ Vérifier une idée » en couleur, page sur fond teinté. Tout publié sur GitHub et Vercel. Le fichier de mise à jour hebdomadaire (.github/workflows) n'a pas pu être envoyé : l'accès GitHub de Claude n'a pas le droit « workflow ». Statut : en ligne.
+
+## 2026-11-07, mise à jour automatique en place
+
+Quoi : Léon a donné le droit « workflow » à l'accès GitHub ; le fichier .github/workflows/mise-a-jour-hebdo.yml est envoyé. Premier essai lancé à la main : réussi en 5 min, le site a été reconstruit depuis Notion et renvoyé sur GitHub (300 résumés et « Vérifier une idée » intacts). Reste : la clé VERCEL_TOKEN dans les secrets GitHub, sans laquelle l'étape Vercel est sautée. Statut : en ligne sur GitHub Pages, Vercel à brancher.
