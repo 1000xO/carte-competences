@@ -250,3 +250,7 @@ Quoi : 303 fiches résumées par IA (2 paragraphes, rangés dans resumes.json, c
 
 Quoi : nouvel onglet où l'on écrit une idée de LI ou d'AR ; le site donne un verdict (déjà bien traité, abordé en partie, sujet neuf), les ressources qui en parlent (titre, résumé, fiche, fichiers joints), les critères des niveaux visés touchés (avec le nombre de ressources qui les couvrent déjà) et les branches où la ranger. Tout se calcule dans le navigateur, rien n'est enregistré ni envoyé. build.py transmet maintenant les mots-clés des critères. Roadmap : « Vérifier une idée de lecture » passe en fait. Le texte périmé sur les sous-compétences de l'onglet Trous est remplacé. Pourquoi : étape 5 du plan, validée par Léon. Statut : en local, pas publié.
 
+
+## 2026-11-07, « Vérifier une idée » : mots rares, onglet mis en avant, publication
+
+Quoi : chaque mot de l'idée pèse selon sa rareté dans la base (« crise » compte beaucoup, « équipe » presque rien) ; « Déjà bien traité » demande le mot le plus rare et la plupart des mots dans le titre ou le résumé ; nouveau verdict « Proche, mais le cœur du sujet manque ». Onglet « ✦ Vérifier une idée » en couleur, page sur fond teinté. Tout publié sur GitHub et Vercel. Le fichier de mise à jour hebdomadaire (.github/workflows) n'a pas pu être envoyé : l'accès GitHub de Claude n'a pas le droit « workflow ». Statut : en ligne.
