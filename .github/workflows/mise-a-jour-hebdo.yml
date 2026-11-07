@@ -1,0 +1,39 @@
+# Mise à jour automatique du site, une fois par semaine.
+# GitHub lance ces étapes tout seul : lecture des bases Notion (lecture seule),
+# reconstruction de index.html, envoi sur GitHub, puis publication sur Vercel.
+name: Mise à jour hebdomadaire
+
+on:
+  schedule:
+    - cron: "0 4 * * 1"   # chaque lundi à 4 h (heure de Londres), soit 5 h ou 6 h en Suisse
+  workflow_dispatch:       # bouton « Run workflow » pour lancer à la main
+
+permissions:
+  contents: write
+
+jobs:
+  maj:
+    runs-on: ubuntu-latest
+    env:
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      VERCEL_ORG_ID: team_sGdrxyAT1VrmIv2c5EcnJS3a
+      VERCEL_PROJECT_ID: prj_Uc7TTwAvpisrP307CkhIEwkCkgSE
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Lire Notion et reconstruire le site
+        run: |
+          python notion_direct.py
+          python contenus.py
+          python build.py
+      - name: Envoyer sur GitHub si quelque chose a changé
+        run: |
+          git config user.name "Mise à jour automatique"
+          git config user.email "actions@users.noreply.github.com"
+          git add index.html
+          git diff --cached --quiet || (git commit -m "Mise à jour hebdomadaire depuis Notion" && git push)
+      - name: Publier sur Vercel
+        if: env.VERCEL_TOKEN != ''
+        run: npx --yes vercel@latest deploy --prod --yes --token "$VERCEL_TOKEN"
