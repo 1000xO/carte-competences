@@ -258,3 +258,9 @@ Quoi : chaque mot de l'idée pèse selon sa rareté dans la base (« crise » co
 ## 2026-11-07, mise à jour automatique en place
 
 Quoi : Léon a donné le droit « workflow » à l'accès GitHub ; le fichier .github/workflows/mise-a-jour-hebdo.yml est envoyé. Premier essai lancé à la main : réussi en 5 min, le site a été reconstruit depuis Notion et renvoyé sur GitHub (300 résumés et « Vérifier une idée » intacts). Reste : la clé VERCEL_TOKEN dans les secrets GitHub, sans laquelle l'étape Vercel est sautée. Statut : en ligne sur GitHub Pages, Vercel à brancher.
+
+## 2026-11-08, Vercel branché
+
+Quoi : Léon a créé une clé Vercel (sans expiration) et l'a ajoutée dans les secrets GitHub sous le nom VERCEL_TOKEN. Test lancé à la main : réussi en 5 min 58 s, le site a été reconstruit depuis Notion et publié sur Vercel (carte-competences.vercel.app répond). La mise à jour du lundi met donc à jour GitHub et Vercel. Premier passage automatique : lundi 09.11 vers 5 h. Statut : en ligne.
+
+Même jour, roadmap : « Mise à jour automatique chaque lundi » passe en fait, « Résumé de chaque ressource » ajouté (fait). Site reconstruit et publié sur GitHub et Vercel.

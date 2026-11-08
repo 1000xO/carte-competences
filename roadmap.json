@@ -30,8 +30,8 @@
    "statut": "fait"
   },
   {
-   "titre": "Mise à jour automatique",
-   "statut": "encours"
+   "titre": "Mise à jour automatique chaque lundi",
+   "statut": "fait"
   },
   {
    "titre": "Niveaux des compétences",
@@ -51,6 +51,10 @@
   },
   {
    "titre": "Recherche dans le contenu, en français et en anglais",
+   "statut": "fait"
+  },
+  {
+   "titre": "Résumé de chaque ressource",
    "statut": "fait"
   },
   {
