@@ -264,3 +264,7 @@ Quoi : Léon a donné le droit « workflow » à l'accès GitHub ; le fichier .g
 Quoi : Léon a créé une clé Vercel (sans expiration) et l'a ajoutée dans les secrets GitHub sous le nom VERCEL_TOKEN. Test lancé à la main : réussi en 5 min 58 s, le site a été reconstruit depuis Notion et publié sur Vercel (carte-competences.vercel.app répond). La mise à jour du lundi met donc à jour GitHub et Vercel. Premier passage automatique : lundi 09.11 vers 5 h. Statut : en ligne.
 
 Même jour, roadmap : « Mise à jour automatique chaque lundi » passe en fait, « Résumé de chaque ressource » ajouté (fait). Site reconstruit et publié sur GitHub et Vercel.
+
+## 2026-11-10, emplacement pour Microsoft Clarity
+
+Quoi : `template.html` a un emplacement `<!--CLARITY-->` ; `build.py` y place le script de Clarity si `clarity.txt` contient l'identifiant du projet, sinon il le retire. Pourquoi : Léon veut voir comment le site est utilisé (clics, visites). Même jour : projet Clarity créé par Léon (identifiant zbhwnw88bz dans clarity.txt), site reconstruit et publié sur GitHub et Vercel, sans mention sur le site (choix de Léon). Statut : en ligne.

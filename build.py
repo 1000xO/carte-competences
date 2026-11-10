@@ -410,6 +410,16 @@ def main():
     donnees = construire()
     gabarit = (ICI / "template.html").read_text(encoding="utf-8")
     page = gabarit.replace("/*DONNEES*/null", json.dumps(donnees, ensure_ascii=False))
+    # Mesure d'audience Microsoft Clarity : active seulement si clarity.txt contient l'identifiant du projet
+    fichier_clarity = ICI / "clarity.txt"
+    id_clarity = fichier_clarity.read_text(encoding="utf-8").strip() if fichier_clarity.exists() else ""
+    script_clarity = ""
+    if id_clarity:
+        script_clarity = ('<script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};'
+                          't=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;'
+                          'y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})'
+                          '(window,document,"clarity","script","' + id_clarity + '");</script>')
+    page = page.replace("<!--CLARITY-->", script_clarity)
     (ICI / "index.html").write_text(page, encoding="utf-8")
     par_type = {}
     for r in donnees["ressources"]:

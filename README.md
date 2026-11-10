@@ -53,3 +53,7 @@ Sur Vercel : dans ce dossier, lancer `npx vercel deploy --prod --yes` (compte Ve
 `criteres.json` : les critères des niveaux visés, une phrase du référentiel par critère, avec les mots-clés (français et anglais) cherchés dans le titre et le contenu des ressources. Un clic sur un critère montre les ressources qui en parlent. À corriger à la main si un lien est faux ou manque.
 
 `synonymes.json` : les mots équivalents pour la recherche (« négociation » trouve aussi « negotiation »). La recherche de l'onglet Ressources regarde le titre, les auteurs, puis le contenu des fiches.
+
+## Mesure d'audience (Microsoft Clarity)
+
+Clarity est un outil gratuit de Microsoft qui montre comment les visiteurs utilisent le site : cartes de chaleur (où l'on clique), enregistrements anonymes des visites, pages les plus vues. L'emplacement est prêt dans `template.html` (`<!--CLARITY-->`), mais il reste vide tant que le fichier `clarity.txt` n'existe pas. Pour l'activer : créer un projet sur clarity.microsoft.com, copier son identifiant (une dizaine de lettres et chiffres, visible dans Paramètres > Installation) dans `clarity.txt`, puis `python build.py` et publier. Cet identifiant n'est pas secret (il apparaît dans la page), il peut donc aller dans le dépôt, ce qui garde Clarity actif après la mise à jour automatique du lundi.
